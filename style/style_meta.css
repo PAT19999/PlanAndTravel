@@ -1,7 +1,13 @@
-.row{
+.row1{
     display:flex; /* dispone le immagini in 2 richje e 2 colonne */
     height: 100%;
     align-items: flex-start;
+}
+.row2 {
+    display: initial;
+}
+.row3 {
+    display: initial;
 }
 .col{ /* si riferisce al testo all'interno della card*/
     flex-basis: 80%;
@@ -46,6 +52,31 @@
 .card4{
     background-image: url(../drawable/Spiaggia_1.jpg);
 }
+.card5{
+    background-image: url(../drawable/Spiaggia_1.jpg);
+}
+.card6{
+    background-image: url(../drawable/Spiaggia_1.jpg);
+}
+.card7{
+    background-image: url(../drawable/Spiaggia_1.jpg);
+}
+.card8{
+    background-image: url(../drawable/Spiaggia_1.jpg);
+}
+.card9{
+    background-image: url(../drawable/Spiaggia_1.jpg);
+}
+.card10{
+    background-image: url(../drawable/Spiaggia_1.jpg);
+}
+.card11{
+    background-image: url(../drawable/Spiaggia_1.jpg);
+}
+.card12{
+    background-image: url(../drawable/Spiaggia_1.jpg);
+}
+
 h5{
     color: #fff;
     text-shadow: 0 0 5px #999;
@@ -66,3 +97,5 @@ h5{
 .card p:hover{
     opacity: 1;
 }
+
+
