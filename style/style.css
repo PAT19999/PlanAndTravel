@@ -54,7 +54,6 @@ p{line-height: 28px; color:#666; font-weight: 300;}
 
 @media (max-width: 460px) {
   .logo img{
-    
     width:100%;
   }
 }
@@ -252,9 +251,42 @@ p{line-height: 28px; color:#666; font-weight: 300;}
 .content{max-width: 900px; margin: 40px auto;}
 
 
+/* !Card */
 
-
-
+.row{
+  display: flex;
+  height: 88%;
+  align-items: center;
+}
+.col{
+  flex-basis: 50%;
+.card{
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 10px 15px;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.5s;
+}
+.card1{
+  background-image: url(Immagini/pic-1.png);
+}
+.card2{
+  background-image: url(Immagini/pic-2.png);
+}
+.card3{
+  background-image: url(Immagini/pic-3.png);
+}
+.card4{
+  background-image: url(Immagini/pic-4.png);
+}
+.card:hover{
+  transform: translateY(-10px);
 
 
 
