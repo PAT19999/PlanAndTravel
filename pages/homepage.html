@@ -14,6 +14,7 @@
 
   <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
@@ -21,9 +22,9 @@
 
 <body>
 
-<! Header>
-
-<div class="header">
+<! navbar>
+<div class="navbg">
+<navbar>
   <div class="logo ">
     <img src="../drawable/navbar-logo.png" alt="logo-sito">
   </div>
@@ -40,14 +41,17 @@
     <span></span>
     <span></span>
   </div>
+</navbar>
 </div>
-
 <! Hero>
 
 <div class="hero">
   <div class="hero__content reveal">
-    <p class="intro-text">Benvenuto (aggiungere codice professore in base all'orario)</p>
-    <h1 class="big-text">qui metteremo lo scopo del sito</h1>
+    <div class="intro-text" id="messaggio"></div>
+    <h1 class="big-text">Il team di sviluppo ha sempre seguito con particolare interesse l’evoluzione tecnologica e il sopravvento
+      di nuove tendenze permettendo così la realizzazione di un sito responsivo ed intuitivo attraverso il quale l’utente
+      può considerare numerosi aspetti che spesso vengono ignorati quando si pianifica una vacanza,
+      tra cui: eventi ed usanze locali, clima, costo della vita, qualità della vita, attrazioni e molto altro ancora.</h1>
     <a href="#" class="button">Scopri di più...</a>
   </div>
   <video autoplay muted loop id="video-back">
@@ -57,28 +61,30 @@
 
 <! Card>
 
-<div class="row">
-  <div class="col">
-    <h1>Plan & Travel</h1>
-    <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-    <button type="button">Explore</button>
-  </div>
-  <div class="col">
-    <div class="card card1">
-      <h5>Western Desert</h5>
-      <p>Loreco soahf sifoa sodin oan.</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Plan & Travel</h1>
+      <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+      <button type="button">Explore</button>
     </div>
-    <div class="card card2">
-      <h5>AI Bagawat</h5>
-      <p>sdafv sagarta dfvTS</p>
-    </div>
-    <div class="card card3">
-      <h5>Pyramid of Giza</h5>
-      <p>bobf aio isdn inai</p>
-    </div>
-    <div class="card card4">
-      <h5>Kalahari Desert</h5>
-      <p>boavivr iancpiep epifni aneip.</p>
+    <div class="col">
+      <div class="card card1">
+        <h5>Western Desert</h5>
+        <p>Loreco soahf sifoa sodin oan.</p>
+      </div>
+      <div class="card card2">
+        <h5>AI Bagawat</h5>
+        <p>sdafv sagarta dfvTS</p>
+      </div>
+      <div class="card card3">
+        <h5>Pyramid of Giza</h5>
+        <p>bobf aio isdn inai</p>
+      </div>
+      <div class="card card4">
+        <h5>Kalahari Desert</h5>
+        <p>boavivr iancpiep epifni aneip.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -86,26 +92,30 @@
 
 <! Footer>
 
-<footer class="footer">
-  <div class="grid">
-    <div class="col reveal">
-      <h4 class="normal-text tw">Lorem ispum</h4>
-      <p>Lorme ispum dos aia sm</p>
-    </div>
-    <div class="col reveal">
-      <h4 class="normal-text tw">Lorem ispum</h4>
-      <p>Lorme ispum dos aia sm</p>
-    </div>
-    <div class="col reveal">
-      <h4 class="normal-text tw">Lorem ispum</h4>
-      <p>Lorme ispum dos aia sm</p>
-    </div>
-    <div class="col reveal">
-      <h4 class="normal-text tw">Lorem ispum</h4>
-      <p>Lorme ispum dos aia sm</p>
-    </div>
+<footer>
+  Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | C.F. ABC000000000 | P.Iva 000000000 <br>
+  <a class="trans-color-text" href="#">info@tuosito.it</a> | <span itemprop="telephone"><a href="#">+39 347 58 30 387</a></span>
+  <br><a target="_blank" href="#"> privacy</a> | <a target="_blank" href="#"> cookie policy</a>
+
+  <div class="social-cont">
+    <ul class="social-list">
+
+      <li><a target="_blank" href="#"><img src="https://icon-library.com/images/facebook-png-icon-white/facebook-png-icon-white-18.jpg"  title="facebook" alt="Facebook icon"></a></li>
+      <li><a target="_blank" href="#"><img src="https://icon-library.com/images/white-instagram-icon-png/white-instagram-icon-png-14.jpg" title="Instagram" alt="Instagram icon"></a></li>
+      <li><a target="_blank" href="#"><img src="https://www.suiteforlife.it/wp-content/uploads/2019/09/whatsapp-logo-112413FAA7-seeklogo-298x300.png" title="WhatsApp" alt="WhatsApp icon"></a></li>
+
+    </ul>
+    <div class="floatstop"></div>
+  </div><!--/fine social cont-->
+
+  Designed by<br>
+  <div class="credits">
+    <a href="#"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
   </div>
+
 </footer>
+
+
 
 
 
@@ -136,10 +146,21 @@
 
   ScrollReveal().reveal('.zoom',  { duration: 1500, easing: 'cubic-bezier(.215, .61, .355, 1)', interval: 200, scale: 0.65, mobile: false});
 
-
-
 </script>
-
+<script type="text/javascript">
+    var d = new Date();
+    var h = d.getHours();
+    var saluto;
+    if (h < 12) {
+      saluto ="Buongiorno!";
+    }  else if (h < 17){
+      saluto ="Buon pomeriggio!";
+    }  else {
+      saluto ="Buona sera!";
+  }
+    var el=document.getElementById('messaggio');
+    el.textContent = saluto;
+</script>
 
 </body>
 </html>

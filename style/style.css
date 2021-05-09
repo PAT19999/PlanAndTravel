@@ -8,12 +8,11 @@ h1, h2, h3, h4, h5, p{color:#000; padding-bottom: 30px;}
 
 p{line-height: 28px; color:#666; font-weight: 300;}
 
-.big-text{font-size: 50px;font-weight: 900;}
-.med-text{font-size: 40px;}
-.normal-text{font-size: 20px;}
+.big-text{font-size: 30px;font-weight: 100;}
+.med-text{font-size: 20px;}
+.normal-text{font-size: 15px;}
 .small-text{font-size: 14px;}
-
-.intro-text{text-transform: uppercase;font-size: 15px;font-weight: bold;}
+.intro-text{color:#fff;text-transform: uppercase;font-size: 15px;font-weight: bold;padding-bottom: 10px}
 
 .button{
   padding: 18px 28px;
@@ -22,7 +21,10 @@ p{line-height: 28px; color:#666; font-weight: 300;}
   display: inline-block;
   border-radius: 4px;
 }
-
+.button:hover{
+  color: #ffffff; /* light seconday color*/
+  background: #0069c3;
+}
 @media (max-width: 768px) {
 
   .big-text{
@@ -33,12 +35,20 @@ p{line-height: 28px; color:#666; font-weight: 300;}
 
 
 
-/* ! Header */
+/* ! Navbar */
+.navbg{
+  background: black;
+  z-index: 10;
+  padding: 68px;
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+}
 
-.header{
+navbar{
   width: 100%;
   position: fixed;
-  z-index: 10;
+  z-index:10;
   top:0;
   left:50%;
   transform: translateX(-50%);
@@ -96,7 +106,7 @@ p{line-height: 28px; color:#666; font-weight: 300;}
     border-radius: 6px;
     display: block;
     width: 30px;
-    height: 30px;
+    height: 26px;
     position: absolute;
     top: 68px;
     right: 30px;
@@ -177,74 +187,70 @@ p{line-height: 28px; color:#666; font-weight: 300;}
   .poster__content{width: 100%;}
 }
 
-/* BG Cover */
 
-.bg-cover{
-  display: flex;
-  padding: 100px 0;
-  background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0,0,0, 0.7)),
-  url('../drawable/bg-video.png') no-repeat center center;
-  background-size: cover;
-}
-
-.bg-cover__text{width: 50%;padding: 30px;}
-.bg-cover__title{width: 50%;padding: 50px;display: flex;align-items: center;}
-
-@media (max-width: 768px) {
-  .bg-cover{flex-wrap: wrap; height: auto;}
-  .bg-cover__text,
-  .bg-cover__title{width: 100%;}
-}
-
-
-/* ! Grid */
-
-.grid{display: flex; max-width: 1350px; padding: 0 30px;margin: 0 auto;}
-.grid .col{width: 100%;}
-
-@media (max-width: 768px) {
-  .grid{flex-wrap: wrap}
-}
-
-/* ! Carousel */
-
-.main-carousel{padding: 40px 0;}
-
-.carousel-cell{
-  height: 350px;
-  width: 350px;
-  margin-right: 40px;
-}
-
-.carousel-cell__content{
-  width: 100%;
-  height: 100%;
-  background: #6adf91;
-  border-radius: 100%;
-  line-height: 350px;
-  text-align: center;
-}
-
-/* Panel Blue */
-
-.panel-blue{background: #4bb1e9;padding: 100px 30px;}
-.panel-blue__text{display: flex;align-items: center;}
-.dot{
-  height: 250px;width: 250px;
-  background: #6adf91;border-radius: 100%;
-  line-height: 250px;
-  text-align: center;
-  display: inline-block;
-  margin-right: 40px;
-  margin-bottom: 40px;
-}
 
 /* Footer */
 
-.footer{
-  background: #010e30;
-  padding: 150px 0;
+footer{
+  border-top: 1px solid #C99D66; /* primary-color */
+  text-align:center;
+  padding:30px 10px;
+  line-height: 1.6em;
+  font-size:0.8em;
+  background-color: #0045b4;/* primary color*/
+  color: #fff;
 }
+
+footer a{
+  color: #00a9d5; /* secondary-color*/
+}
+
+footer a:hover{
+  color: #9edfe8; /* light seconday color*/
+}
+
+footer .credits {
+  max-width:300px;
+  margin:auto;
+}
+
+footer .credits a img {
+  -o-transition: opacity .2 ease-in;
+  -ms-transition: opacity .2s ease-in;
+  -moz-transition: opacity .2s ease-in;
+  -webkit-transition: opacity .2s ease-in;
+  transition: opacity .2s ease
+}
+
+footer .credits a img:hover {
+  opacity:0.6;
+}
+
+footer .social-cont .social-list {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+footer .social-cont .social-list > li {
+  margin: 8px 8px 8px 0;
+  display: inline-block;
+  vertical-align: top;
+  height: 32px;
+  width: 32px;
+  border-radius: 6em;
+  background-color:; /* secondary-color*/
+}
+
+footer .social-cont .social-list li img {
+  width: 32px
+}
+
+footer .social-cont .social-list > li:hover {
+  background:#9edfe8; /* light seconday color*/
+}
+
+
 
 /* ! Content */
 
@@ -252,6 +258,16 @@ p{line-height: 28px; color:#666; font-weight: 300;}
 
 
 /* !Card */
+.container{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(Immagini/background.png) ;
+  background-position: center;
+  background-size: cover;
+  padding-left: 8%;
+  padding-right: 8%;
+  box-sizing: border-box;
+}
 
 .row{
   display: flex;
