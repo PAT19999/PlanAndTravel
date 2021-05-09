@@ -239,7 +239,6 @@ footer .social-cont .social-list > li {
   height: 32px;
   width: 32px;
   border-radius: 6em;
-  background-color:; /* secondary-color*/
 }
 
 footer .social-cont .social-list li img {
@@ -276,6 +275,7 @@ footer .social-cont .social-list > li:hover {
 }
 .col{
   flex-basis: 50%;
+}
 .card{
   width: 200px;
   height: 230px;
@@ -303,6 +303,7 @@ footer .social-cont .social-list > li:hover {
 }
 .card:hover{
   transform: translateY(-10px);
+}
 
 
 
