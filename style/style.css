@@ -1,6 +1,6 @@
 /* ! Base Style */
 
-body{font-family: 'Inter', sans-serif;font-size: 16px;}
+body{font-family: 'Inter', sans-serif;font-size: 16px; max-width: 100%;}
 
 a{text-decoration: none;}
 
@@ -240,17 +240,17 @@ navbar{
 .main-carousel{padding: 40px 0;}
 
 .carousel-cell{
-  height: 350px;
-  width: 350px;
+  height: 200px;
+  width: 200px;
   margin-right: 40px;
 }
 
 .carousel-cell__content{
   width: 100%;
   height: 100%;
-  background: #6adf91;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
   border-radius: 100%;
-  line-height: 350px;
+  line-height: 200px;
   text-align: center;
 }
 /* Footer */
@@ -263,6 +263,8 @@ footer{
   font-size:0.8em;
   background-color: #0045b4;/* primary color*/
   color: #fff;
+
+
 }
 
 footer a{
@@ -306,12 +308,13 @@ footer .social-cont .social-list > li {
 }
 
 footer .social-cont .social-list li img {
-  width: 32px
+  width: 32px;
 }
 
 footer .social-cont .social-list > li:hover {
   background:#9edfe8; /* light seconday color*/
 }
+
 
 
 
