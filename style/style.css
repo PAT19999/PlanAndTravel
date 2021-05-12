@@ -4,9 +4,9 @@ body{font-family: 'Inter', sans-serif;font-size: 16px; max-width: 100%;}
 
 a{text-decoration: none;}
 
-h1, h2, h3, h4, h5, p{color:#000; padding-bottom: 30px;}
+h1, h2, h3, h4, h5, p{color:#000; padding-bottom: 20px;}
 
-p{line-height: 28px; color:#666; font-weight: 300;}
+p{line-height: 28px; color: #111111; font-weight: 300;}
 
 .big-text{font-size: 30px;font-weight: 100;}
 .med-text{font-size: 20px;}
@@ -39,7 +39,7 @@ p{line-height: 28px; color:#666; font-weight: 300;}
 .navbg{
   background: black;
   z-index: 10;
-  padding: 68px;
+  padding: 65px;
   position: fixed;
   width: 100%;
   max-width: 100%;
@@ -52,7 +52,7 @@ navbar{
   top:0;
   left:50%;
   transform: translateX(-50%);
-  padding: 30px;
+  padding: 15px;
   display: flex;
   max-width: 1350px;
   align-items: center;
@@ -67,6 +67,9 @@ navbar{
     width:100%;
   }
 }
+
+/* Menu */
+
 .menu{
   transition: all 1s cubic-bezier(.215, .61, .355, 1);
   width: 100%;
@@ -120,7 +123,7 @@ navbar{
 
 }
 
-/* ! Hero */
+/* Hero */
 
 .hero{
   position: relative;
@@ -153,7 +156,7 @@ navbar{
   position: relative;
 }
 
-.hero__content h1,
+.hero__content h2{color: #000000;}
 .hero__content p{color: #fff;}
 
 .hero--small{height: 450px;text-align: center;}
@@ -252,7 +255,13 @@ navbar{
   border-radius: 100%;
   line-height: 200px;
   text-align: center;
+  transition: transform 0.5s;
 }
+.carousel-cell__content:hover{
+  transform: translateY(-10px);
+}
+
+
 /* Footer */
 
 footer{
