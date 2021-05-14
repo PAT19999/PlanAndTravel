@@ -32,14 +32,35 @@ p{line-height: 28px; color: #111111; font-weight: 300;}
   }
 
 }
-
+/* schermata caricamento */
+#schermata_caricamento
+{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 20;
+}
+#schermata_caricamento p
+{
+  text-align: center;
+  margin-top: 15%;
+}
+#schermata_caricamento img
+{
+  display: block;
+  margin: 0 auto;
+  width: 10%;
+}
 
 
 /* ! Navbar */
 .navbg{
   background: black;
   z-index: 10;
-  padding: 65px;
+  padding: 55px;
   position: fixed;
   width: 100%;
   max-width: 100%;
@@ -52,7 +73,7 @@ navbar{
   top:0;
   left:50%;
   transform: translateX(-50%);
-  padding: 15px;
+  padding: 5px;
   display: flex;
   max-width: 1350px;
   align-items: center;
@@ -76,8 +97,13 @@ navbar{
   z-index: 0;
 }
 
-.menu li{display: inline-block;}
-.menu li a{color: #fff;padding: 15px;display: block;}
+.menu li{
+  display: inline-block;
+}
+.menu li a{color: #fff;padding: 15px;display: block;border-radius: 4px;}
+.menu li a:hover {
+  background: #0069c3;
+}
 
 .hamburger{
   display: none;
@@ -253,6 +279,15 @@ navbar{
   height: 100%;
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
   border-radius: 100%;
+  line-height: 200px;
+  text-align: center;
+  transition: transform 0.5s;
+}
+.carousel-cell__content1{
+  width: 100%;
+  height: 100%;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
+  border-radius: 20px;
   line-height: 200px;
   text-align: center;
   transition: transform 0.5s;
