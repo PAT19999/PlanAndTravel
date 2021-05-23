@@ -36,6 +36,7 @@
             </div>
         </div>
     </div>
+
     <div class="col">
         <div id="descrizione">
                 <h2>Informazioni generali</h2>
@@ -44,69 +45,102 @@
                 <p><img src="../drawable/position.jpg" width="13px" height="13px" alt="position">
                     <a title="Città" href="https://www.comune.barletta.bt.it/retecivica/" target="_blank">Città</a> ,Nazione</p>
                 <h2>Filtri</h2>
-                <p>#prova1 #prova2</p> </fieldset>
+                <p>#prova1 #prova2</p>
         </div>
     </div>
 </div>
-<div class="pacchetti_consigliati">
-    <h2>Pacchetti Viaggio simili</h2>
-    <p>In base alla meta selezionata potrrebbero interessarti i seguenti pacchetti viaggio!</p>
-    <div class="row row2">
-        <div class="col">
-            <div class="card card5">
-                <div class="text_card">
-                    <h5>Western Desert</h5>
+
+<button type="button" class="collapsible"><h2>Pacchetti Viaggio simili</h2></button>
+<div class="content">
+    <div class="pacchetti_consigliati">
+        <p>In base alla meta selezionata potrrebbero interessarti i seguenti pacchetti viaggio!</p>
+        <div class="row row2">
+            <div class="col">
+                <div class="card card5">
+                    <div class="text_card">
+                        <h5>Western Desert</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="card card6">
-                <div class="text_card">
-                    <h5>AI Bagawat</h5>
+                <div class="card card6">
+                    <div class="text_card">
+                        <h5>AI Bagawat</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="card card7">
-                <div class="text_card">
-                    <h5>Pyramid of Giza</h5>
+                <div class="card card7">
+                    <div class="text_card">
+                        <h5>Pyramid of Giza</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="card card8">
-                <div class="text_card">
-                    <h5>Kalahari Desert</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="mete_consigliate">
-    <h2>Altre Mete consigliate</h2>
-    <p>Mete consgliate in base alla vicinanza o ai temi</p>
-    <div class="row row3">
-        <div class="col">
-            <div class="card card9">
-                <div class="text_card">
-                    <h5>Western Desert</h5>
-                </div>
-            </div>
-            <div class="card card10">
-                <div class="text_card">
-                    <h5>AI Bagawat</h5>
-                </div>
-            </div>
-            <div class="card card11">
-                <div class="text_card">
-                    <h5>Pyramid of Giza</h5>
-                </div>
-            </div>
-            <div class="card card12">
-                <div class="text_card">
-                    <h5>Kalahari Desert</h5>
+                <div class="card card8">
+                    <div class="text_card">
+                        <h5>Kalahari Desert</h5>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<button type="button" class="collapsible"><h2>Altre Mete consigliate</h2></button>
+<div class="content">
+    <div class="mete_consigliate">
+        <p>Mete consgliate in base alla vicinanza o ai temi</p>
+        <div class="row row3">
+            <div class="col">
+                <div class="card card9">
+                    <div class="text_card">
+                        <h5>Western Desert</h5>
+                    </div>
+                </div>
+                <div class="card card10">
+                    <div class="text_card">
+                        <h5>AI Bagawat</h5>
+                    </div>
+                </div>
+                <div class="card card11">
+                    <div class="text_card">
+                        <h5>Pyramid of Giza</h5>
+                    </div>
+                </div>
+                <div class="card card12">
+                    <div class="text_card">
+                        <h5>Kalahari Desert</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="recensioni">
     <h2>Recensioni degli utenti</h2>
     <p>varie recensioni</p>
 </div>
+
+<h2>Collapsibles</h2>
+
+<p>A Collapsible:</p>
+<button type="button" class="collapsible">Open Collapsible</button>
+<div class="content">
+
+</div>
+
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
 </body>
 </html>
