@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, p{color:#000; padding-bottom: 20px;}
 
 p{line-height: 28px; color: #111111; font-weight: 300;}
 
-.big-text{font-size: 30px;font-weight: 100;}
+.big-text{color: white; font-size: 30px;font-weight: 100;}
 .med-text{font-size: 20px;}
 .normal-text{font-size: 15px;}
 .small-text{font-size: 14px;}
@@ -184,7 +184,7 @@ navbar{
 .hero__content h2{color: #000000;}
 .hero__content p{color: #fff;}
 
-.hero--small{height: 450px;text-align: center;}
+.hero--small{height: 350px;text-align: center;}
 
 
 #video-back{
