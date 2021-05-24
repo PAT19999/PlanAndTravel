@@ -109,21 +109,18 @@ h5{
     opacity: 1;
 }
 
-.recensioni{
-    border: 1px solid;
-}
-
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    padding: 18px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 15px;
+    margin: 20px;
+    padding: 4px 12px;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -251,4 +248,9 @@ img {
 .filtro_2 {background-color: #2196F3;} /* Blue */
 .filtro_3 {background-color: #ff9800;} /* Orange */
 .filtro_4 {background-color: #f44336;} /* Red */
+
+.recensioni{
+    border: 1px solid;
+    margin: 10px;
+}
 
