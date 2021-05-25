@@ -1,19 +1,21 @@
 .login {
      padding-top: 820px;
      position: relative;
-
+     background-image: url("../drawable/MicrosoftTeams-image.png");
+     background-size: cover;
 }
 .loginbox{
      width: 320px;
      height: 420px;
-     background: #0069c3;
-     color:#fff;
      top: 50%;
      left: 50%;
      position: absolute;
      transform: translate(-50%,-50%);
      box-sizing: border-box;
      padding: 70px 30px;
+     border-radius: 20px;
+     background: rgba(0, 0, 0, 0.4);
+
 }
 
 .avatar{
