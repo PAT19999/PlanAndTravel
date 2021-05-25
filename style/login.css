@@ -14,7 +14,8 @@
      box-sizing: border-box;
      padding: 70px 30px;
      border-radius: 20px;
-     background: rgba(0, 0, 0, 0.4);
+     background: rgba(0, 0, 0, 0.44);
+     box-shadow: 0 0 15px rgb(255, 255, 255)
 
 }
 
@@ -25,8 +26,7 @@
      position: absolute;
      top: -50px;
      left: calc(50% - 50px);
-
-
+     -webkit-box-shadow: 0 0 15px #000000;
 }
 
 h1{
@@ -34,31 +34,34 @@ h1{
      padding: 0 0 20px;
      text-align: center;
      font-size: 35px;
+     color: #f5f5f5;
+     text-shadow: 0 0 15px rgba(0, 0, 0, 0.8)
 }
 
 .loginbox p{
      margin: 0;
      padding: 0;
      font-weight: bold;
-
+     color: #f5f5f5;
+     text-shadow: 0 0 15px rgba(0, 0, 0, 0.8)
 }
 
 .loginbox input{
      width: 100%;
      margin-bottom: 20px;
 
-
 }
 
 .loginbox input[type="text"], input[type="password"]
 {
      border: none;
-     border-bottom: 1px solid #ffffff;
+     border-bottom: 1px solid #000000;
      background: transparent;
      outline: none;
      height:40px;
-     color: black;
+     color: #050505;
      font-size:20px;
+
 }
 
 .loginbox input[type="submit"]
@@ -66,26 +69,29 @@ h1{
      border: none;
      outline: none;
      height: 40px;
-     background: white;
-     color: black;
+     background: #0045b5;
+     color: #f5f5f5;;
      font-size: 20px;
      border-radius: 20px;
+     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .loginbox input[type="submit"]:hover
 {
      cursor: pointer;
-     background: blue;
-     color: white;
+     color: #ffffff;
+     background: #0069c3;
+
 }
 
 .loginbox a{
      text-decoration: none;
      font-size: 15px;
      line-height: 20px;
-     color: blue;
+     color: rgba(255, 255, 255, 0.68);
+     text-shadow: 0 0 15px rgb(0, 0, 0)
 }
 .loginbox a:hover
 {
-     color: white;
+     color: #0069c3;
 }
