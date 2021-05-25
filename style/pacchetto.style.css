@@ -6,7 +6,7 @@
 .container{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(Immagini/background.png) ;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(../drawable/background.png) ;
     background-position: center;
     background-size: cover;
     padding-left: 8%;
@@ -84,16 +84,16 @@ button{
     transition: transform 0.5s;
 }
 .card1{
-    background-image: url(Immagini/pic-1.png);
+    background-image: url(../drawable/pic-1.png);
 }
 .card2{
-    background-image: url(Immagini/pic-2.png);
+    background-image: url(../drawable/pic-2.png);
 }
 .card3{
-    background-image: url(Immagini/pic-3.png);
+    background-image: url(../drawable/pic-3.png);
 }
 .card4{
-    background-image: url(Immagini/pic-4.png);
+    background-image: url(../drawable/pic-4.png);
 }
 .card:hover{
     transform: translateY(-10px);

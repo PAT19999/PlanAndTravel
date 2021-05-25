@@ -132,7 +132,7 @@ navbar{
     height: 100vh;
     display: flex; width: 100%;align-items: center;
     background: linear-gradient(0deg, rgba(0,0,0,.2), rgba(0,0,0, 0.9)),
-    url('../drawable/unnamed.jpg') no-repeat center center;
+    url('../drawable/cookies.jpg') no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
