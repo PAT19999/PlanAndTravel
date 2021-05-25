@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <SCRIPT language="javascript">
+    function salvaDati() {
+      var nomeDaSalvare = document.getElementById("nome").value;
+      var cognomeDaSalvare = document.getElementById("cognome").value;
+      localStorage.setItem("nome", nomeDaSalvare);
+      localStorage.setItem("cognome", cognomeDaSalvare);
+      alert("Dati salvati.");
+      mostraDati();
+    }
+
+    function mostraDati() {
+      if(localStorage.getItem("nome")==null || localStorage.getItem("nome")==null){
+        document.getElementById("datiSalvati").innerHTML = "nome o cognome non memorizzato";
+      } else {
+        var nome = localStorage.getItem("nome");
+        var cognome = localStorage.getItem("cognome");
+        document.getElementById("datiSalvati").innerHTML = nome + " " + cognome;
+      }
+    }
+
+    function eliminaDati() {
+      localStorage.clear();
+      mostraDati();
+    }
+  </SCRIPT>
+
+</HEAD>
+<BODY onLoad="mostraDati()">
+<FORM>
+  <P>
+    Nome:<INPUT TYPE="text" ID="nome">
+    Cognome:<INPUT TYPE="text" ID="cognome">
+    <INPUT TYPE="reset" VALUE="Annulla" />
+  </P>
+  <P>
+    <INPUT TYPE="button" onClick="salvaDati()" VALUE="Salva" />
+    <INPUT TYPE="button" onClick="mostraDati()" VALUE="Mostra" />
+    <INPUT TYPE="button" onClick="eliminaDati()" VALUE="Elimina" />
+  </P>
+</FORM>
+<P ID="datiSalvati"></P>
+</BODY>
+</HTML>
