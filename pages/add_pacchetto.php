@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <form action="../methods/insertPacchetto.php" method="post">
+    <form action="../methods/insert_pacchetto.php" method="post">
         <label>Nome: <input type="text" name="name"></label><br><br>
         <label>Descrizione: <input type="text" name="desc"></label><br><br>
         <label>Costo :<input type="number" name="price"></label><br><br>
