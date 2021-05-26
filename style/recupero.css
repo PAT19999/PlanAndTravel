@@ -1,10 +1,9 @@
-body{
-    margin: 0;
-    padding: 0;
-    background: deepskyblue;
+.recupero {
+    padding-top: 820px;
+    position: relative;
 }
 
-.loginbox{
+.recuperobox{
     width: 300px;
     height: 300px;
     background:white;
@@ -89,6 +88,29 @@ h1{
 
 
 
+.grid{display: flex; max-width: 1350px; padding: 0 30px;margin: 0 auto;}
+.grid .col{width: 100%;}
+
+@media (max-width: 768px) {
+    .grid{flex-wrap: wrap}
+}
 
 
+/* BG Cover */
 
+.bg-cover{
+    display: flex;
+    padding: 100px 0;
+    background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0, 0, 0, 0)),
+    url('../drawable/MicrosoftTeams-image.png') no-repeat center center;
+    background-size: cover;
+}
+
+.bg-cover__FAQ{width: 50%;padding: 30px;}
+.bg-cover__recuperobox{width: 50%;padding: 50px;display: flex;align-items: center;}
+
+@media (max-width: 768px) {
+    .bg-cover{flex-wrap: wrap; height: auto;}
+    .bg-cover__text,
+    .bg-cover__title{width: 100%;}
+}
