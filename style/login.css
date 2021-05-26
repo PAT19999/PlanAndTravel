@@ -1,7 +1,7 @@
 .login {
      padding-top: 820px;
      position: relative;
-     background-image: url("../drawable/MicrosoftTeams-image.png");
+     background: url("../drawable/MicrosoftTeams-image.png") no-repeat center center;
      background-size: cover;
 }
 .loginbox{
