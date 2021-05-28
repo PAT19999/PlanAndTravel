@@ -14,7 +14,7 @@
      box-sizing: border-box;
      padding: 70px 30px;
      border-radius: 20px;
-     background: rgba(0, 0, 0, 0.44);
+     background: rgba(35, 35, 38, 0.8);
      box-shadow: 0 0 15px rgb(255, 255, 255)
 }
 
@@ -48,7 +48,6 @@ h1{
 .loginbox input{
      width: 100%;
      margin-bottom: 20px;
-
 }
 
 .loginbox input[type="text"], input[type="password"]
@@ -58,7 +57,7 @@ h1{
      background: transparent;
      outline: none;
      height:40px;
-     color: #ccd6f6;
+     color: #e3ecff;
      font-size:20px;
      position: relative;
 
@@ -100,9 +99,10 @@ h1{
      font-size: 15px;
      line-height: 20px;
      color: rgba(255, 255, 255, 0.68);
-     text-shadow: 0 0 15px rgb(0, 0, 0)
+     text-shadow: 0 0 5px rgb(0, 0, 0)
 }
 .loginbox a:hover
 {
+     font-weight: bold;
      color: #0069c3;
 }
