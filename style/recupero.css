@@ -2,25 +2,27 @@
 
 .bg-cover{
     display: flex;
-    padding: 100px 0;
+    padding: 50px 0;
     background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0, 0, 0, 0)),
     url('../drawable/MicrosoftTeams-image.png') no-repeat center center;
     background-size: cover;
-    height: 80vh;
+    height: 100vh;
     position: relative;
 }
 
 .bg-cover__FAQ{
-    width: 50%;padding: 30px;
+    width: 50%;padding: 50px; margin-right: 30px
 }
 .bg-cover__recuperobox{
     width: 50%;padding: 50px;
 }
 
 @media (max-width: 768px) {
-    .bg-cover{flex-wrap: wrap; height: auto;}
-    .bg-cover__text,
-    .bg-cover__title{width: 100%;}
+    .bg-cover{flex-wrap: wrap; height: 100%;}
+    .bg-cover__FAQ{width: 100%; padding-top: 50px;}
+    .bg-cover__recuperobox{width: 100%; margin-bottom: 20px}
+    .FormRecupero {width:100%}
+
 }
 h1{
     margin: 0;
@@ -32,21 +34,15 @@ h1{
 /* Form Password */
 
 .FormRecupero{
-    width: 300px;
-    height: 300px;
+    width: 50%;
     background:white;
     color:black;
-    top: 50%;
-    left: 20%;
-    position: absolute;
-    transform: translate(-50%,-50%);
+    align-items: center;
     box-sizing: content-box;
     padding: 70px 30px;
-    transform-style: preserve-3d;
-    border-radius: 20px;
-
+    border-radius: 10px;
+    margin:0 auto;
 }
-
 .FormRecupero p{
     margin: 0;
     padding: 0;
@@ -101,63 +97,4 @@ h1{
 }
 .accordion {
     padding-left: 30px;
-}
-
-
-
-.grid{display: flex; max-width: 1350px; padding: 0 30px;margin: 0 auto;}
-.grid .col{width: 100%;}
-
-@media (max-width: 768px) {
-    .grid{flex-wrap: wrap}
-}
-
-
-
-/* FAQ */
-
-button.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-    border-radius: 20px;
-
-}
-
-button.accordion.active, button.accordion:hover {
-    background-color: #ddd;
-}
-
-button.accordion:after {
-    content: '\02795';
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
-}
-
-button.accordion.active:after {
-    content: "\2796";
-}
-
-div.panel {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.6s ease-in-out;
-    opacity: 0;
-}
-
-div.panel.show {
-    opacity: 1;
-    max-height: 500px;
-    border-radius: 20px;
 }
