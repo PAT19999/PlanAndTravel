@@ -37,7 +37,7 @@
   <ul class="menu">
     <li><a href="#">Home</a></li>
     <li><a href="mete.html">Mete</a></li>
-    <li><a href="contatti.html">Contatti</a></li>
+    <li><a href="contatti.php">Contatti</a></li>
   </ul>
   <div class="cta">
     <a href="login.html" class="button">Login</a>
@@ -174,7 +174,7 @@
   </div><!--/fine social cont-->
   Designed by<br>
   <div class="credits">
-    <a href="homepage.html"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
+    <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
   </div>
 
 </footer>

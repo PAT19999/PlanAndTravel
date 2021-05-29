@@ -1,3 +1,7 @@
+<?php
+include_once '../includes/db_connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -29,7 +33,7 @@
             <img src="../drawable/navbar-logo.png" alt="logo-sito">
         </div>
         <ul class="menu">
-            <li><a href="homepage.html">Home</a></li>
+            <li><a href="homepage.php">Home</a></li>
             <li><a href="meta_selezionata.html">Mete</a></li>
             <li><a href="#">Contatti</a></li>
         </ul>
@@ -63,24 +67,44 @@
 
 
     <div class="form reveal">
-        <form>
+        <form action= "contatti.php" method="post" enctype="multipart/form-data">
             <h1 class="normal-text">Per maggiori informazioni scrivici!</h1>
             <input name="nome" type="text" class="feedback-input" placeholder="Nome" />
 
-            <input name="nome" type="text" class="feedback-input" placeholder="Cognome" />
+            <input name="cognome" type="text" class="feedback-input" placeholder="Cognome" />
 
             <input name="email" type="text" class="feedback-input" placeholder="Email" />
 
             <textarea name="testo" class="feedback-input" placeholder="Oggetto"></textarea>
 
-            <input type="submit" value="INVIA"/>
+            <button type="submit" name="invia">INVIA</button>
         </form>
     </div>
 </div>
 </div>
+<?php
+if (isset($conn)) {
+    if (isset($_POST['invia'])) {
+        if (!empty($_POST['nome']) && !empty($_POST['cognome']) && !empty($_POST['email']) && !empty($_POST['testo'])) {
+            $nome = $_POST['nome'];
+            $cognome = $_POST['cognome'];
+            $email = $_POST['email'];
+            $oggetto = $_POST['testo'];
 
+            $query = "INSERT INTO richiesta(nome, cognome, email, oggetto) VALUES ('$nome', '$cognome', '$email', '$oggetto');";
+            $run = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-
+            if ($run) {
+                echo "Form submitted!";
+            } else {
+                echo "Form not submitted!";
+            }
+        } else {
+            echo "All fields required";
+        }
+    }
+}
+?>
 
 <! Footer>
 
@@ -98,7 +122,7 @@
     </div><!--/fine social cont-->
     Designed by<br>
     <div class="credits">
-        <a href="homepage.html"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
+        <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
     </div>
 
 </footer>
