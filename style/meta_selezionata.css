@@ -52,10 +52,10 @@ h1{
     transform: translateY(-5px);
 }
 .card1{
-    background-image: url(../drawable/montagna.jpg);
+    background-image: url(../drawable/pic-1.png);
 }
 .card2{
-    background-image: url(../drawable/Spiaggia_1.jpg);
+    background-image: url(../drawable/pic-1.png);
 }
 .card3{
     background-image: url(../drawable/Spiaggia_1.jpg);
@@ -70,13 +70,13 @@ h1{
     background-image: url(../drawable/Spiaggia_1.jpg);
 }
 .card7{
-    background-image: url(../drawable/Spiaggia_1.jpg);
+    background-image: url(../drawable/pic-1.png);
 }
 .card8{
     background-image: url(../drawable/Spiaggia_1.jpg);
 }
 .card9{
-    background-image: url(../drawable/Spiaggia_1.jpg);
+    background-image: url(../drawable/pic-1.png);
 }
 .card10{
     background-image: url(../drawable/Spiaggia_1.jpg);
