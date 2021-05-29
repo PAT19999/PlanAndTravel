@@ -4,10 +4,10 @@ body{
      background: white;
 }
 
-.loginbox{
-     width: 320px;
-     height: 520px;
-     background: deepskyblue;
+.registrabox{
+     width: 620px;
+     height: 700px;
+     background: rgba(0, 85, 255, 0.46);
      color:#fff;
      top: 50%;
      left: 50%;
@@ -36,21 +36,21 @@ h1{
      font-size: 35px;
 }
 
-.loginbox p{
+.registrabox p{
      margin: 0;
      padding: 0;
      font-weight: bold;
 
 }
 
-.loginbox input{
+.registrabox input{
      width: 100%;
      margin-bottom: 20px;
 
 
 }
 
-.loginbox input[type="text"], input[type="password"]
+.registrabox input[type="text"], input[type="password"]
 {
      border: none;
      border-bottom: 1px solid #ffffff;
@@ -61,7 +61,7 @@ h1{
      font-size:20px;
 }
 
-.loginbox input[type="submit"]
+.registrabox input[type="submit"]
 {
      border: none;
      outline: none;
@@ -69,23 +69,23 @@ h1{
      background: white;
      color: black;
      font-size: 20px;
-     border-radius: 20px;
+     border-radius: 5px;
 }
 
-.loginbox input[type="submit"]:hover
+.registrabox input[type="submit"]:hover
 {
      cursor: pointer;
      background: blue;
      color: white;
 }
 
-.loginbox a{
+.registrabox a{
      text-decoration: none;
      font-size: 15px;
      line-height: 20px;
      color: blue;
 }
-.loginbox a:hover
+.registrabox a:hover
 {
      color: white;
 }
