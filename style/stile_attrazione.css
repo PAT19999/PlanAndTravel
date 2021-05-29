@@ -5,6 +5,9 @@
 .container {
     position: relative;
     width: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
 }
 
 .image {
@@ -23,7 +26,7 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #008CBA;
+    background-color: rgba(0, 140, 186, 0.37);
 }
 
 .container:hover .overlay {
@@ -41,3 +44,4 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
