@@ -10,11 +10,10 @@ include_once '../includes/db_connection.php';
 </head>
 <body>
 
-<form action= "add_pacchetto.php" method="post" enctype="multipart/form-data">
+<form action="add_pacchetto.php" method="post" enctype="multipart/form-data">
     <label>Nome: <input type="text" name="name"></label><br><br>
     <label>Descrizione: <input type="text" name="desc"></label><br><br>
     <label>Costo: <input type="number" name="price"></label><br><br>
-    <label>Tipo: <input type="text" name="type"></label><br><br>
     <input type="file" name="image"><br><br>
     <button type="submit" name="aggiungi">Aggiungi</button>
 </form>
@@ -22,26 +21,25 @@ include_once '../includes/db_connection.php';
 <?php
 if (isset($conn)) {
     if (isset($_POST['aggiungi'])) {
-        if (!empty($_POST['name']) && !empty($_POST['desc']) && !empty($_POST['price']) && !empty($_POST['type']) && !empty($_FILES['image']['name'])) {
+        if (!empty($_POST['name']) && !empty($_POST['desc']) && !empty($_POST['price']) && !empty($_FILES['image']['name'])) {
             $titolo = $_POST['name'];
             $descrizione = $_POST['price'];
             $costo = $_POST['price'];
-            $tipo = $_POST['type'];
             $immagine = $_FILES['image']['name'];
 
-            $target = "../drawable/db/".basename($_FILES['image']['name']);
+            $target = "../drawable/db/" . basename($_FILES['image']['name']);
 
-            $query = "INSERT INTO pacchetto(titolo, descrizione, costo, tipo, immagine) VALUES ('$titolo', '$descrizione', '$costo', '$tipo', '$immagine');";
+            $query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine) VALUES ('$titolo', '$descrizione', '$costo', '$immagine');";
             $run = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-                echo "Image added";
+                echo "Image added" . "<br>";
             } else {
-                echo "Image not added";
+                echo "Image not added" . "<br>";
             }
 
             if ($run) {
-                echo "Form submitted!";
+                echo "Form submitted!" . "<br>";
 
                 $sql = "SELECT * FROM pacchetto;";
                 $result = mysqli_query($conn, $sql);
@@ -53,7 +51,6 @@ if (isset($conn)) {
                         echo $row['titolo'] . "<br>";
                         echo $row['descrizione'] . "<br>";
                         echo $row['costo'] . "<br>";
-                        echo $row['tipo'] . "<br>";
                         echo $image_path = "../drawable/db/" . $row['immagine'] . "<br>";
                         echo "<div id='img_div'>";
                         echo "<img src='../drawable/db/" . $row['immagine'] . "' >";

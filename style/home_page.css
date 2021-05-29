@@ -238,24 +238,6 @@ navbar{
   background-size: cover;
   cursor: pointer;
 }
-.meta1{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
-}
-.meta2{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Bagawat.jpg/1200px-Bagawat.jpg);
-}
-.meta3{
-  background-image: url(http://egittosharmelsheikh.it/wp-content/uploads/2014/11/Piramidi-di-Giza.jpeg);
-}
-.meta4{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
-}
-.meta5{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
-}
-.meta6{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
-}
 
 .carousel-cell__content:hover{
   transform: translateY(-10px);
@@ -274,24 +256,6 @@ navbar{
 }
 .carousel-cell__content1:hover{
   transform: translateY(-10px);
-}
-.pacchetto1{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
-}
-.pacchetto2{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Bagawat.jpg/1200px-Bagawat.jpg);
-}
-.pacchetto3{
-  background-image: url(http://egittosharmelsheikh.it/wp-content/uploads/2014/11/Piramidi-di-Giza.jpeg);
-}
-.pacchetto4{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
-}
-.pacchetto5{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
-}
-.pacchetto6{
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6e/Western_desert_egypt.jpg);
 }
 /* Footer */
 
