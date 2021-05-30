@@ -8,6 +8,11 @@ h1{
     padding-left: 10px;
 }
 
+h5{
+    color: #fff;
+    text-shadow: 0 0 5px #999;
+}
+
 .row1{
     display:flex; /* dispone le immagini in 2 richje e 2 colonne */
     height: 100%;
@@ -37,18 +42,8 @@ h1{
     margin: 5px 5px;
     background-position: initial;
     background-size: cover;
-
-    /* effetto blur
-    -webkit-filter: blur(0px);
-    -webkit-transition: all 2s ease;
-    -moz-transition: all 2s ease;
-    -o-transition: all 2s ease;
-    -ms-transition: all 2s ease;
-    transition: all 1s ease; */
-
 }
 .card:hover{
-    /*-webkit-filter: blur(2px); */
     transform: translateY(-5px);
 }
 .card1{
@@ -88,10 +83,6 @@ h1{
     background-image: url(../drawable/Spiaggia_1.jpg);
 }
 
-h5{
-    color: #fff;
-    text-shadow: 0 0 5px #999;
-}
 .text_card{
     font-size: 15px;
     position: absolute;
@@ -136,9 +127,6 @@ h5{
     background-color: #f1f1f1;
 }
 
-
-
-/* parte relativa alle prime immagini (da rivedere)*/
 .sezione_img{
     position: initial;
     width:40%;
@@ -164,7 +152,6 @@ img {
 .mySlides {
     display: none;
 }
-
 
 /* Add a pointer when hovering over the thumbnail images */
 .cursor {
