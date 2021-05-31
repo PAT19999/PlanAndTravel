@@ -141,7 +141,7 @@ h6{
 /* parte relativa alle prime immagini (da rivedere)*/
 .sezione_img{
     position: initial;
-    width:40%;
+    width:30%;
     padding-left: 10px;
     margin-right: 30px;
     display: flex;

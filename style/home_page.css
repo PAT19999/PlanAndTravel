@@ -101,7 +101,7 @@ navbar{
 .menu li{
   display: inline-block;
 }
-.menu li a{color: #fff;padding: 15px;display: block;border-radius: 4px;}
+.menu li a{color: #fff;padding: 11px;display: block;border-radius: 4px;}
 .menu li a:hover {
   background: #0069c3;
 }

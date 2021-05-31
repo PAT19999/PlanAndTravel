@@ -45,6 +45,7 @@ include_once '../includes/db_connection.php';
         <ul class="menu">
             <li><a href="#">Home</a></li>
             <li><a href="mete.html">Mete</a></li>
+            <li><a href="pacchetti.html">Pacchetti</a></li>
             <li><a href="contatti.php">Contatti</a></li>
         </ul>
         <div class="cta">

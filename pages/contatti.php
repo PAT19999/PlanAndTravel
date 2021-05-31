@@ -38,7 +38,8 @@ include_once '../includes/db_connection.php';
         </div>
         <ul class="menu">
             <li><a href="homepage.php">Home</a></li>
-            <li><a href="meta_selezionata.html">Mete</a></li>
+            <li><a href="mete.html">Mete</a></li>
+            <li><a href="pacchetti.html">Pacchetti</a></li>
             <li><a href="#">Contatti</a></li>
         </ul>
         <div class="cta">
