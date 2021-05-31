@@ -1,14 +1,14 @@
-body {
-    font-family: Arial;
-    margin: 0;
+.meta{
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    padding-top: 150px;
+    padding-left: 80px;
+    padding-right: 80px;
+    box-sizing: border-box;
 }
-
-h1{
-    padding-left: 10px;
-}
-
 .row1{
-    display:flex; /* dispone le immagini in 2 richje e 2 colonne */
+    display:flex; /* dispone le immagini in 2 righe e 2 colonne */
     height: 100%;
     align-items: flex-start;
 }
@@ -155,7 +155,7 @@ img {
 }
 
 /* Position the image container (needed to position the left and right arrows) */
-.container {
+.containers {
     position: relative;
 }
 
