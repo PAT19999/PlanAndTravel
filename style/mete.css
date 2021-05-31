@@ -38,13 +38,7 @@
     box-shadow: 0 0 15px rgb(0, 0, 0);
 
 }
-@media (max-width: 768px) {
-    .card{
-        width: 200px;
-        height: 200px;
-        margin: 20px 15px;
-    }
-}
+
 .card1{
     background-image: url(../drawable/pic-1.png);
 }
@@ -62,7 +56,9 @@
     background: #0069c3;
     opacity:0.9;
 }
-
+.card :hover a{
+    visibility: visible;
+}
 .big-text{
     color: #ffffff;
     text-shadow: 0 0 10px #000000;
@@ -88,4 +84,29 @@
     line-height: 11px;
     text-shadow: 0 0 3px rgb(0, 0, 0);
     font-weight: bold;
+}
+.text a{
+    color: #fff;
+    font-size: 11px;
+    line-height: 11px;
+    text-shadow: 0 0 3px rgb(0, 0, 0);
+    font-weight: bold;
+    visibility: hidden
+}
+.button1{
+    padding: 10px 25px;
+    background: #0045b5;
+    color:#fff;
+    display: inline-block;
+    border-radius: 4px;
+}
+@media (max-width: 768px) {
+    .card{
+        width: 200px;
+        height: 200px;
+        margin: 20px 15px;
+    }
+    .text p{
+        padding-bottom: 0;
+    }
 }
