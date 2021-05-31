@@ -1,12 +1,14 @@
 .container{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../drawable/L30-950x684.jpg) no-repeat center center;
     background-size: cover;
     padding-top: 150px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
     box-sizing: border-box;
+
 }
 
 .row{
@@ -18,7 +20,8 @@
 .col{
     flex-basis: 50%;
     align-items: center;
-    padding: 50px;
+    padding: 10px;
+
 }
 
 .card{
@@ -26,16 +29,22 @@
     height: 230px;
     display: inline-block;
     border-radius: 100px;
-    padding: 50px 30px;
-    box-sizing: border-box;
+    box-sizing: -box;
     cursor: pointer;
     margin: 20px 15px;
     background-position: center;
     background-size: cover;
     transition: transform 0.5s;
     box-shadow: 0 0 15px rgb(0, 0, 0);
-}
 
+}
+@media (max-width: 768px) {
+    .card{
+        width: 200px;
+        height: 200px;
+        margin: 20px 15px;
+    }
+}
 .card1{
     background-image: url(../drawable/pic-1.png);
 }
@@ -50,19 +59,33 @@
 }
 .card:hover{
     transform: translateY(-10px);
+    background: #0069c3;
+    opacity:0.9;
 }
-h5{
-    color: #fff;
-    text-shadow: 0 0 11px #999;
+
+.big-text{
+    color: #ffffff;
+    text-shadow: 0 0 10px #000000;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.42);
+    padding-bottom: 10px;
 }
-.card h5{
+.text{
+    line-height: 100px;
+    text-align: center;
+}
+
+.text h5{
     color: #fff;
     text-shadow: 0 0 10px rgb(0, 0, 0);
     z-index: 2;
+    height: 80px;
 }
-.card p{
+.text p{
     color: #fff;
     font-size: 11px;
     line-height: 11px;
-    text-shadow: 0 0 4px rgb(0, 0, 0);
+    text-shadow: 0 0 3px rgb(0, 0, 0);
+    font-weight: bold;
 }
