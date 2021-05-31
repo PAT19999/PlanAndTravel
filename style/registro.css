@@ -1,8 +1,10 @@
-body{
-     margin: 0;
-     padding: 0;
-     background: white;
+.login {
+     padding-top: 820px;
+     position: relative;
+     background-image: url("../drawable/MicrosoftTeams-image.png");
+     background-size: cover;
 }
+
 
 .registrabox{
      width: 620px;
