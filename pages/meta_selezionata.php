@@ -135,7 +135,7 @@ include_once '../includes/db_connection.php';
         <button type="button" class="collapsible"><h6>Altre Mete consigliate</h6></button>
         <div class="contents">
             <div class="mete_consigliate">
-                <p>Mete consgliate in base alla vicinanza o ai temi</p>
+                <p>Mete consigliate in base alla vicinanza o ai temi</p>
                 <div class="main-carousel hero__content flickity-enabled is-draggable"
                      data-flickity='{ "cellAlign": "left","contain": true }'>
                     <?php
