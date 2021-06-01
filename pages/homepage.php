@@ -71,7 +71,7 @@ include_once '../includes/db_connection.php';
             può considerare numerosi aspetti che spesso vengono ignorati quando si pianifica una vacanza,
             tra cui: eventi ed usanze locali, clima, costo della vita, qualità della vita, attrazioni e molto altro
             ancora.</h1>
-        <a href="#" class="button">Scopri di più...</a>
+        <a href="#linkscopri" class="button">Scopri di più...</a>
     </div>
     <video autoplay muted loop id="video-back">
         <source src="../drawable/bg-video.mp4" type="video/mp4">
@@ -83,6 +83,7 @@ include_once '../includes/db_connection.php';
 <div class="mt-1">
     <div class="grid hero__content">
         <div class="col reveal">
+            <a name="linkscopri"></a>
             <h3 class="big-text">Mete più scelte:</h3>
         </div>
         <div class="col reveal">
