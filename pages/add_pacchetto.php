@@ -54,6 +54,29 @@ include_once '../includes/db_connection.php';
             <label>Descrizione: <textarea type="text" name="desc" cols="30" rows="10"></textarea></label><br><br>
             <label>Costo: <input type="number" name="price"></label><br><br>
             <input type="file" name="image"><br><br>
+            <label for="albergo">Albergo: </label>
+            <select id="albergo" name="albergo">
+                <?php
+                if (isset($conn)) {
+                    $albergo_query = "SELECT * FROM albergo;";
+                    $albergo_result = mysqli_query($conn, $albergo_query);
+                    while ($row = mysqli_fetch_assoc($albergo_result)) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+                    }
+                }
+                ?>
+            </select><br><br>
+            <label>Attrazioni:</label><br>
+            <?php
+            if (isset($conn)) {
+                $attrazione_query = "SELECT * FROM attrazione;";
+                $attrazione_result = mysqli_query($conn, $attrazione_query);
+                while ($row = mysqli_fetch_assoc($attrazione_result)) {
+                    echo "<input type='checkbox' name='attr[]' value='". $row['id']. "'>";
+                    echo "<label for='attr[]'>". $row['nome']. "</label><br>";
+                }
+            }
+            ?>
             <button type="submit" name="aggiungi">Aggiungi</button>
         </form>
 
@@ -62,42 +85,49 @@ include_once '../includes/db_connection.php';
 <?php
 if (isset($conn)) {
     if (isset($_POST['aggiungi'])) {
-        if (!empty($_POST['name']) && !empty($_POST['desc']) && !empty($_POST['price']) && !empty($_FILES['image']['name'])) {
+        if (!empty($_POST['name']) && !empty($_POST['desc']) && !empty($_POST['price'])
+            && !empty($_FILES['image']['name']) && !empty($_POST['albergo'])) {
             $titolo = $_POST['name'];
             $descrizione = $_POST['price'];
             $costo = $_POST['price'];
             $immagine = $_FILES['image']['name'];
+            $albergo = $_POST['albergo'];
 
             $target = "../drawable/db/" . basename($_FILES['image']['name']);
 
-            $query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine) VALUES ('$titolo', '$descrizione', '$costo', '$immagine');";
-            $run = mysqli_query($conn, $query) or die(mysqli_error($conn));
+            // inserisci pacchetto
+            $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine, id_albergo) VALUES ('$titolo', '$descrizione', '$costo', '$immagine', '$albergo');";
+            $pacchetto_run = mysqli_query($conn, $pacchetto_query) or die(mysqli_error($conn));
 
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-                echo "Image added" . "<br>";
-            } else {
-                echo "Image not added" . "<br>";
+            // trova l'id del pacchetto appena caricato
+            $pacchetto_id_query = "SELECT MAX(id) as max_id FROM pacchetto;";
+            $pacchetto_id_result = $conn->query($pacchetto_id_query);
+            $pacchetto_id = $pacchetto_id_result->fetch_assoc()['max_id'];
+
+            // inserisci i collegamenti con le attrazioni
+            if (!empty($_POST['attr'])) {
+                foreach($_POST['attr'] as $attrazione){
+                    $pac_attr_query = "INSERT INTO pacchetto_attrazione(id_pacchetto, id_attrazione) VALUES ('$pacchetto_id', '$attrazione');";
+                    $pac_attr_run = mysqli_query($conn, $pac_attr_query) or die(mysqli_error($conn));
+                }
             }
 
-            if ($run) {
-                echo "Form submitted!" . "<br>";
+            // inserisci l'immagine nel sito
+            $image_added = false;
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+                $image_added = true;
+            } else {
+                $image_added = false;
+            }
 
-                $sql = "SELECT * FROM pacchetto;";
-                $result = mysqli_query($conn, $sql);
-                $result_check = mysqli_num_rows($result);
+            // controlla se la query è andata a buon fine
+            $boolean = true;
+            if (isset($pac_attr_run)) {
+                $boolean = $pac_attr_run;
+            }
 
-                if ($result_check > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<br>" . $row['id'] . "<br>";
-                        echo $row['titolo'] . "<br>";
-                        echo $row['descrizione'] . "<br>";
-                        echo $row['costo'] . "<br>";
-                        echo $image_path = "../drawable/db/" . $row['immagine'] . "<br>";
-                        echo "<div id='img_div'>";
-                        echo "<img src='../drawable/db/" . $row['immagine'] . "' >";
-                        echo "</div>";
-                    }
-                }
+            if ($pacchetto_run && $boolean && $image_added) {
+                echo "Form submitted!";
             } else {
                 echo "Form not submitted!";
             }
