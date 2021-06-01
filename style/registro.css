@@ -1,7 +1,7 @@
 .registrazione {
     display: flex;
     padding: 200px 0;
-    background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0, 0, 0, 0)),
+    background: linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, 0)),
     url('../drawable/travel-website-templates-1.png') no-repeat center center;
     background-size: cover;
     height: 100%;
@@ -9,7 +9,7 @@
 }
 
 
-.registrabox{
+.registrabox {
     width: 400px;
     height: 520px;
     position: relative;
@@ -18,15 +18,17 @@
     border-radius: 10px;
     margin: 0 auto;
     background: rgba(39, 41, 49, 0.56);
-    color:#fff;
+    color: #fff;
     margin-right: 140px;
 }
+
 @media (max-width: 768px) {
     .registrabox {
         width: 50%;
         margin-right: auto
     }
 }
+
 .avatar {
     width: 100px;
     height: 100px;
@@ -38,7 +40,7 @@
     background: rgb(252, 242, 242);
 }
 
-h1{
+h1 {
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
@@ -46,31 +48,29 @@ h1{
     color: white;
 }
 
-.registrabox p{
+.registrabox p {
     margin: 0;
     padding: 0;
     font-weight: bold;
     color: white;
 }
 
-.registrabox input{
+.registrabox input {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.registrabox input[type="text"], input[type="password"]
-{
+.registrabox input[type="text"], input[type="password"] {
     border: none;
     border-bottom: 1px solid #ffffff;
     background: transparent;
     outline: none;
-    height:40px;
+    height: 40px;
     color: white;
-    font-size:15px;
+    font-size: 15px;
 }
 
-.registrabox input[type="submit"]
-{
+.registrabox input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
@@ -80,20 +80,19 @@ h1{
     border-radius: 5px;
 }
 
-.registrabox input[type="submit"]:hover
-{
+.registrabox input[type="submit"]:hover {
     cursor: pointer;
     color: #ffffff;
     background: #0069c3;
 }
 
-.registrabox a{
+.registrabox a {
     text-decoration: none;
     font-size: 15px;
     line-height: 20px;
     color: blue;
 }
-.registrabox a:hover
-{
+
+.registrabox a:hover {
     color: white;
 }

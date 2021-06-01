@@ -1,4 +1,4 @@
-.container{
+.container {
     width: 100%;
     min-height: 100vh;
     height: 100%;
@@ -11,20 +11,21 @@
 
 }
 
-.row{
+.row {
     display: flex;
     height: 100%;
     align-items: center;
     padding-top: 100px;
 }
-.col{
+
+.col {
     flex-basis: 50%;
     align-items: center;
     padding: 10px;
 
 }
 
-.card{
+.card {
     width: 230px;
     height: 230px;
     display: inline-block;
@@ -38,32 +39,38 @@
     box-shadow: 0 0 15px rgb(0, 0, 0);
 
 }
+
 @media (max-width: 768px) {
-    .card{
+    .card {
         width: 200px;
         height: 200px;
         margin: 20px 15px;
     }
 }
-.card1{
+
+.card1 {
     background-image: url(../drawable/pic-1.png);
 }
-.card2{
+
+.card2 {
     background-image: url(../drawable/pic-2.png);
 }
-.card3{
+
+.card3 {
     background-image: url(../drawable/pic-3.png);
 }
-.card4{
+
+.card4 {
     background-image: url(../drawable/pic-4.png);
 }
-.card:hover{
+
+.card:hover {
     transform: translateY(-10px);
     background: #0069c3;
-    opacity:0.9;
+    opacity: 0.9;
 }
 
-.big-text{
+.big-text {
     color: #ffffff;
     text-shadow: 0 0 10px #000000;
     font-weight: bold;
@@ -71,25 +78,28 @@
     border-bottom: 2px solid rgba(255, 255, 255, 0.42);
     padding-bottom: 10px;
 }
-.text{
+
+.text {
     line-height: 100px;
     text-align: center;
 }
 
-.text h5{
+.text h5 {
     color: #fff;
     text-shadow: 0 0 10px rgb(0, 0, 0);
     z-index: 2;
     height: 80px;
 }
-.text p{
+
+.text p {
     color: #fff;
     font-size: 11px;
     line-height: 11px;
     text-shadow: 0 0 3px rgb(0, 0, 0);
     font-weight: bold;
 }
-.text a{
+
+.text a {
     color: #fff;
     font-size: 11px;
     line-height: 11px;
@@ -97,23 +107,27 @@
     font-weight: bold;
     visibility: hidden
 }
-.card :hover a{
+
+.card :hover a {
     visibility: visible;
 }
-.button1{
+
+.button1 {
     padding: 10px 25px;
     background: #0045b5;
-    color:#fff;
+    color: #fff;
     display: inline-block;
     border-radius: 4px;
 }
+
 @media (max-width: 768px) {
-    .card{
+    .card {
         width: 200px;
         height: 200px;
         margin: 20px 15px;
     }
-    .text p{
+
+    .text p {
         padding-bottom: 0;
     }
 }

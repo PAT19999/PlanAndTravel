@@ -1,22 +1,25 @@
 /* ! Hero */
 
-.hero1{
+.hero1 {
     position: relative;
     height: 100vh;
-    display: flex; width: 100%;align-items: center;
-    background: linear-gradient(0deg, rgba(0,0,0,.2), rgba(0,0,0, 0.9)),
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)),
     url('../drawable/cookies.jpg') no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
 
-.hero1:after{
+.hero1:after {
     content: ' ';
     width: 100%;
     height: 100%;
     display: block;
     position: absolute;
-    top:0; left:0;
+    top: 0;
+    left: 0;
     background: #000;
     opacity: 0.2
 }

@@ -1,33 +1,52 @@
 /* BG Cover */
 
-.bg-cover{
+.bg-cover {
     display: flex;
     padding: 50px 0;
-    background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0, 0, 0, 0)),
+    background: linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, 0)),
     url('../drawable/MicrosoftTeams-image.png') no-repeat center center;
     background-size: cover;
     height: 100vh;
     position: relative;
 }
 
-.bg-cover__FAQ{
-    width: 50%;padding: 50px; margin-right: 50px
+.bg-cover__FAQ {
+    width: 50%;
+    padding: 50px;
+    margin-right: 50px
 }
-.bg-cover__recuperobox{
-    width: 50%;padding: 50px;
+
+.bg-cover__recuperobox {
+    width: 50%;
+    padding: 50px;
 }
 
 @media (max-width: 768px) {
-    .bg-cover{flex-wrap: wrap; height: 100%;}
-    .bg-cover__FAQ{width: 100%; padding-top: 50px;margin:0 auto}
-    .bg-cover__recuperobox{width: 100%; margin-bottom: 20px}
-    .FormRecupero {width:100%}
+    .bg-cover {
+        flex-wrap: wrap;
+        height: 100%;
+    }
+
+    .bg-cover__FAQ {
+        width: 100%;
+        padding-top: 50px;
+        margin: 0 auto
+    }
+
+    .bg-cover__recuperobox {
+        width: 100%;
+        margin-bottom: 20px
+    }
+
+    .FormRecupero {
+        width: 100%
+    }
 
 }
 
 
 /* Form Password */
-.avatar{
+.avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -37,7 +56,8 @@
     box-shadow: 0 0 15px #000000;
     background: white;
 }
-.FormRecupero{
+
+.FormRecupero {
     width: 50%;
     max-width: 340px;
     position: relative;
@@ -45,11 +65,12 @@
     box-sizing: content-box;
     padding: 70px 30px 30px 30px;
     border-radius: 10px;
-    margin:0 auto;
+    margin: 0 auto;
     background: #232326ad;
     box-shadow: 0 0 15px rgb(255, 255, 255)
 }
-.FormRecupero p{
+
+.FormRecupero p {
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -66,24 +87,23 @@
     color: #f5f5f5;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.8)
 }
-.FormRecupero input{
+
+.FormRecupero input {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.FormRecupero input[type="text"]
-{
+.FormRecupero input[type="text"] {
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.51);
     background: transparent;
     outline: none;
-    height:40px;
+    height: 40px;
     color: #e3ecff;
-    font-size:20px;
+    font-size: 20px;
 }
 
-.FormRecupero input[type="submit"]
-{
+.FormRecupero input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
@@ -94,14 +114,13 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-.FormRecupero input[type="submit"]:hover
-{
+.FormRecupero input[type="submit"]:hover {
     cursor: pointer;
     color: #ffffff;
     background: #0069c3;
 }
 
-.FormRecupero a{
+.FormRecupero a {
     text-decoration: none;
     font-size: 15px;
     line-height: 20px;
@@ -109,8 +128,7 @@
     text-shadow: 0 0 5px rgb(0, 0, 0)
 }
 
-.FormRecupero a:hover
-{
+.FormRecupero a:hover {
     font-weight: bold;
     color: #0069c3;
 }
@@ -159,19 +177,22 @@
     background: rgba(35, 35, 38, 0.88);
     box-shadow: 0 0 5px rgb(255, 255, 255);
 }
-.panel p{
+
+.panel p {
     padding-top: 10px;
     color: #f5f5f5;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
-.FAQ h1{
+
+.FAQ h1 {
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
     font-size: 35px;
     color: white;
 }
-.FAQ img{
+
+.FAQ img {
     width: 100%;
     border-radius: 30px 30px 0 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);

@@ -1,5 +1,6 @@
 <?php
 include_once '../includes/db_connection.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +44,7 @@ include_once '../includes/db_connection.php';
             <li><a href="#">Contatti</a></li>
         </ul>
         <div class="cta">
-            <a href="login.html" class="button"> Login</a>
+            <a href="profilo_utente.php" class="button"> Login</a>
         </div>
         <div class="hamburger">
             <span></span>
@@ -98,10 +99,19 @@ if (isset($conn)) {
             $email = $_POST['email'];
             $oggetto = $_POST['testo'];
 
-            $query = "INSERT INTO richiesta(nome, cognome, email, oggetto) VALUES ('$nome', '$cognome', '$email', '$oggetto');";
-            $run = mysqli_query($conn, $query) or die(mysqli_error($conn));
+            if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === true) {
+                $username = $_SESSION['username'];
+            }
 
-            if ($run) {
+            if (isset($username)) {
+                $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto, username) VALUES ('$nome', '$cognome', '$email', '$oggetto', '$username');";
+            } else {
+                $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto) VALUES ('$nome', '$cognome', '$email', '$oggetto');";
+            }
+
+            $contatti_run = $conn->query($contatti_sql);
+
+            if ($contatti_run) {
                 echo "<p>Form submitted!</p>";
             } else {
                 echo "<p>Form not submitted!</p>";
@@ -109,6 +119,7 @@ if (isset($conn)) {
         } else {
             echo "<p>All fields required</p>";
         }
+        $_POST = array();
     }
 }
 ?>

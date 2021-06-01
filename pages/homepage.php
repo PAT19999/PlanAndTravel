@@ -49,7 +49,7 @@ include_once '../includes/db_connection.php';
             <li><a href="contatti.php">Contatti</a></li>
         </ul>
         <div class="cta">
-            <a href="login.html" class="button">Login</a>
+            <a href="profilo_utente.php" class="button">Login</a>
         </div>
         <div class="hamburger">
             <span></span>
@@ -96,12 +96,12 @@ include_once '../includes/db_connection.php';
         <?php
         if (isset($conn)) {
             $meta_sql = "SELECT * FROM meta_turistica;";
-            $meta_result = mysqli_query($conn, $meta_sql);
+            $meta_result = $conn->query($meta_sql);
             foreach ($meta_result as $row) {
                 ?>
                 <div class="carousel-cell">
                     <div class="carousel-cell__content zoom"
-                         style="background-image: url('../drawable/db/<?php echo $row['immagine']?>')">
+                         style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                         <h5><?php echo $row['nome'] ?></h5>
                     </div>
                 </div>
@@ -127,12 +127,12 @@ include_once '../includes/db_connection.php';
          data-flickity='{ "cellAlign": "left", "contain": true }'><?php
         if (isset($conn)) {
             $pacchetto_sql = "SELECT * FROM pacchetto;";
-            $pacchetto_result = mysqli_query($conn, $pacchetto_sql);
+            $pacchetto_result = $conn->query($pacchetto_sql);
             foreach ($pacchetto_result as $row) {
                 ?>
                 <div class="carousel-cell">
                     <div class="carousel-cell__content1 zoom"
-                         style="background-image: url('../drawable/db/<?php echo $row['immagine']?>')">
+                         style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                         <h5><?php echo $row['titolo'] ?></h5>
                     </div>
                 </div>
