@@ -115,11 +115,8 @@ include_once '../includes/db_connection.php';
 
         <div class="col">
             <div id="descrizione">
-                <h2>Informazioni generali</h2>
+                <h2>Descrizione del pacchetto</h2>
                 <p>Testo di prova che ahhahdddoadk</p>
-                <h2>Località</h2>
-                <p><img src="../drawable/position.jpg" width="13px" height="13px" alt="position">
-                    <a title="Città" href="https://www.comune.barletta.bt.it/retecivica/" target="_blank">Città</a> ,Nazione</p>
 
                 <h2>Filtri</h2>
                 <span class="label filtro_1">Provola</span>
