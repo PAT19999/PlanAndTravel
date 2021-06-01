@@ -47,10 +47,10 @@ include_once '../includes/db_connection.php';
 </div>
 
 <div class="bg-cover">
-    <div class="form">
+    <div class="form zoom">
         <img src="../drawable/3466640.png" class="avatar">
         <form action="add_pacchetto.php" method="post" enctype="multipart/form-data">
-            <label>Nome: <input type="text" name="name"></label><br><br>
+            <label>Nome del pacchetto: <input type="text" name="name"></label><br><br>
             <label>Descrizione: <textarea type="text" name="desc" cols="30" rows="10"></textarea></label><br><br>
             <label>Costo: <input type="number" name="price"></label><br><br>
             <input type="file" name="image"><br><br>
