@@ -33,10 +33,11 @@
     margin: 20px 15px;
     background-position: center;
     background-size: cover;
-    transition: transform 0.5s;
+    transition: all 0.5s ease;
     box-shadow: 0 0 15px rgb(0, 0, 0);
 
 }
+
 
 .card1{
     background-image: url(../drawable/pic-1.png);
@@ -54,10 +55,9 @@
     transform: translateY(-10px);
     background: #0069c3;
     opacity:0.9;
+
 }
-.card :hover a{
-    visibility: visible;
-}
+
 .big-text{
     color: #ffffff;
     text-shadow: 0 0 10px #000000;
