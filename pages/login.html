@@ -48,10 +48,10 @@
     <div class="loginbox zoom">
         <img src="../drawable/avatar.jpg" class="avatar">
         <h1> Accedi Qui</h1>
-        <form>
-            <p>Username</p>
-            <input type="text" name="" placeholder="Inserisci il tuo username">
-            <p>Password</p>
+        <form action= "../php/login.php" method="post">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Inserisci il tuo username">
+            <label for="password">Password</label>
             <div class="container">
                 <input type="password" name="password" id="password" placeholder="Inserisci la password">
                 <i class="far fa-eye" id="togglePassword"></i>

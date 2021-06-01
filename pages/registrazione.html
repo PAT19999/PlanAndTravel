@@ -51,17 +51,19 @@
     <div class="registrabox">
         <img src="../drawable/avatarRegi.png" class="avatar">
         <h1> Registrati </h1>
-        <form>
-            <p>Nome</p>
-            <input type="text" name="nome" placeholder="Inserisci il tuo nome" required>
-            <p>Cognome</p>
-            <input type="email" name="email" placeholder="Inserisci il tuo cognome" required>
-            <p>Username</p>
-            <input type="text" name="username" placeholder="Inserisci il tuo Username" required>
-            <p>Password</p>
-            <input type="password" name="pass" placeholder="Inserisci la tua Password" required>
-            <p> Conferma la Password</p>
-            <input type="password" name="passConfirm" placeholder="Inserisci nuovamente la tua Password" required>
+        <form action="../php/register.php" method="POST">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required>
+            <label for="cognome">Cognome</label>
+            <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Inserisci il tuo Username" required>
+            <label for="pass">Password</label>
+            <input type="password" name="pass" id="pass" placeholder="Inserisci la tua Password" required>
+            <label for="passConfirm"> Conferma la Password</label>
+            <input type="password" name="passConfirm" id="passConfirm" placeholder="Inserisci nuovamente la tua Password" required>
             <input type="submit" name="submit" value="Registrati">
         </form>
     </div>
