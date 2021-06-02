@@ -1,5 +1,6 @@
 <?php
 include_once '../includes/db_connection.php';
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (isset($conn)) {
@@ -13,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
 
         if (isset($username)) {
-            $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto, username) VALUES ('$nome', '$cognome', '$email', '$oggetto', '$username');";
+            $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto, username_utente) VALUES ('$nome', '$cognome', '$email', '$oggetto', '$username');";
         } else {
             $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto) VALUES ('$nome', '$cognome', '$email', '$oggetto');";
         }
