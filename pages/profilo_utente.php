@@ -1,9 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
-    header("location: login.html");
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,13 +60,14 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
     <! Box Info profilo>
     <div class="infoprofilo">
         <h1>Profilo Utente</h1>
-        <?php
-        echo "Username: " . $_SESSION['username'] . "<br><br>";
-        echo "Nome: " . $_SESSION['nome'] . "<br><br>";
-        echo "Cognome: " . $_SESSION['cognome'] . "<br><br>";
-        echo "Email: " . $_SESSION['email'] . "<br><br>";
-        ?>
-
+            <div class="dati">
+            <?php
+            echo "Username: " . $_SESSION['username'] . "<br><br>";
+            echo "Nome: " . $_SESSION['nome'] . "<br><br>";
+            echo "Cognome: " . $_SESSION['cognome'] . "<br><br>";
+            echo "Email: " . $_SESSION['email'] . "<br><br>";
+            ?>
+            </div>
         <a href="../php/logout.php">Disconnetti</a>
     </div>
 </div>
