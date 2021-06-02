@@ -54,10 +54,10 @@
         <h1> Accedi Qui</h1>
         <form action="../php/login.php" method="post" enctype="multipart/form-data">
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Inserisci il tuo username">
+            <input type="text" name="username" id="username" placeholder="Inserisci il tuo username" required>
             <label for="password">Password</label>
             <div class="container">
-                <input type="password" name="password" id="password" placeholder="Inserisci la password">
+                <input type="password" name="password" id="password" placeholder="Inserisci la password" required>
                 <i class="far fa-eye" id="togglePassword"></i>
             </div>
             <input type="submit" name="login" value="Login">

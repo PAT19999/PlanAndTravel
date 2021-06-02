@@ -75,13 +75,13 @@ session_start();
         <div class="form reveal">
             <form action="contatti.php" method="post" enctype="multipart/form-data">
                 <h1 class="normal-text">Per maggiori informazioni scrivici!</h1>
-                <input name="nome" type="text" class="feedback-input" placeholder="Nome"/>
+                <input name="nome" type="text" class="feedback-input" placeholder="Nome" required/>
 
-                <input name="cognome" type="text" class="feedback-input" placeholder="Cognome"/>
+                <input name="cognome" type="text" class="feedback-input" placeholder="Cognome" required/>
 
-                <input name="email" type="text" class="feedback-input" placeholder="Email"/>
+                <input name="email" type="text" class="feedback-input" placeholder="Email" required/>
 
-                <textarea name="testo" class="feedback-input" placeholder="Oggetto"></textarea>
+                <textarea name="testo" class="feedback-input" placeholder="Oggetto" required></textarea>
 
                 <button type="submit" name="invia">INVIA</button>
             </form>
@@ -89,36 +89,42 @@ session_start();
     </div>
 </div>
 
+<!-- Snackbar -->
+<div id='snackbar'></div>
+<?php
+if (isset($_SESSION['snackText']) && $_SESSION['snackText'] !== "") {
+    echo "<script>showSnackbar(" . $_SESSION['snackText'] . ")</script>";
+    $_SESSION['snackText'] = "";
+}
+?>
+
 <! Carica nel database >
 <?php
 if (isset($conn)) {
     if (isset($_POST['invia'])) {
-        if (!empty($_POST['nome']) && !empty($_POST['cognome']) && !empty($_POST['email']) && !empty($_POST['testo'])) {
-            $nome = $_POST['nome'];
-            $cognome = $_POST['cognome'];
-            $email = $_POST['email'];
-            $oggetto = $_POST['testo'];
+        $nome = $_POST['nome'];
+        $cognome = $_POST['cognome'];
+        $email = $_POST['email'];
+        $oggetto = $_POST['testo'];
 
-            if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === true) {
-                $username = $_SESSION['username'];
-            }
-
-            if (isset($username)) {
-                $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto, username) VALUES ('$nome', '$cognome', '$email', '$oggetto', '$username');";
-            } else {
-                $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto) VALUES ('$nome', '$cognome', '$email', '$oggetto');";
-            }
-
-            $contatti_run = $conn->query($contatti_sql);
-
-            if ($contatti_run) {
-                echo "<p>Form submitted!</p>";
-            } else {
-                echo "<p>Form not submitted!</p>";
-            }
-        } else {
-            echo "<p>All fields required</p>";
+        if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === true) {
+            $username = $_SESSION['username'];
         }
+
+        if (isset($username)) {
+            $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto, username) VALUES ('$nome', '$cognome', '$email', '$oggetto', '$username');";
+        } else {
+            $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto) VALUES ('$nome', '$cognome', '$email', '$oggetto');";
+        }
+
+        $contatti_run = $conn->query($contatti_sql);
+
+        if ($contatti_run) {
+            $_SESSION['snackText'] = "Richiesta inviata!";
+        } else {
+            $_SESSION['snackText'] = "Richiesta non inviata!";
+        }
+
         $_POST = array();
     }
 }
@@ -188,6 +194,19 @@ if (isset($conn)) {
         scale: 0.65,
         mobile: false
     });
+
+    function showSnackbar(text) {
+        // Get the snackbar DIV
+        var x = document.getElementById("snackbar");
+
+        x.innerHTML = text;
+
+        // Add the "show" class to DIV
+        x.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
 
 </script>
 

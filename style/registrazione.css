@@ -11,7 +11,7 @@
 
 .registrabox {
     width: 400px;
-    height: 520px;
+    height: 550px;
     position: relative;
     box-sizing: content-box;
     padding: 70px 40px 40px 40px;
@@ -60,7 +60,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.registrabox input[type="text"], input[type="password"] {
+.registrabox input[type="text"], input[type="email"], input[type="password"] {
     border: none;
     border-bottom: 1px solid #ffffff;
     background: transparent;

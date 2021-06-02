@@ -54,11 +54,14 @@ include_once '../includes/db_connection.php';
     <div class="form zoom">
         <img src="../drawable/3466640.png" class="avatar">
         <form action="add_pacchetto.php" method="post" enctype="multipart/form-data">
-            <label>Nome del pacchetto: <input type="text" name="name" placeholder="Nome Pacchetto"></label><br><br>
-            <label>Descrizione: <textarea type="text" name="desc" cols="30" rows="10"
-                                          placeholder="Descrizione Pacchetto"></textarea></label><br><br>
-            <label>Costo: <input type="number" name="price" placeholder="Costo Pacchetto"></label><br><br>
-            <input type="file" name="image"><br><br>
+            <label for="nome">Nome del pacchetto:</label>
+            <input type="text" name="name" id="nome" placeholder="Nome Pacchetto" required>
+            <label for="desc">Descrizione:</label>
+            <textarea type="text" name="desc" id="desc" cols="30" rows="10" placeholder="Descrizione Pacchetto"
+                      required></textarea>
+            <label for="costo">Costo:</label>
+            <input type="number" name="price" id="costo" placeholder="Costo Pacchetto" required>
+            <input type="file" name="image" required>
             <label for="albergo">Albergo: </label>
             <select id="albergo" name="albergo">
                 <?php
@@ -78,7 +81,7 @@ include_once '../includes/db_connection.php';
                 $attrazione_result = $conn->query($attrazione_query);
                 foreach ($attrazione_result as $row) {
                     echo "<input type='checkbox' name='attr[]' value='" . $row['id'] . "'>";
-                    echo "<label for='attr[]'>" . $row['nome'] . "</label><br>";
+                    echo "<label for='attr[]'>" . $row['nome'] . "</label>";
                 }
             }
             ?>
@@ -87,58 +90,55 @@ include_once '../includes/db_connection.php';
 
     </div>
 </div>
+
 <?php
 if (isset($conn)) {
     if (isset($_POST['aggiungi'])) {
-        if (!empty($_POST['name']) && !empty($_POST['desc']) && !empty($_POST['price'])
-            && !empty($_FILES['image']['name']) && !empty($_POST['albergo'])) {
-            $titolo = $_POST['name'];
-            $descrizione = $_POST['price'];
-            $costo = $_POST['price'];
-            $immagine = $_FILES['image']['name'];
-            $albergo = $_POST['albergo'];
+        $titolo = $_POST['name'];
+        $descrizione = $_POST['price'];
+        $costo = $_POST['price'];
+        $immagine = $_FILES['image']['name'];
+        $albergo = $_POST['albergo'];
 
-            $target = "../drawable/db/" . basename($_FILES['image']['name']);
+        $target = "../drawable/db/" . basename($_FILES['image']['name']);
 
-            // inserisci pacchetto
-            $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine, id_albergo) VALUES ('$titolo', '$descrizione', '$costo', '$immagine', '$albergo');";
-            $pacchetto_run = $conn->query($pacchetto_query);
+        // inserisci pacchetto
+        $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine, id_albergo) VALUES ('$titolo', '$descrizione', '$costo', '$immagine', '$albergo');";
+        $pacchetto_run = $conn->query($pacchetto_query);
 
-            // trova l'id del pacchetto appena caricato
-            $pacchetto_id_query = "SELECT MAX(id) as max_id FROM pacchetto;";
-            $pacchetto_id_result = $conn->query($pacchetto_id_query);
-            $pacchetto_id = $pacchetto_id_result->fetch_assoc()['max_id'];
+        // trova l'id del pacchetto appena caricato
+        $pacchetto_id_query = "SELECT MAX(id) as max_id FROM pacchetto;";
+        $pacchetto_id_result = $conn->query($pacchetto_id_query);
+        $pacchetto_id = $pacchetto_id_result->fetch_assoc()['max_id'];
 
-            // inserisci i collegamenti con le attrazioni
-            if (!empty($_POST['attr'])) {
-                foreach ($_POST['attr'] as $attrazione) {
-                    $pac_attr_query = "INSERT INTO pacchetto_attrazione(id_pacchetto, id_attrazione) VALUES ('$pacchetto_id', '$attrazione');";
-                    $pac_attr_run = $conn->query($pac_attr_query);
-                }
+        // inserisci i collegamenti con le attrazioni
+        if (!empty($_POST['attr'])) {
+            foreach ($_POST['attr'] as $attrazione) {
+                $pac_attr_query = "INSERT INTO pacchetto_attrazione(id_pacchetto, id_attrazione) VALUES ('$pacchetto_id', '$attrazione');";
+                $pac_attr_run = $conn->query($pac_attr_query);
             }
-
-            // inserisci l'immagine nel sito
-            $image_added = false;
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-                $image_added = true;
-            } else {
-                $image_added = false;
-            }
-
-            // controlla se la query è andata a buon fine
-            $boolean = true;
-            if (isset($pac_attr_run)) {
-                $boolean = $pac_attr_run;
-            }
-
-            if ($pacchetto_run && $boolean && $image_added) {
-                echo "Form submitted!";
-            } else {
-                echo "Form not submitted!";
-            }
-        } else {
-            echo "All fields required";
         }
+
+        // inserisci l'immagine nel sito
+        $image_added = false;
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+            $image_added = true;
+        } else {
+            $image_added = false;
+        }
+
+        // controlla se la query è andata a buon fine
+        $boolean = true;
+        if (isset($pac_attr_run)) {
+            $boolean = $pac_attr_run;
+        }
+
+        if ($pacchetto_run && $boolean && $image_added) {
+            echo "Form submitted!";
+        } else {
+            echo "Form not submitted!";
+        }
+
         $_POST = array();
     }
 }
