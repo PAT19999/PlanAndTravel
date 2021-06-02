@@ -38,7 +38,7 @@ h1 {
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.8)
 }
 
-.loginbox p {
+.loginbox label {
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -46,7 +46,7 @@ h1 {
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.8)
 }
 
-.loginbox input {
+.loginbox input{
     width: 100%;
     margin-bottom: 20px;
 }
@@ -75,7 +75,9 @@ h1 {
     color: rgba(255, 255, 255, 0.32);
 }
 
-.loginbox input[type="submit"] {
+.loginbox button {
+    width: 100%;
+    margin-bottom: 20px;
     border: none;
     outline: none;
     height: 40px;
@@ -86,11 +88,10 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-.loginbox input[type="submit"]:hover {
+.loginbox button:hover {
     cursor: pointer;
     color: #ffffff;
     background: #0069c3;
-
 }
 
 .loginbox a {

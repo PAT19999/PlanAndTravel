@@ -1,8 +1,3 @@
-<?php
-include_once '../includes/db_connection.php';
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -17,6 +12,7 @@ session_start();
 
     <link rel="stylesheet" href="../style/home_page.css"/>
     <link rel="stylesheet" href="../style/contatti.css">
+    <link rel="stylesheet" href="../style/snackbar.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
@@ -72,18 +68,18 @@ session_start();
         </div>
 
 
-        <div class="form reveal">
-            <form action="contatti.php" method="post" enctype="multipart/form-data">
+        <div id="form" class="form reveal">
+            <form>
                 <h1 class="normal-text">Per maggiori informazioni scrivici!</h1>
                 <input name="nome" type="text" class="feedback-input" placeholder="Nome" required/>
 
                 <input name="cognome" type="text" class="feedback-input" placeholder="Cognome" required/>
 
-                <input name="email" type="text" class="feedback-input" placeholder="Email" required/>
+                <input name="email" type="email" class="feedback-input" placeholder="Email" required/>
 
                 <textarea name="testo" class="feedback-input" placeholder="Oggetto" required></textarea>
 
-                <button type="submit" name="invia">INVIA</button>
+                <button id="invia" type="submit" name="invia">INVIA</button>
             </form>
         </div>
     </div>
@@ -91,44 +87,6 @@ session_start();
 
 <!-- Snackbar -->
 <div id='snackbar'></div>
-<?php
-if (isset($_SESSION['snackText']) && $_SESSION['snackText'] !== "") {
-    echo "<script>showSnackbar(" . $_SESSION['snackText'] . ")</script>";
-    $_SESSION['snackText'] = "";
-}
-?>
-
-<! Carica nel database >
-<?php
-if (isset($conn)) {
-    if (isset($_POST['invia'])) {
-        $nome = $_POST['nome'];
-        $cognome = $_POST['cognome'];
-        $email = $_POST['email'];
-        $oggetto = $_POST['testo'];
-
-        if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === true) {
-            $username = $_SESSION['username'];
-        }
-
-        if (isset($username)) {
-            $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto, username) VALUES ('$nome', '$cognome', '$email', '$oggetto', '$username');";
-        } else {
-            $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto) VALUES ('$nome', '$cognome', '$email', '$oggetto');";
-        }
-
-        $contatti_run = $conn->query($contatti_sql);
-
-        if ($contatti_run) {
-            $_SESSION['snackText'] = "Richiesta inviata!";
-        } else {
-            $_SESSION['snackText'] = "Richiesta non inviata!";
-        }
-
-        $_POST = array();
-    }
-}
-?>
 
 <! Footer>
 
@@ -168,15 +126,34 @@ if (isset($conn)) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"
         integrity="sha512-Nx/M3T/fWprNarYOrnl+gfWZ25YlZtSNmhjHeC0+2gCtyAdDFXqaORJBj1dC427zt3z/HwkUpPX+cxzonjUgrA=="
         crossorigin="anonymous"></script>
+</body>
+
+<script type="text/javascript" src="../javascript/utils.js"></script>
 
 <script>
     $(document).ready(function () {
-
-        /* Open Panel */
+        // Open Panel
         $(".hamburger").on('click', function () {
             $(".menu").toggleClass("menu--open");
         });
 
+        // Submit form
+        $("#form").on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '../php/add_richiesta.php',
+                data: $('form').serialize(),
+                success: function(json_data){
+                    const data_array = $.parseJSON(json_data);
+                    showSnackbar(data_array['text']);
+                    if (data_array['result'] === 'success') {
+                        $('#form input').val('');
+                        $('#form textarea').val('');
+                    }
+                }
+            });
+        });
     });
 
 
@@ -194,22 +171,7 @@ if (isset($conn)) {
         scale: 0.65,
         mobile: false
     });
-
-    function showSnackbar(text) {
-        // Get the snackbar DIV
-        var x = document.getElementById("snackbar");
-
-        x.innerHTML = text;
-
-        // Add the "show" class to DIV
-        x.className = "show";
-
-        // After 3 seconds, remove the show class from DIV
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-    }
-
 </script>
-
 
 </body>
 </html>

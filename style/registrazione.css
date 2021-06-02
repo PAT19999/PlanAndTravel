@@ -48,7 +48,7 @@ h1 {
     color: white;
 }
 
-.registrabox p {
+.registrabox label {
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -70,7 +70,9 @@ h1 {
     font-size: 15px;
 }
 
-.registrabox input[type="submit"] {
+.registrabox button {
+    width: 100%;
+    margin-bottom: 20px;
     border: none;
     outline: none;
     height: 40px;
@@ -80,7 +82,7 @@ h1 {
     border-radius: 5px;
 }
 
-.registrabox input[type="submit"]:hover {
+.registrabox button:hover {
     cursor: pointer;
     color: #ffffff;
     background: #0069c3;
