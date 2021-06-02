@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../style/heart_animation.css"/>
+</head>
+<body>
+<div class="stage">
+    <div class="heart"></div>
+</div>
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+    $(function() {
+        $(".heart").on("click", function() {
+            $(this).toggleClass("is-active");
+        });
+    });
+</script>
+</body>
+</html>
