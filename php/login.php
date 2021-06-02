@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     session_start();
 
                     $_SESSION['isLogged'] = true;
+                    $_SESSION['isAgenzia'] = false;
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['nome'] = $row['nome'];
                     $_SESSION['cognome'] = $row['cognome'];

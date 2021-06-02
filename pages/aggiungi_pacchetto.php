@@ -15,6 +15,7 @@ include_once '../includes/db_connection.php';
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="../style/home_page.css"/>
     <link rel="stylesheet" href="../style/add_pacchetto.css"/>
+    <link rel="stylesheet" href="../style/snackbar.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
@@ -27,7 +28,7 @@ include_once '../includes/db_connection.php';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-<! navbar>
+<!-- navbar-->
 <div class="navbg">
     <navbar>
         <div class="logo">
@@ -53,15 +54,15 @@ include_once '../includes/db_connection.php';
 <div class="bg-cover">
     <div class="form zoom">
         <img src="../drawable/3466640.png" class="avatar">
-        <form action="add_pacchetto.php" method="post" enctype="multipart/form-data">
-            <label for="nome">Nome del pacchetto:</label>
-            <input type="text" name="name" id="nome" placeholder="Nome Pacchetto" required>
+        <form id="form">
+            <label for="name">Nome del pacchetto:</label>
+            <input type="text" name="name" id="name" placeholder="Nome Pacchetto" required>
             <label for="desc">Descrizione:</label>
             <textarea type="text" name="desc" id="desc" cols="30" rows="10" placeholder="Descrizione Pacchetto"
                       required></textarea>
-            <label for="costo">Costo:</label>
-            <input type="number" name="price" id="costo" placeholder="Costo Pacchetto" required>
-            <input type="file" name="image" required>
+            <label for="price">Costo:</label>
+            <input type="number" name="price" id="price" placeholder="Costo Pacchetto" required>
+            <input type="file" name="image" id="image" required>
             <label for="albergo">Albergo: </label>
             <select id="albergo" name="albergo">
                 <?php
@@ -73,7 +74,7 @@ include_once '../includes/db_connection.php';
                     }
                 }
                 ?>
-            </select><br><br>
+            </select>
             <label>Attrazioni:</label><br>
             <?php
             if (isset($conn)) {
@@ -85,66 +86,13 @@ include_once '../includes/db_connection.php';
                 }
             }
             ?>
-            <button type="submit" name="aggiungi">Aggiungi</button>
+            <button id="aggiungi" type="submit" name="aggiungi">AGGIUNGI</button>
         </form>
 
     </div>
 </div>
 
-<?php
-if (isset($conn)) {
-    if (isset($_POST['aggiungi'])) {
-        $titolo = $_POST['name'];
-        $descrizione = $_POST['price'];
-        $costo = $_POST['price'];
-        $immagine = $_FILES['image']['name'];
-        $albergo = $_POST['albergo'];
-
-        $target = "../drawable/db/" . basename($_FILES['image']['name']);
-
-        // inserisci pacchetto
-        $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine, id_albergo) VALUES ('$titolo', '$descrizione', '$costo', '$immagine', '$albergo');";
-        $pacchetto_run = $conn->query($pacchetto_query);
-
-        // trova l'id del pacchetto appena caricato
-        $pacchetto_id_query = "SELECT MAX(id) as max_id FROM pacchetto;";
-        $pacchetto_id_result = $conn->query($pacchetto_id_query);
-        $pacchetto_id = $pacchetto_id_result->fetch_assoc()['max_id'];
-
-        // inserisci i collegamenti con le attrazioni
-        if (!empty($_POST['attr'])) {
-            foreach ($_POST['attr'] as $attrazione) {
-                $pac_attr_query = "INSERT INTO pacchetto_attrazione(id_pacchetto, id_attrazione) VALUES ('$pacchetto_id', '$attrazione');";
-                $pac_attr_run = $conn->query($pac_attr_query);
-            }
-        }
-
-        // inserisci l'immagine nel sito
-        $image_added = false;
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-            $image_added = true;
-        } else {
-            $image_added = false;
-        }
-
-        // controlla se la query è andata a buon fine
-        $boolean = true;
-        if (isset($pac_attr_run)) {
-            $boolean = $pac_attr_run;
-        }
-
-        if ($pacchetto_run && $boolean && $image_added) {
-            echo "Form submitted!";
-        } else {
-            echo "Form not submitted!";
-        }
-
-        $_POST = array();
-    }
-}
-?>
-
-<! Footer>
+<!-- Footer-->
 
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
@@ -180,6 +128,8 @@ if (isset($conn)) {
         integrity="sha512-Nx/M3T/fWprNarYOrnl+gfWZ25YlZtSNmhjHeC0+2gCtyAdDFXqaORJBj1dC427zt3z/HwkUpPX+cxzonjUgrA=="
         crossorigin="anonymous"></script>
 
+<script type="text/javascript" src="../javascript/utils.js"></script>
+
 <script>
     $(document).ready(function () {
 
@@ -188,6 +138,29 @@ if (isset($conn)) {
             $(".menu").toggleClass("menu--open");
         });
 
+        // Aggiungi al db
+        $("#form").on('submit', function (e) {
+            var data = new FormData($('#form')[0]);
+            data.append('image', $('#image')[0].files[0]);
+
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '../php/add_pacchetto.php',
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(json_data){
+                    const data_array = $.parseJSON(json_data);
+                    showSnackbar(data_array['text']);
+                    if (data_array['result'] === 'success') {
+                        $('#form input').val('');
+                        $('#form input[type=checkbox]').prop('checked', false);
+                        $('#form textarea').val('');
+                    }
+                }
+            });
+        });
     });
 
 
@@ -206,6 +179,15 @@ if (isset($conn)) {
         mobile: false
     });
 </script>
+
+<!-- Snackbar -->
+<div id='snackbar'></div>
+
+<?php
+if (isset($conn)) {
+    $conn->close();
+}
+?>
 
 </body>
 </html>

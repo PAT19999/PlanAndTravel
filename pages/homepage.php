@@ -29,7 +29,7 @@ include_once '../includes/db_connection.php';
 
 <body>
 
-<! schermata caricamento>
+<!-- schermata caricamento-->
 
 <div id="schermata_caricamento">
     <p>Caricamento in corso</p>
@@ -79,7 +79,7 @@ include_once '../includes/db_connection.php';
 </div>
 
 
-<! Mete più scelte con carousel>
+<!-- Mete più scelte con carousel-->
 <div class="mt-1">
     <div class="grid hero__content">
         <div class="col reveal">
@@ -112,7 +112,7 @@ include_once '../includes/db_connection.php';
     </div>
 </div>
 
-<! Pacchetti viaggio con carousel>
+<!-- Pacchetti viaggio con carousel-->
 <div class="mt-1 mb-1">
     <div class="grid hero__content">
         <div class="col reveal">
@@ -143,7 +143,7 @@ include_once '../includes/db_connection.php';
 </div>
 
 
-<! Footer>
+<!-- Footer-->
 
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
