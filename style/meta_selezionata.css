@@ -475,3 +475,14 @@ hr {
     margin-right: 2px;
     padding: 50px 20px 50px 20px;
 }
+.carousel-cell__content2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    line-height: 100px;
+    text-align: center;
+    transition: transform 0.5s;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
