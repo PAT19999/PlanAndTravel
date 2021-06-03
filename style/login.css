@@ -63,8 +63,9 @@ h1 {
 }
 
 .container i {
-    margin-left: -30px;
-    padding-top: 12px;
+    margin-left: 260px;
+    padding-top: 14px;
+    z-index: 10;
     cursor: pointer;
     position: absolute;
     color: white;

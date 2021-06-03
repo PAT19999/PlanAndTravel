@@ -133,7 +133,7 @@ navbar {
     transform: translateX(-50%);
     padding: 5px;
     display: flex;
-    max-width: 1350px;
+    max-width: 1380px;
     align-items: center;
 }
 
@@ -161,7 +161,7 @@ navbar {
 
 .menu li a {
     color: #fff;
-    padding: 11px;
+    padding: 8px;
     display: block;
     border-radius: 4px;
 }
