@@ -52,7 +52,7 @@
 <div class="login">
     <div class="loginbox zoom">
         <img src="../drawable/avatar.jpg" class="avatar">
-        <h1> Accedi Qui</h1>
+        <h1> Accedi</h1>
         <form id="form">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="Inserisci il tuo username" required>
@@ -62,6 +62,14 @@
                 <i class="far fa-eye" id="togglePassword"></i>
             </div>
             <button id="login" type="submit" name="login">LOGIN</button>
+
+            <!-- Rounded switch -->
+            <label for="switch">Account Aziendale</label>
+            <label id="switch" class="switch">
+                <input type="checkbox" name="agenzia" value="1">
+                <span class="slider round"></span>
+            </label>
+
             <a href="recupero_pass.html">Password dimenticata?</a><br>
             <a href="registrazione.html">Non hai un account? Registrati</a>
         </form>
@@ -126,12 +134,12 @@
                 type: 'post',
                 url: '../php/login.php',
                 data: $('form').serialize(),
-                success: function(json_data){
+                success: function (json_data) {
                     const data_array = $.parseJSON(json_data);
                     if (data_array['result'] === 'failure') {
                         showSnackbar(data_array['text']);
                     } else {
-                        window.location.href="profilo_utente.php";
+                        window.location.href = "profilo_utente.php";
                     }
                 }
             });

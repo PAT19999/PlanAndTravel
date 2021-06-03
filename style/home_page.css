@@ -177,6 +177,10 @@ navbar {
     padding-right: 3px;
 }
 
+.cta {
+    padding-right: 30px;
+}
+
 @media (max-width: 768px) {
     .cta {
         display: none;

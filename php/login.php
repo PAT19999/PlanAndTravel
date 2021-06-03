@@ -6,8 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $username = $conn->real_escape_string($_POST['username']);
         $password = $conn->real_escape_string($_POST['password']);
 
-        // trova l'utente
-        $user_sql = "SELECT * FROM utente WHERE username = '$username';";
+        if (isset($_POST['agenzia']) && $_POST['agenzia'] === '1') {
+            // trova l'agenzia
+            $user_sql = "SELECT * FROM agenzia WHERE username = '$username';";
+        } else {
+            // trova l'utente
+            $user_sql = "SELECT * FROM utente WHERE username = '$username';";
+        }
+
         $user_result = $conn->query($user_sql);
         if ($user_result) {
             if ($user_result->num_rows == 1) {
@@ -15,13 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 if (password_verify($password, $row['password'])) {
                     session_start();
 
+                    if (isset($_POST['agenzia']) && $_POST['agenzia'] === '1') {
+                        $_SESSION['isAgenzia'] = true;
+                        $_SESSION['piva'] = $row['piva'];
+                        $_SESSION['telefono'] = $row['telefono'];
+                        $_SESSION['verificata'] = $row['verificata'];
+                    } else {
+                        $_SESSION['isAgenzia'] = false;
+                        $_SESSION['cognome'] = $row['cognome'];
+                    }
+
                     $_SESSION['isLogged'] = true;
-                    $_SESSION['isAgenzia'] = false;
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['nome'] = $row['nome'];
-                    $_SESSION['cognome'] = $row['cognome'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['immagine'] = $row['immagine'];
+
                     $output = json_encode(
                         array(
                             'result' => 'success'

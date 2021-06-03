@@ -54,7 +54,7 @@ session_start();
         if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
             ?>
             <div class="cta">
-                <a href="profilo_utente.php" class="button">Login</a>
+                <a href="login.html" class="button">Login</a>
             </div>
             <?php
         } else {
