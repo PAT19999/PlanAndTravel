@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $username = $conn->real_escape_string($_POST['username']);
         $password = $conn->real_escape_string($_POST['password']);
         $passConfirm = $conn->real_escape_string($_POST['passConfirm']);
+        $immagine = "avatar.jpg";
 
         // controlla che passConfirm corrisponda a password
         if ($password !== $passConfirm) {
@@ -45,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             die($output);
         }
 
-        $insert_sql = "INSERT INTO utente(username, email, password, nome, cognome) VALUES ('$username', '$email', '$hashed_password', '$nome', '$cognome');";
+        $insert_sql = "INSERT INTO utente(username, email, password, nome, cognome, immagine) VALUES ('$username', '$email', '$hashed_password', '$nome', '$cognome', '$immagine');";
         $insert_run = $conn->query($insert_sql);
 
         if ($insert_run) {
@@ -57,6 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $_SESSION['nome'] = $nome;
             $_SESSION['cognome'] = $cognome;
             $_SESSION['email'] = $email;
+            $_SESSION['immagine'] = $immagine;
+
             $output = json_encode(
                 array(
                     'result' => 'success'

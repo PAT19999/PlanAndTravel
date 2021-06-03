@@ -1,17 +1,23 @@
+<?php
+include_once '../includes/db_connection.php';
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pacchetti agenzie</title>
+    <title>Mete</title>
     <link rel="shortcut icon" href="../drawable/logo-mini.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
           integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
           crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="../style/home_page.css"/>
-    <link rel="stylesheet" href="../style/pacchetti.css">
+    <link rel="stylesheet" href="../style/mete.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
@@ -34,13 +40,24 @@
         </div>
         <ul class="menu">
             <li><a href="homepage.php">Home</a></li>
-            <li><a href="mete.html">Mete</a></li>
-            <li><a href="pacchetti.html">Pacchetti</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="mete.php">Mete</a></li>
+            <li><a href="pacchetti.php">Pacchetti</a></li>
+            <li><a href="contatti.php">Contatti</a></li>
         </ul>
-        <div class="cta">
-            <a href="profilo_utente.php" class="button">Login</a>
-        </div>
+        <?php
+        if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
+            echo '<div class="cta">',
+            '<a href="profilo_utente.php" class="button">Login</a>',
+            '</div>';
+        } else {
+            echo '<div class="profilo">',
+            '<div class="foto">',
+            '<a href="profilo_utente.php"/a>',
+                '<img src="../drawable/db/' . $_SESSION['immagine'] . '">',
+            '</div>',
+            '</div>';
+        }
+        ?>
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -51,7 +68,7 @@
 
 <div class="container">
     <div class="col">
-        <h5 class="big-text">Pacchetti offerti dalle nostre agenzie partner</h5>
+        <h5 class="big-text">Scegli una meta e cliccala per avere maggiori informazioni</h5>
         <div class="card card1">
             <div class="text">
                 <h5>Western Desert</h5>
@@ -90,7 +107,7 @@
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
     <a class="trans-color-text" href="#">info@plan&travel.com</a> | <span itemprop="telephone"><a
         href="#">0883 200300</a></span>
-    <br><a href="privacy_and_cookies.html"> privacy</a> | <a href="privacy_and_cookies.html"> cookie policy</a>
+    <br><a href="privacy_and_cookies.php"> privacy</a> | <a href="privacy_and_cookies.php"> cookie policy</a>
 
     <div class="social-cont">
         <ul class="social-list">
