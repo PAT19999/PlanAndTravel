@@ -71,6 +71,9 @@ session_start();
 
 <div class="meta">
     <h1 class="big-text">Pacchetto selezionato: lalalallala</h1>
+    <div class="stage">
+        <div class="heart"></div>
+    </div>
     <div class="row row1">
         <div class="sezione_img">
             <div class="container">
@@ -140,13 +143,12 @@ session_start();
                 </div>
             </div>
         </div>
-
         <div class="col">
             <div id="descrizione">
-                <h2>Descrizione del pacchetto</h2>
+                <h1 class="desc">Descrizione del pacchetto</h2>
                 <p>Testo di prova che ahhahdddoadk</p>
 
-                <h2>Filtri</h2>
+                <h1 class="desc">Filtri</h2>
                 <span class="label filtro_1">Provola</span>
                 <span class="label filtro_2">filtro_2</span>
                 <span class="label filtro_3">filtro_3</span>
@@ -155,6 +157,7 @@ session_start();
             </div>
         </div>
     </div>
+
     <div class="container">
         <button type="button" class="collapsible"><h6>Pacchetti Viaggio simili</h6></button>
         <div class="contents">
@@ -210,16 +213,53 @@ session_start();
         </div>
     </div>
 
+    <div class="container1">
+        <div class="recensioni">
+            <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una
+                recensione!
+            </button1>
+            <div id="id01" class="modal1">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <form class="modal-content" action="/action_page.php">
+                    <div class="container2">
+                        <h2 style="font-size: 20px">Lascia una recensione!</h2>
+                        <p>Si prega di compilare questo modulo per lasciare una recensione.</p>
+                        <hr>
+                        <label for="Titolo"><b>Titolo</b></label>
+                        <input type="text" placeholder="Inserisci un titolo" name="titolo" required>
 
+                        <label for="subject">Recensione</label>
+                        <textarea id="subject" name="subject" required placeholder="Scrivi qualcosa..."
+                                  style="height:200px"></textarea>
+
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5"/>
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4"/>
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3"/>
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2"/>
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1"/>
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+
+                        <p style="padding-top: 65px">By leaving a review you agree to our <a href="privacy_and_cookies.php" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                        <div class="clearfix">
+                            <button1 type="button" onclick="document.getElementById('id01').style.display='none'"
+                                     class="cancelbtn">Chiudi
+                            </button1>
+                            <button1 type="submit" class="signupbtn">Invia</button1>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-<div class="recensioni">
-    <h2>Recensioni degli utenti</h2>
-    <p>varie recensioni</p>
-</div>
-
-</div>
 
 <! Footer>
 
@@ -338,6 +378,25 @@ session_start();
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
         captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+    $(function () {
+        $(".heart").on("click", function () {
+            $(this).toggleClass("is-active");
+        });
+    });
+</script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
 </script>
 </body>
