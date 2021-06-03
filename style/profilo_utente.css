@@ -47,3 +47,19 @@
     border-color: black;
     border: 1px solid;
 }
+
+.file_label {
+    background-color: #0045b5;
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.file_label:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background: #0069c3;
+}

@@ -51,14 +51,17 @@ session_start();
 <!-- Box generico-->
 <div class="boxutente">
 
-    <! Box profilo>
+    <!-- Box profilo-->
     <div class="profilo">
         <h1 class="big-text">Il mio profilo</h1>
         <div class="foto">
             <?php
             echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">';
             ?>
-
+            <div class="file_div">
+                <input type="file" id="image" name="image" hidden required/>
+                <label for="image" class="file_label">Cambia Immagine</label>
+            </div>
         </div>
     </div>
 
@@ -82,16 +85,7 @@ session_start();
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-<! Footer>
+<!-- Footer-->
 
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
@@ -136,7 +130,6 @@ session_start();
     ScrollReveal().reveal('.reveal',  { distance: '100px', duration: 1500, easing: 'cubic-bezier(.215, .61, .355, 1)', interval: 600 });
 
     ScrollReveal().reveal('.zoom',  { duration: 1500, easing: 'cubic-bezier(.215, .61, .355, 1)', interval: 200, scale: 0.65, mobile: false});
-
 </script>
 </body>
 </html>

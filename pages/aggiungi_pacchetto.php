@@ -84,7 +84,7 @@ session_start();
 
             <div class="file_div">
                 <input type="file" id="image" name="image" hidden required/>
-                <label for="image" class="file_label">Scegli File</label>
+                <label for="image" class="file_label">Carica Immagine</label>
                 <span id="file-chosen">Nessun file selezionato</span>
             </div>
 
