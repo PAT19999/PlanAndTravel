@@ -54,7 +54,8 @@ session_start();
             <div class="profilo">
                 <div class="foto">
                     <a href="profilo_utente.php">
-                        <?php echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">' ?> </a>
+                        <?php echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">' ?>
+                    </a>
                 </div>
             </div>
             <?php
