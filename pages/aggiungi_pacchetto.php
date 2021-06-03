@@ -81,10 +81,14 @@ session_start();
                       required></textarea>
             <label for="price">Costo:</label>
             <input type="number" name="price" id="price" placeholder="Costo Pacchetto" required>
-            <div class="upload-btn-wrapper">
-                <button class="btn">Carica immagine</button>
-                <input type="file" name="myfile"/>
+
+            <div class="file_div">
+                <input type="file" id="image" name="image" hidden required/>
+                <label for="image" class="file_label">Scegli File</label>
+                <span id="file-chosen">Nessun file selezionato</span>
             </div>
+
+
             <label for="albergo">Albergo: </label>
             <select id="albergo" name="albergo">
                 <?php
@@ -200,6 +204,13 @@ session_start();
         scale: 0.65,
         mobile: false
     });
+
+    // file button
+    const actualBtn = document.getElementById('image');
+    const fileChosen = document.getElementById('file-chosen');
+    actualBtn.addEventListener('change', function(){
+        fileChosen.textContent = this.files[0].name
+    })
 </script>
 
 <!-- Snackbar -->

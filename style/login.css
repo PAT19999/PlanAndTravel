@@ -86,7 +86,6 @@ h1 {
     color: #f5f5f5;
     font-size: 20px;
     border-radius: 4px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .loginbox button:hover {
