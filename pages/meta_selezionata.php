@@ -212,14 +212,48 @@ session_start();
             </div>
         </div>
     </div>
-</div>
 
 
-<div class="recensioni">
-    <h2>Recensioni degli utenti</h2>
-    <p>varie recensioni</p>
-</div>
+    <div class="container">
+        <div class="recensioni">
+            <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una recensione!</button1>
+            <div id="id01" class="modal">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <form class="modal-content" action="/action_page.php">
+                    <div class="container">
+                        <h1>Lascia una recensione!</h1>
+                        <p>Si prega di compilare questo modulo per lasciare una recensione.</p>
+                        <hr>
+                        <label for="Titolo"><b>Titolo</b></label>
+                        <input type="text" placeholder="Inserisci un titolo" name="titolo" required>
 
+                        <label for="subject">Recensione</label>
+                        <textarea id="subject" name="subject" required placeholder="Scrivi qualcosa..." style="height:200px"></textarea>
+
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+
+                        <p style="padding-top: 65px">By leaving a review you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Chiudi</button>
+                            <button type="submit" class="signupbtn">Invia</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <! Footer>
@@ -348,6 +382,17 @@ session_start();
             $(this).toggleClass("is-active");
         });
     });
+</script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
 </body>
 </html>
