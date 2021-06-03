@@ -76,7 +76,7 @@ session_start();
             <label for="price">Costo:</label>
             <input type="number" name="price" id="price" placeholder="Costo Pacchetto" required>
             <div class="upload-btn-wrapper">
-                <button class="btn">Upload a file</button>
+                <button class="btn">Carica immagine</button>
                 <input type="file" name="myfile" />
             </div>
             <label for="albergo">Albergo: </label>

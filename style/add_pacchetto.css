@@ -127,7 +127,6 @@ label input[type="number"] {
     width: 100%;
     margin-bottom: 20px;
 }
-
 .upload-btn-wrapper {
     position: relative;
     overflow: hidden;
@@ -135,13 +134,10 @@ label input[type="number"] {
 }
 
 .btn {
-    border: 2px solid gray;
-    color: gray;
-    background-color: white;
     padding: 8px 20px;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: bold;
+    border-radius: 20px;
+    font-size: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.56);
 }
 
 .upload-btn-wrapper input[type=file] {
@@ -149,5 +145,6 @@ label input[type="number"] {
     position: absolute;
     left: 0;
     top: 0;
-    opacity: 0;
+    opacity:0;
+
 }
