@@ -44,18 +44,23 @@ session_start();
         </ul>
         <?php
         if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
-            echo '<div class="cta">',
-            '<a href="profilo_utente.php" class="button">Login</a>',
-            '</div>';
+            ?>
+            <div class="cta">
+                <a href="profilo_utente.php" class="button">Login</a>
+            </div>
+            <?php
         } else {
-            echo '<div class="profilo">',
-            '<div class="foto">',
-            '<a href="profilo_utente.php"></a>',
-                '<img src="../drawable/db/' . $_SESSION['immagine'] . '">',
-            '</div>',
-            '</div>';
+            ?>
+            <div class="profilo">
+                <div class="foto">
+                    <a href="profilo_utente.php">
+                        <?php echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">' ?>
+                </div>
+            </div>
+            <?php
         }
         ?>
+
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -216,7 +221,9 @@ session_start();
 
     <div class="container2">
         <div class="recensioni">
-            <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una recensione!</button1>
+            <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una
+                recensione!
+            </button1>
             <div id="id01" class="modal">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <form class="modal-content" action="/action_page.php">
@@ -228,25 +235,30 @@ session_start();
                         <input type="text" placeholder="Inserisci un titolo" name="titolo" required>
 
                         <label for="subject">Recensione</label>
-                        <textarea id="subject" name="subject" required placeholder="Scrivi qualcosa..." style="height:200px"></textarea>
+                        <textarea id="subject" name="subject" required placeholder="Scrivi qualcosa..."
+                                  style="height:200px"></textarea>
 
                         <div class="rate">
-                            <input type="radio" id="star5" name="rate" value="5" />
+                            <input type="radio" id="star5" name="rate" value="5"/>
                             <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4" />
+                            <input type="radio" id="star4" name="rate" value="4"/>
                             <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3" />
+                            <input type="radio" id="star3" name="rate" value="3"/>
                             <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2" />
+                            <input type="radio" id="star2" name="rate" value="2"/>
                             <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1" />
+                            <input type="radio" id="star1" name="rate" value="1"/>
                             <label for="star1" title="text">1 star</label>
                         </div>
 
-                        <p style="padding-top: 65px">By leaving a review you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                        <p style="padding-top: 65px">By leaving a review you agree to our <a href="#"
+                                                                                             style="color:dodgerblue">Terms
+                                & Privacy</a>.</p>
 
                         <div class="clearfix">
-                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Chiudi</button>
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                                    class="cancelbtn">Chiudi
+                            </button>
                             <button1 type="submit" class="signupbtn">Invia</button1>
                         </div>
                     </div>
@@ -377,8 +389,8 @@ session_start();
 </script>
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>
-    $(function() {
-        $(".heart").on("click", function() {
+    $(function () {
+        $(".heart").on("click", function () {
             $(this).toggleClass("is-active");
         });
     });
@@ -388,7 +400,7 @@ session_start();
     var modal = document.getElementById('id01');
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
