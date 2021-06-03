@@ -219,7 +219,7 @@ session_start();
     </div>
 
 
-    <div class="container2">
+    <div class="container1">
         <div class="recensioni">
             <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una
                 recensione!
@@ -228,7 +228,7 @@ session_start();
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <form class="modal-content" action="/action_page.php">
                     <div class="container2">
-                        <h1>Lascia una recensione!</h1>
+                        <h2 style="font-size: 20px">Lascia una recensione!</h2>
                         <p>Si prega di compilare questo modulo per lasciare una recensione.</p>
                         <hr>
                         <label for="Titolo"><b>Titolo</b></label>
@@ -251,14 +251,12 @@ session_start();
                             <label for="star1" title="text">1 star</label>
                         </div>
 
-                        <p style="padding-top: 65px">By leaving a review you agree to our <a href="#"
-                                                                                             style="color:dodgerblue">Terms
-                                & Privacy</a>.</p>
+                        <p style="padding-top: 65px">By leaving a review you agree to our <a href="privacy_and_cookies.php" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
                         <div class="clearfix">
-                            <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                            <button1 type="button" onclick="document.getElementById('id01').style.display='none'"
                                     class="cancelbtn">Chiudi
-                            </button>
+                            </button1>
                             <button1 type="submit" class="signupbtn">Invia</button1>
                         </div>
                     </div>

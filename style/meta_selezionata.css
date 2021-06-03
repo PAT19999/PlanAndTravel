@@ -361,10 +361,12 @@ button1:hover {
 }
 
 /* Add padding to container elements */
-.container2 {
-    padding: 20px;
+.container1 {
+    padding-top: 40px;
 }
-
+.container2 {
+    padding: 50px 40px 40px 40px;
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -425,10 +427,9 @@ hr {
 
 /* Stelle di valutazione */
 .rate {
-    height: 46px;
+    height: 30px;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 10px;
     float: left;
 }
 .rate:not(:checked) > input {
