@@ -38,7 +38,7 @@ include_once '../includes/db_connection.php';
             <li><a href="homepage.php">Home</a></li>
             <li><a href="mete.html">Mete</a></li>
             <li><a href="pacchetti.html">Pacchetti</a></li>
-            <li><a href="contatti.php">Contatti</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
         </ul>
         <div class="cta">
             <a href="profilo_utente.php" class="button"> Login</a>

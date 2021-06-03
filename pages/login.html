@@ -12,6 +12,7 @@
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="../style/home_page.css"/>
     <link rel="stylesheet" href="../style/login.css">
+    <link rel="stylesheet" href="../style/snackbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
@@ -36,7 +37,7 @@
             <li><a href="homepage.php">Home</a></li>
             <li><a href="mete.html">Mete</a></li>
             <li><a href="pacchetti.html">Pacchetti</a></li>
-            <li><a href="contatti.php">Contatti</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
         </ul>
         <div class="hamburger">
             <span></span>
@@ -52,15 +53,15 @@
     <div class="loginbox zoom">
         <img src="../drawable/avatar.jpg" class="avatar">
         <h1> Accedi Qui</h1>
-        <form action="../php/login.php" method="post" enctype="multipart/form-data">
+        <form id="form">
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Inserisci il tuo username">
+            <input type="text" name="username" id="username" placeholder="Inserisci il tuo username" required>
             <label for="password">Password</label>
             <div class="container">
-                <input type="password" name="password" id="password" placeholder="Inserisci la password">
+                <input type="password" name="password" id="password" placeholder="Inserisci la password" required>
                 <i class="far fa-eye" id="togglePassword"></i>
             </div>
-            <input type="submit" name="login" value="Login">
+            <button id="login" type="submit" name="login">LOGIN</button>
             <a href="recupero_pass.html">Password dimenticata?</a><br>
             <a href="registrazione.html">Registrati</a>
         </form>
@@ -108,6 +109,8 @@
         integrity="sha512-Nx/M3T/fWprNarYOrnl+gfWZ25YlZtSNmhjHeC0+2gCtyAdDFXqaORJBj1dC427zt3z/HwkUpPX+cxzonjUgrA=="
         crossorigin="anonymous"></script>
 
+<script type="text/javascript" src="../javascript/utils.js"></script>
+
 <script>
     $(document).ready(function () {
 
@@ -116,6 +119,23 @@
             $(".menu").toggleClass("menu--open");
         });
 
+        // Log in
+        $("#form").on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '../php/login.php',
+                data: $('form').serialize(),
+                success: function(json_data){
+                    const data_array = $.parseJSON(json_data);
+                    if (data_array['result'] === 'failure') {
+                        showSnackbar(data_array['text']);
+                    } else {
+                        window.location.href="profilo_utente.php";
+                    }
+                }
+            });
+        });
     });
 
 
@@ -136,6 +156,8 @@
 
 </script>
 
+<!-- Snackbar -->
+<div id='snackbar'></div>
 
 </body>
 </html>

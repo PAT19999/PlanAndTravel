@@ -12,6 +12,7 @@
           crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="../style/home_page.css"/>
+    <link rel="stylesheet" href="../style/snackbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
@@ -37,7 +38,7 @@
             <li><a href="homepage.php">Home</a></li>
             <li><a href="mete.html">Mete</a></li>
             <li><a href="pacchetti.html">Pacchetti</a></li>
-            <li><a href="contatti.php">Contatti</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
         </ul>
         <div class="cta">
             <a href="profilo_utente.php" class="button">Login</a>
@@ -50,12 +51,12 @@
     </navbar>
 </div>
 
-<! registrazione>
+<!-- registrazione -->
 <div class="registrazione">
     <div class="registrabox">
         <img src="../drawable/avatarRegi.png" class="avatar">
         <h1> Registrati </h1>
-        <form action="../php/register.php" method="POST">
+        <form id="form">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required>
             <label for="nome">Nome</label>
@@ -69,7 +70,7 @@
             <label for="passConfirm"> Conferma la Password</label>
             <input type="password" name="passConfirm" id="passConfirm"
                    placeholder="Inserisci nuovamente la tua Password" required>
-            <input type="submit" name="registrati" value="Registrati">
+            <button type="submit" name="registrati">REGISTRATI</button>
         </form>
     </div>
 </div>
@@ -115,6 +116,8 @@
         integrity="sha512-Nx/M3T/fWprNarYOrnl+gfWZ25YlZtSNmhjHeC0+2gCtyAdDFXqaORJBj1dC427zt3z/HwkUpPX+cxzonjUgrA=="
         crossorigin="anonymous"></script>
 
+<script type="text/javascript" src="../javascript/utils.js"></script>
+
 <script>
     $(document).ready(function () {
 
@@ -123,6 +126,23 @@
             $(".menu").toggleClass("menu--open");
         });
 
+        // Log in
+        $("#form").on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '../php/register.php',
+                data: $('form').serialize(),
+                success: function(json_data){
+                    const data_array = $.parseJSON(json_data);
+                    if (data_array['result'] === 'failure') {
+                        showSnackbar(data_array['text']);
+                    } else {
+                        window.location.href="profilo_utente.php";
+                    }
+                }
+            });
+        });
     });
 
 
@@ -143,6 +163,8 @@
 
 </script>
 
+<!-- Snackbar -->
+<div id='snackbar'></div>
 
 </body>
 </html>

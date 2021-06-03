@@ -1,22 +1,21 @@
 <?php
 include_once '../includes/db_connection.php';
-session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contatti</title>
+    <title>Pacchetto selezionato</title>
     <link rel="shortcut icon" href="../drawable/logo-mini.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
           integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
           crossorigin="anonymous"/>
-
     <link rel="stylesheet" href="../style/home_page.css"/>
-    <link rel="stylesheet" href="../style/contatti.css">
+    <link rel="stylesheet" href="../style/add_pacchetto.css"/>
+    <link rel="stylesheet" href="../style/snackbar.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
@@ -28,20 +27,18 @@ session_start();
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<! navbar>
+<!-- navbar-->
 <div class="navbg">
     <navbar>
-        <div class="logo ">
+        <div class="logo">
             <img src="../drawable/navbar-logo.png" alt="logo-sito">
         </div>
         <ul class="menu">
             <li><a href="homepage.php">Home</a></li>
             <li><a href="mete.html">Mete</a></li>
             <li><a href="pacchetti.html">Pacchetti</a></li>
-            <li><a href="#">Contatti</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
         </ul>
         <div class="cta">
             <a href="profilo_utente.php" class="button"> Login</a>
@@ -54,77 +51,48 @@ session_start();
     </navbar>
 </div>
 
-<! contatti>
-<div class="contatti">
+<div class="bg-cover">
+    <div class="form zoom">
+        <img src="../drawable/3466640.png" class="avatar">
+        <form id="form">
+            <label for="name">Nome del pacchetto:</label>
+            <input type="text" name="name" id="name" placeholder="Nome Pacchetto" required>
+            <label for="desc">Descrizione:</label>
+            <textarea type="text" name="desc" id="desc" cols="30" rows="10" placeholder="Descrizione Pacchetto"
+                      required></textarea>
+            <label for="price">Costo:</label>
+            <input type="number" name="price" id="price" placeholder="Costo Pacchetto" required>
+            <input type="file" name="image" id="image" required>
+            <label for="albergo">Albergo: </label>
+            <select id="albergo" name="albergo">
+                <?php
+                if (isset($conn)) {
+                    $albergo_query = "SELECT * FROM albergo;";
+                    $albergo_result = $conn->query($albergo_query);
+                    foreach ($albergo_result as $row) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
+                    }
+                }
+                ?>
+            </select>
+            <label>Attrazioni:</label><br>
+            <?php
+            if (isset($conn)) {
+                $attrazione_query = "SELECT * FROM attrazione;";
+                $attrazione_result = $conn->query($attrazione_query);
+                foreach ($attrazione_result as $row) {
+                    echo "<input type='checkbox' name='attr[]' value='" . $row['id'] . "'>";
+                    echo "<label for='attr[]'>" . $row['nome'] . "</label>";
+                }
+            }
+            ?>
+            <button id="aggiungi" type="submit" name="aggiungi">AGGIUNGI</button>
+        </form>
 
-    <div class="zoom">
-
-        <h2 align="center" class="big-text">Contatti:</h2>
-        <p align="center">
-            Telefono: 0883 200300 <br>
-            E-mail: info@plan&travel.com
-        </p>
-        <h2 align="center" class="big-text">Dove siamo:</h2>
-        <div align="center">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.176813203157!2d16.876739015280478!3d41.10882937929088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347e84f6b3975e1%3A0xb00d07e6c3cc2e4c!2sPolitecnico%20di%20Bari!5e0!3m2!1sit!2sit!4v1619378885087!5m2!1sit!2sit"
-                    width="70%" max-width="100%" height="300" align-items="center" ; allowfullscreen="" loading="lazy">
-            </iframe>
-        </div>
-
-
-        <div class="form reveal">
-            <form action="contatti.php" method="post" enctype="multipart/form-data">
-                <h1 class="normal-text">Per maggiori informazioni scrivici!</h1>
-                <input name="nome" type="text" class="feedback-input" placeholder="Nome"/>
-
-                <input name="cognome" type="text" class="feedback-input" placeholder="Cognome"/>
-
-                <input name="email" type="text" class="feedback-input" placeholder="Email"/>
-
-                <textarea name="testo" class="feedback-input" placeholder="Oggetto"></textarea>
-
-                <button type="submit" name="invia">INVIA</button>
-            </form>
-        </div>
     </div>
 </div>
 
-<! Carica nel database >
-<?php
-if (isset($conn)) {
-    if (isset($_POST['invia'])) {
-        if (!empty($_POST['nome']) && !empty($_POST['cognome']) && !empty($_POST['email']) && !empty($_POST['testo'])) {
-            $nome = $_POST['nome'];
-            $cognome = $_POST['cognome'];
-            $email = $_POST['email'];
-            $oggetto = $_POST['testo'];
-
-            if (isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === true) {
-                $username = $_SESSION['username'];
-            }
-
-            if (isset($username)) {
-                $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto, username) VALUES ('$nome', '$cognome', '$email', '$oggetto', '$username');";
-            } else {
-                $contatti_sql = "INSERT INTO richiesta(nome, cognome, email, oggetto) VALUES ('$nome', '$cognome', '$email', '$oggetto');";
-            }
-
-            $contatti_run = $conn->query($contatti_sql);
-
-            if ($contatti_run) {
-                echo "<p>Form submitted!</p>";
-            } else {
-                echo "<p>Form not submitted!</p>";
-            }
-        } else {
-            echo "<p>All fields required</p>";
-        }
-        $_POST = array();
-    }
-}
-?>
-
-<! Footer>
+<!-- Footer-->
 
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
@@ -150,10 +118,7 @@ if (isset($conn)) {
         <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel"
                                     alt="Icona Plan&Travel"></a>
     </div>
-
 </footer>
-
-
 <!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -163,6 +128,8 @@ if (isset($conn)) {
         integrity="sha512-Nx/M3T/fWprNarYOrnl+gfWZ25YlZtSNmhjHeC0+2gCtyAdDFXqaORJBj1dC427zt3z/HwkUpPX+cxzonjUgrA=="
         crossorigin="anonymous"></script>
 
+<script type="text/javascript" src="../javascript/utils.js"></script>
+
 <script>
     $(document).ready(function () {
 
@@ -171,6 +138,29 @@ if (isset($conn)) {
             $(".menu").toggleClass("menu--open");
         });
 
+        // Aggiungi al db
+        $("#form").on('submit', function (e) {
+            var data = new FormData($('#form')[0]);
+            data.append('image', $('#image')[0].files[0]);
+
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '../php/add_pacchetto.php',
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(json_data){
+                    const data_array = $.parseJSON(json_data);
+                    showSnackbar(data_array['text']);
+                    if (data_array['result'] === 'success') {
+                        $('#form input').val('');
+                        $('#form input[type=checkbox]').prop('checked', false);
+                        $('#form textarea').val('');
+                    }
+                }
+            });
+        });
     });
 
 
@@ -188,9 +178,16 @@ if (isset($conn)) {
         scale: 0.65,
         mobile: false
     });
-
 </script>
 
+<!-- Snackbar -->
+<div id='snackbar'></div>
+
+<?php
+if (isset($conn)) {
+    $conn->close();
+}
+?>
 
 </body>
 </html>

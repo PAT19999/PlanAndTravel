@@ -1,20 +1,18 @@
-<?php
-include_once '../includes/db_connection.php';
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Plan & Travel - Homepage</title>
+    <title>Contatti</title>
     <link rel="shortcut icon" href="../drawable/logo-mini.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
           integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
           crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="../style/home_page.css"/>
+    <link rel="stylesheet" href="../style/contatti.css">
+    <link rel="stylesheet" href="../style/snackbar.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
@@ -29,13 +27,6 @@ include_once '../includes/db_connection.php';
 
 <body>
 
-<!-- schermata caricamento-->
-
-<div id="schermata_caricamento">
-    <p>Caricamento in corso</p>
-    <img src="../drawable/logo-mini.png" alt="logo-sito">
-</div>
-
 <! navbar>
 <div class="navbg">
     <navbar>
@@ -43,13 +34,13 @@ include_once '../includes/db_connection.php';
             <img src="../drawable/navbar-logo.png" alt="logo-sito">
         </div>
         <ul class="menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="homepage.php">Home</a></li>
             <li><a href="mete.html">Mete</a></li>
             <li><a href="pacchetti.html">Pacchetti</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="#">Contatti</a></li>
         </ul>
         <div class="cta">
-            <a href="profilo_utente.php" class="button">Login</a>
+            <a href="profilo_utente.php" class="button"> Login</a>
         </div>
         <div class="hamburger">
             <span></span>
@@ -59,91 +50,42 @@ include_once '../includes/db_connection.php';
     </navbar>
 </div>
 
-<! Hero>
+<! contatti>
+<div class="contatti">
 
-<div class="hero">
-    <div class="hero__content reveal">
-        <div class="intro-text" id="messaggio"></div>
-        <h1 class="big-text" style="color: white">Il team di sviluppo ha sempre seguito con particolare interesse
-            l’evoluzione tecnologica e il sopravvento
-            di nuove tendenze permettendo così la realizzazione di un sito responsivo ed intuitivo attraverso il quale
-            l’utente
-            può considerare numerosi aspetti che spesso vengono ignorati quando si pianifica una vacanza,
-            tra cui: eventi ed usanze locali, clima, costo della vita, qualità della vita, attrazioni e molto altro
-            ancora.</h1>
-        <a href="#linkscopri" class="button">Scopri di più...</a>
-    </div>
-    <video autoplay muted loop id="video-back">
-        <source src="../drawable/bg-video.mp4" type="video/mp4">
-    </video>
-</div>
+    <div class="zoom">
 
-
-<!-- Mete più scelte con carousel-->
-<div class="mt-1">
-    <div class="grid hero__content">
-        <div class="col reveal">
-            <a name="linkscopri"></a>
-            <h3 class="big-text">Mete più scelte:</h3>
+        <h2 align="center" class="big-text">Contatti:</h2>
+        <p align="center">
+            Telefono: 0883 200300 <br>
+            E-mail: info@plan&travel.com
+        </p>
+        <h2 align="center" class="big-text">Dove siamo:</h2>
+        <div align="center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.176813203157!2d16.876739015280478!3d41.10882937929088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347e84f6b3975e1%3A0xb00d07e6c3cc2e4c!2sPolitecnico%20di%20Bari!5e0!3m2!1sit!2sit!4v1619378885087!5m2!1sit!2sit"
+                    width="70%" max-width="100%" height="300" align-items="center" ; allowfullscreen="" loading="lazy">
+            </iframe>
         </div>
-        <div class="col reveal">
-            <h2>Scopri nuove mete tra le più selezionate dai nostri clienti!</h2>
+
+
+        <div class="form reveal">
+            <form id="form">
+                <h1 class="normal-text">Per maggiori informazioni scrivici!</h1>
+                <input name="nome" type="text" class="feedback-input" placeholder="Nome" required/>
+
+                <input name="cognome" type="text" class="feedback-input" placeholder="Cognome" required/>
+
+                <input name="email" type="email" class="feedback-input" placeholder="Email" required/>
+
+                <textarea name="testo" class="feedback-input" placeholder="Oggetto" required></textarea>
+
+                <button id="invia" type="submit" name="invia">INVIA</button>
+            </form>
         </div>
-    </div>
-
-    <div class="main-carousel hero__content flickity-enabled is-draggable"
-         data-flickity='{ "cellAlign": "left","contain": true }'>
-        <?php
-        if (isset($conn)) {
-            $meta_sql = "SELECT * FROM meta_turistica;";
-            $meta_result = $conn->query($meta_sql);
-            foreach ($meta_result as $row) {
-                ?>
-                <div class="carousel-cell">
-                    <div class="carousel-cell__content zoom"
-                         style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
-                        <h5><?php echo $row['nome'] ?></h5>
-                    </div>
-                </div>
-
-                <?php
-            }
-        } ?>
     </div>
 </div>
 
-<!-- Pacchetti viaggio con carousel-->
-<div class="mt-1 mb-1">
-    <div class="grid hero__content">
-        <div class="col reveal">
-            <h3 class="big-text">Pacchetti viaggio:</h3>
-        </div>
-        <div class="col reveal">
-            <h2>Scopri i pacchetti selezionati e offerti su misura per te dalle nostre agenzie partner!</h2>
-        </div>
-    </div>
-
-    <div class="main-carousel hero__content"
-         data-flickity='{ "cellAlign": "left", "contain": true }'><?php
-        if (isset($conn)) {
-            $pacchetto_sql = "SELECT * FROM pacchetto;";
-            $pacchetto_result = $conn->query($pacchetto_sql);
-            foreach ($pacchetto_result as $row) {
-                ?>
-                <div class="carousel-cell">
-                    <div class="carousel-cell__content1 zoom"
-                         style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
-                        <h5><?php echo $row['titolo'] ?></h5>
-                    </div>
-                </div>
-                <?php
-            }
-        } ?>
-    </div>
-</div>
-
-
-<!-- Footer-->
+<! Footer>
 
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
@@ -182,16 +124,34 @@ include_once '../includes/db_connection.php';
         integrity="sha512-Nx/M3T/fWprNarYOrnl+gfWZ25YlZtSNmhjHeC0+2gCtyAdDFXqaORJBj1dC427zt3z/HwkUpPX+cxzonjUgrA=="
         crossorigin="anonymous"></script>
 
+<script type="text/javascript" src="../javascript/utils.js"></script>
+
 <script>
     $(document).ready(function () {
-        /* Open Panel */
+        // Open Panel
         $(".hamburger").on('click', function () {
-            $(".menu").toggleClass('menu--open');
+            $(".menu").toggleClass("menu--open");
         });
 
+        // Submit form
+        $("#form").on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '../php/add_richiesta.php',
+                data: $('form').serialize(),
+                success: function(json_data){
+                    const data_array = $.parseJSON(json_data);
+                    showSnackbar(data_array['text']);
+                    if (data_array['result'] === 'success') {
+                        $('#form input').val('');
+                        $('#form textarea').val('');
+                    }
+                }
+            });
+        });
     });
 
-    $("#schermata_caricamento").fadeOut(500);
 
     ScrollReveal().reveal('.reveal', {
         distance: '100px',
@@ -207,22 +167,10 @@ include_once '../includes/db_connection.php';
         scale: 0.65,
         mobile: false
     });
+</script>
 
-</script>
-<script type="text/javascript">
-    var d = new Date();
-    var h = d.getHours();
-    var saluto;
-    if (h < 12) {
-        saluto = "Buongiorno!";
-    } else if (h < 17) {
-        saluto = "Buon pomeriggio!";
-    } else {
-        saluto = "Buona sera!";
-    }
-    var el = document.getElementById('messaggio');
-    el.textContent = saluto;
-</script>
+<!-- Snackbar -->
+<div id='snackbar'></div>
 
 </body>
 </html>
