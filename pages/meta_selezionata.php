@@ -17,7 +17,6 @@ session_start();
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="../style/home_page.css"/>
     <link rel="stylesheet" href="../style/meta_selezionata.css"/>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
           crossorigin="anonymous"/>
@@ -67,6 +66,9 @@ session_start();
 
 <div class="meta">
     <h1 class="big-text">Meta selezionata: San Francisco</h1>
+    <div class="stage">
+        <div class="heart"></div>
+    </div>
     <div class="row row1">
         <div class="sezione_img">
             <div class="container">
@@ -338,6 +340,14 @@ session_start();
         dots[slideIndex - 1].className += " active";
         captionText.innerHTML = dots[slideIndex - 1].alt;
     }
+</script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+    $(function() {
+        $(".heart").on("click", function() {
+            $(this).toggleClass("is-active");
+        });
+    });
 </script>
 </body>
 </html>
