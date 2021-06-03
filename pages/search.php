@@ -2,11 +2,13 @@
 
 include_once '../includes/db_connection.php';
 
-/*try {
+/*
+  try {
     $db = new PDO("mysql:host=localhost","root","");
 } catch (PDOException $e){
     echo $e->getMessage();
-}*/
+}
+*/
 
 $db = new PDO("mysql:host=localhost","root","");
 
