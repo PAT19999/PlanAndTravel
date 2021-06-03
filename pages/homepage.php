@@ -83,7 +83,7 @@ session_start();
 <div class="hero">
     <div class="hero__content reveal">
         <div class="intro-text" id="messaggio"></div>
-        <h1 class="big-text" style="color: white">Il team di sviluppo ha sempre seguito con particolare interesse
+        <h1 class="big-text" style="color: white">Plan&Travel ha sempre seguito con particolare interesse
             l’evoluzione tecnologica e il sopravvento
             di nuove tendenze permettendo così la realizzazione di un sito responsivo ed intuitivo attraverso il quale
             l’utente
