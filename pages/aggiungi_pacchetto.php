@@ -75,7 +75,10 @@ session_start();
                       required></textarea>
             <label for="price">Costo:</label>
             <input type="number" name="price" id="price" placeholder="Costo Pacchetto" required>
-            <input type="file" name="image" id="image" required>
+            <div class="upload-btn-wrapper">
+                <button class="btn">Upload a file</button>
+                <input type="file" name="myfile" />
+            </div>
             <label for="albergo">Albergo: </label>
             <select id="albergo" name="albergo">
                 <?php
@@ -128,8 +131,7 @@ session_start();
     </div><!--/fine social cont-->
     Designed by<br>
     <div class="credits">
-        <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel"
-                                    alt="Icona Plan&Travel"></a>
+        <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
     </div>
 </footer>
 <!-- Jquery -->
