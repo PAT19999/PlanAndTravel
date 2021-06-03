@@ -20,9 +20,10 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
           crossorigin="anonymous"/>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
+          integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
+          crossorigin="anonymous"/>
+
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -56,7 +57,7 @@ session_start();
             <div class="profilo">
                 <div class="foto">
                     <a href="profilo_utente.php">
-                        <?php echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">' ?>
+                        <?php echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">' ?> </a>
                 </div>
             </div>
             <?php
@@ -71,12 +72,14 @@ session_start();
     </navbar>
 </div>
 
+<! Corpo meta>
 <div class="meta">
     <h1 class="big-text">Meta selezionata: San Francisco</h1>
     <div class="stage">
         <div class="heart"></div>
     </div>
     <div class="row row1">
+        <! immagini>
         <div class="sezione_img">
             <div class="container">
                 <div class="mySlides">
@@ -136,15 +139,16 @@ session_start();
                 </div>
             </div>
         </div>
+        <! INFORMAZIONI>
         <div class="col">
             <div id="descrizione">
                 <h1 class="desc">Informazioni generali</h1>
                 <p>Testo di prova che ahhahdddoadk</p>
-                <h1 class="desc">Località</h2>
+                <h1 class="desc">Località</h1>
                 <p><img src="../drawable/position.jpg" width="13px" height="13px" alt="position">
                     <a title="Città" href="https://www.comune.barletta.bt.it/retecivica/" target="_blank">Città</a>, Nazione</p>
 
-                <h1 class="desc">Filtri</h2>
+                <h1 class="desc">Filtri</h1>
                 <span class="label filtro_1">Provola</span>
                 <span class="label filtro_2">filtro_2</span>
                 <span class="label filtro_3">filtro_3</span>
@@ -153,12 +157,13 @@ session_start();
             </div>
         </div>
     </div>
+    <! Primo collaps >
     <div class="container">
         <button type="button" class="collapsible"><h6>Altre Mete consigliate</h6></button>
         <div class="contents">
             <div class="mete_consigliate">
                 <p>Mete consigliate in base alla vicinanza o ai temi</p>
-                <div class="main-carousel hero__content flickity-enabled is-draggable"
+                <div class="main-carousel hero__content1 flickity-enabled is-draggable"
                      data-flickity='{ "cellAlign": "left","contain": true }'>
                     <?php
                     if (isset($conn)) {
@@ -167,7 +172,7 @@ session_start();
                         foreach ($meta_result as $row) {
                             ?>
                             <div class="carousel-cell">
-                                <div class="carousel-cell__content zoom"
+                                <div class="carousel-cell__content1 zoom"
                                      style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                                     <h5><?php echo $row['nome'] ?></h5>
                                 </div>
@@ -181,6 +186,7 @@ session_start();
             </div>
         </div>
     </div>
+    <! secondo collaps >
     <div class="container">
         <button type="button" class="collapsible"><h6>Pacchetti Viaggio simili</h6></button>
         <div class="contents">
@@ -206,6 +212,7 @@ session_start();
             </div>
         </div>
     </div>
+    <! Recensioni da mandare >
     <div class="container1">
         <div class="recensioni">
             <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una
@@ -251,7 +258,7 @@ session_start();
             </div>
         </div>
     </div>
-
+    <! Recensioni leggibili >
     <div class="container">
         <div class="row">
             <h3>Leggi le recensioni</h3>
