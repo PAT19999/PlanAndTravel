@@ -424,37 +424,33 @@ hr {
     height: 370px;
     touch-action: pan-y;
 }
-
-.main-carousel-commenti{padding: 40px 0;}
-
+.main-carousel-commenti{
+    padding: 40px 0;
+}
 .carousel-cell-commenti{
     height: 550px;
     width: 400px;
     margin-right: 40px;
 }
-
 .carousel-cell__content-commenti {
     width: 100%;
     height: 100%;
     border-radius: 2%;
     text-align: center;
 }
-
-
 .col-sm-6 {
     position:relative;
     min-height:1px;
     padding-right:15px;
     padding-left:15px;
     float:left;
-    width:100%}
-
+    width:100%
+}
 @media (max-width: 460px) {
     .col-sm-6{
         width:40%
     }
 }
-
 .glyphicon-star:before {
     content: "\e006";
 }
@@ -482,12 +478,6 @@ mark,.mark{
     padding:13px;
     background-color:#fcf8e3}
 
-
-
-.broun-block {
-    background: url("http://myinstantcms.ru/images/bg-broun1.jpg") repeat scroll center top rgba(0, 0, 0, 0);
-    padding-bottom: 4px;
-}
 .block-text {
     background-color: #fff;
     border-radius: 18px;
@@ -502,32 +492,14 @@ mark,.mark{
     font-style: italic;
     line-height: 20px;
 }
-
 .block {
     display: block;
 }
-
 .person-text {
     padding: 10px 0 0;
     text-align: center;
     z-index: 2;
 }
-.person-text a {
-    color: #ffcc00;
-    display: block;
-    font-size: 14px;
-    margin-top: 3px;
-    text-decoration: underline;
-}
-.person-text i {
-    color: #fff;
-    font-family: Georgia;
-    font-size: 13px;
-}
-.rel {
-    position: relative;
-}
-
 
 
 
