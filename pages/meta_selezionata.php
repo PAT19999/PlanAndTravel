@@ -171,7 +171,7 @@ session_start();
                         $meta_result = mysqli_query($conn, $meta_sql);
                         foreach ($meta_result as $row) {
                             ?>
-                            <div class="carousel-cell">
+                            <div class="carousel-cell1">
                                 <div class="carousel-cell__content1 zoom"
                                      style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                                     <h5><?php echo $row['nome'] ?></h5>
@@ -192,14 +192,14 @@ session_start();
         <div class="contents">
             <div class="pacchetti_consigliati">
                 <p>In base alla meta selezionata potrrebbero interessarti i seguenti pacchetti viaggio!</p>
-                <div class="main-carousel hero__content"
+                <div class="main-carousel hero__content1"
                      data-flickity='{ "cellAlign": "left", "contain": true }'><?php
                     if (isset($conn)) {
                         $pacchetto_sql = "SELECT * FROM pacchetto;";
                         $pacchetto_result = mysqli_query($conn, $pacchetto_sql);
                         foreach ($pacchetto_result as $row) {
                             ?>
-                            <div class="carousel-cell">
+                            <div class="carousel-cell1">
                                 <div class="carousel-cell__content1 zoom"
                                      style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                                     <h5><?php echo $row['titolo'] ?></h5>

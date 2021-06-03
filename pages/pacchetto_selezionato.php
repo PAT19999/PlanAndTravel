@@ -170,7 +170,7 @@ session_start();
                         $pacchetto_result = mysqli_query($conn, $pacchetto_sql);
                         foreach ($pacchetto_result as $row) {
                             ?>
-                            <div class="carousel-cell">
+                            <div class="carousel-cell1">
                                 <div class="carousel-cell__content1 zoom"
                                      style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                                     <h5><?php echo $row['titolo'] ?></h5>
