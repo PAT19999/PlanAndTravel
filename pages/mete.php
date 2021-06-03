@@ -69,34 +69,25 @@ session_start();
 <div class="container">
     <div class="col">
         <h5 class="big-text">Scegli una meta e cliccala per avere maggiori informazioni</h5>
-        <div class="card card1">
-            <div class="text">
-                <h5>Western Desert</h5>
-                <p>Loreco soahf sifoa sodin oan.</p>
-                <a href="#" class="button1">Scopri di più...</a>
-            </div>
-        </div>
-        <div class="card card2">
-            <div class="text">
-                <h5>AI Bagawat</h5>
-                <p>sdafv sagarta dfvTS</p>
-                <a href="#" class="button1">Scopri di più...</a>
-            </div>
-        </div>
-        <div class="card card3">
-            <div class="text">
-                <h5>Pyramid of Giza</h5>
-                <p>bobf aio isdn inai</p>
-                <a href="#" class="button1">Scopri di più...</a>
-            </div>
-        </div>
-        <div class="card card4">
-            <div class="text">
-                <h5>Kalahari Desert</h5>
-                <p>boavivr iancpiep epifni aneip.</p>
-                <a href="#" class="button1">Scopri di più...</a>
-            </div>
-        </div>
+        <?php
+        if (isset($conn)) {
+            $meta_sql = "SELECT * FROM meta_turistica;";
+            $meta_result = $conn->query($meta_sql);
+            foreach ($meta_result
+
+                     as $row) {
+                ?>
+                <div class="card"
+                     style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
+                    <div class="text">
+                        <h5><?php echo $row['nome'] ?></h5>
+                        <a href="#" class="button1">Scopri di più...</a>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
     </div>
 </div>
 
@@ -106,20 +97,20 @@ session_start();
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
     <a class="trans-color-text" href="#">info@plan&travel.com</a> | <span itemprop="telephone"><a
-        href="#">0883 200300</a></span>
+                href="#">0883 200300</a></span>
     <br><a href="privacy_and_cookies.php"> privacy</a> | <a href="privacy_and_cookies.php"> cookie policy</a>
 
     <div class="social-cont">
         <ul class="social-list">
             <li><a target="_blank" href="#"><img
-                    src="https://icon-library.com/images/facebook-png-icon-white/facebook-png-icon-white-18.jpg"
-                    title="facebook" alt="Facebook icon"></a></li>
+                            src="https://icon-library.com/images/facebook-png-icon-white/facebook-png-icon-white-18.jpg"
+                            title="facebook" alt="Facebook icon"></a></li>
             <li><a target="_blank" href="#"><img
-                    src="https://icon-library.com/images/white-instagram-icon-png/white-instagram-icon-png-14.jpg"
-                    title="Instagram" alt="Instagram icon"></a></li>
+                            src="https://icon-library.com/images/white-instagram-icon-png/white-instagram-icon-png-14.jpg"
+                            title="Instagram" alt="Instagram icon"></a></li>
             <li><a target="_blank" href="#"><img
-                    src="https://www.suiteforlife.it/wp-content/uploads/2019/09/whatsapp-logo-112413FAA7-seeklogo-298x300.png"
-                    title="WhatsApp" alt="WhatsApp icon"></a></li>
+                            src="https://www.suiteforlife.it/wp-content/uploads/2019/09/whatsapp-logo-112413FAA7-seeklogo-298x300.png"
+                            title="WhatsApp" alt="WhatsApp icon"></a></li>
         </ul>
     </div><!--/fine social cont-->
     Designed by<br>
