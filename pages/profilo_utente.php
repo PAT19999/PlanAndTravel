@@ -1,4 +1,9 @@
-
+<?php
+session_start();
+if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
+    header("location: login.html");
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

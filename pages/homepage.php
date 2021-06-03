@@ -1,5 +1,7 @@
 <?php
 include_once '../includes/db_connection.php';
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -48,9 +50,17 @@ include_once '../includes/db_connection.php';
             <li><a href="pacchetti.html">Pacchetti</a></li>
             <li><a href="contatti.html">Contatti</a></li>
         </ul>
-        <div class="cta">
-            <a href="profilo_utente.php" class="button">Login</a>
-        </div>
+        <?php
+        if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
+            echo '<div class="cta">',
+            '<a href="profilo_utente.php" class="button">Login</a>',
+            '</div>';
+        } else {
+
+        }
+        ?>
+
+        ?>
         <div class="hamburger">
             <span></span>
             <span></span>

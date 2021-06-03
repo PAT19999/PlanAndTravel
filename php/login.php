@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     $_SESSION['nome'] = $row['nome'];
                     $_SESSION['cognome'] = $row['cognome'];
                     $_SESSION['email'] = $row['email'];
+                    $_SESSION['immagine'] = $row['immagine'];
                     $output = json_encode(
                         array(
                             'result' => 'success'
