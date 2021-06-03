@@ -247,7 +247,7 @@ session_start();
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Chiudi</button>
-                            <button type="submit" class="signupbtn">Invia</button>
+                            <button1 type="submit" class="signupbtn">Invia</button1>
                         </div>
                     </div>
                 </form>

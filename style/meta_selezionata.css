@@ -340,7 +340,8 @@ button1 {
     border: none;
     cursor: pointer;
     width: 100%;
-    opacity: 0.9;
+    opacity:0.9;
+    box-shadow: 0 0 4px rgb(0, 0, 0);
 }
 
 button1:hover {
