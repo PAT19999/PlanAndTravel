@@ -336,12 +336,12 @@ button1 {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
-    margin: 8px auto;
+    margin: 0 auto;
     border: none;
     cursor: pointer;
-    width: 100%;
     opacity:0.9;
     box-shadow: 0 0 4px rgb(0, 0, 0);
+    width: auto;
 }
 
 button1:hover {
@@ -361,7 +361,7 @@ button1:hover {
 }
 
 /* Add padding to container elements */
-.container {
+.container2 {
     padding: 20px;
 }
 

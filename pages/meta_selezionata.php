@@ -214,13 +214,13 @@ session_start();
     </div>
 
 
-    <div class="container">
+    <div class="container2">
         <div class="recensioni">
             <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una recensione!</button1>
             <div id="id01" class="modal">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <form class="modal-content" action="/action_page.php">
-                    <div class="container">
+                    <div class="container2">
                         <h1>Lascia una recensione!</h1>
                         <p>Si prega di compilare questo modulo per lasciare una recensione.</p>
                         <hr>
