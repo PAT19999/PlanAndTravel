@@ -48,22 +48,6 @@
     }
 }
 
-.card1 {
-    background-image: url(../drawable/pic-1.png);
-}
-
-.card2 {
-    background-image: url(../drawable/pic-2.png);
-}
-
-.card3 {
-    background-image: url(../drawable/pic-3.png);
-}
-
-.card4 {
-    background-image: url(../drawable/pic-4.png);
-}
-
 .card:hover {
     transform: translateY(-10px);
     background: #0069c3;
@@ -89,14 +73,7 @@
     text-shadow: 0 0 10px rgb(0, 0, 0);
     z-index: 2;
     height: 80px;
-}
-
-.text p {
-    color: #fff;
-    font-size: 11px;
-    line-height: 11px;
-    text-shadow: 0 0 3px rgb(0, 0, 0);
-    font-weight: bold;
+    font-size: 20px;
 }
 
 .text a {
