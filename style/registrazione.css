@@ -29,6 +29,19 @@
     }
 }
 
+.registrabox a {
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.68);
+    text-shadow: 0 0 5px rgb(0, 0, 0)
+}
+
+.registrabox a:hover {
+    font-weight: bold;
+    color: #0069c3;
+}
+
 .avatar {
     width: 100px;
     height: 100px;
@@ -86,15 +99,4 @@ h1 {
     cursor: pointer;
     color: #ffffff;
     background: #0069c3;
-}
-
-.registrabox a {
-    text-decoration: none;
-    font-size: 15px;
-    line-height: 20px;
-    color: blue;
-}
-
-.registrabox a:hover {
-    color: white;
 }

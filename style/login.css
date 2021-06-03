@@ -7,7 +7,7 @@
 
 .loginbox {
     width: 340px;
-    height: 420px;
+    height: 450px;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -78,6 +78,7 @@ h1 {
 .loginbox button {
     width: 100%;
     margin-bottom: 20px;
+    margin-top: 20px;
     border: none;
     outline: none;
     height: 40px;
@@ -109,10 +110,11 @@ h1 {
 
 /* The switch - the box around the slider */
 .switch {
-    position: relative;
+    position: absolute;
+    right: 30px;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 35px;
+    height: 20px;
 }
 
 /* Hide default HTML checkbox */
@@ -138,10 +140,8 @@ h1 {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 20px;
+    width: 20px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -156,14 +156,14 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
 }
 
 /* Rounded sliders */
 .slider.round {
-    border-radius: 34px;
+    border-radius: 20px;
 }
 
 .slider.round:before {
