@@ -2,13 +2,13 @@
 
 include_once '../includes/db_connection.php';
 
-try {
+/*try {
     $db = new PDO("mysql:host=localhost","root","");
 } catch (PDOException $e){
-    echo $e -> getMessage();
-}
+    echo $e->getMessage();
+}*/
 
-
+$db = new PDO("mysql:host=localhost","root","");
 
 if($_POST["search"]==""){
     echo "<h2> Nessun risultato trovato</h2>";
