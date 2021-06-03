@@ -398,7 +398,7 @@ session_start();
 <!-- Footer-->
 
 <footer>
-    Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
+    Plan&Travel | Via Roma, 20 - 76121 Barletta (BT) ITALIA | P.Iva 000000000 <br>
     <a class="trans-color-text" href="#">info@plan&travel.com</a> | <span itemprop="telephone"><a
                 href="#">0883 200300</a></span>
     <br><a href="privacy_and_cookies.php"> privacy</a> | <a href="privacy_and_cookies.php"> cookie policy</a>
