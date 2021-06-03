@@ -44,18 +44,23 @@ session_start();
         </ul>
         <?php
         if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
-            echo '<div class="cta">',
-            '<a href="profilo_utente.php" class="button">Login</a>',
-            '</div>';
+            ?>
+            <div class="cta">
+                <a href="profilo_utente.php" class="button">Login</a>
+            </div>
+            <?php
         } else {
-            echo '<div class="profilo">',
-            '<div class="foto">',
-            '<a href="profilo_utente.php"></a>',
-                '<img src="../drawable/db/' . $_SESSION['immagine'] . '">',
-            '</div>',
-            '</div>';
+            ?>
+            <div class="profilo">
+                <div class="foto">
+                    <a href="profilo_utente.php">
+                        <?php echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">' ?>
+                </div>
+            </div>
+            <?php
         }
         ?>
+
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -217,20 +222,20 @@ session_start();
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
     <a class="trans-color-text" href="#">info@plan&travel.com</a> | <span itemprop="telephone"><a
-        href="#">0883 200300</a></span>
+                href="#">0883 200300</a></span>
     <br><a href="privacy_and_cookies.php"> privacy</a> | <a href="privacy_and_cookies.php"> cookie policy</a>
 
     <div class="social-cont">
         <ul class="social-list">
             <li><a target="_blank" href="#"><img
-                    src="https://icon-library.com/images/facebook-png-icon-white/facebook-png-icon-white-18.jpg"
-                    title="facebook" alt="Facebook icon"></a></li>
+                            src="https://icon-library.com/images/facebook-png-icon-white/facebook-png-icon-white-18.jpg"
+                            title="facebook" alt="Facebook icon"></a></li>
             <li><a target="_blank" href="#"><img
-                    src="https://icon-library.com/images/white-instagram-icon-png/white-instagram-icon-png-14.jpg"
-                    title="Instagram" alt="Instagram icon"></a></li>
+                            src="https://icon-library.com/images/white-instagram-icon-png/white-instagram-icon-png-14.jpg"
+                            title="Instagram" alt="Instagram icon"></a></li>
             <li><a target="_blank" href="#"><img
-                    src="https://www.suiteforlife.it/wp-content/uploads/2019/09/whatsapp-logo-112413FAA7-seeklogo-298x300.png"
-                    title="WhatsApp" alt="WhatsApp icon"></a></li>
+                            src="https://www.suiteforlife.it/wp-content/uploads/2019/09/whatsapp-logo-112413FAA7-seeklogo-298x300.png"
+                            title="WhatsApp" alt="WhatsApp icon"></a></li>
         </ul>
     </div><!--/fine social cont-->
     Designed by<br>

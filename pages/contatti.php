@@ -47,18 +47,23 @@ session_start();
         </ul>
         <?php
         if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
-            echo '<div class="cta">',
-            '<a href="profilo_utente.php" class="button">Login</a>',
-            '</div>';
+            ?>
+            <div class="cta">
+                <a href="profilo_utente.php" class="button">Login</a>
+            </div>
+            <?php
         } else {
-            echo '<div class="profilo">',
-            '<div class="foto">',
-            '<a href="profilo_utente.php"></a>',
-                '<img src="../drawable/db/' . $_SESSION['immagine'] . '">',
-            '</div>',
-            '</div>';
+            ?>
+            <div class="profilo">
+                <div class="foto">
+                    <a href="profilo_utente.php">
+                        <?php echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">' ?>
+                </div>
+            </div>
+            <?php
         }
         ?>
+
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -157,7 +162,7 @@ session_start();
                 type: 'post',
                 url: '../php/add_richiesta.php',
                 data: $('form').serialize(),
-                success: function(json_data){
+                success: function (json_data) {
                     const data_array = $.parseJSON(json_data);
                     showSnackbar(data_array['text']);
                     if (data_array['result'] === 'success') {

@@ -44,18 +44,23 @@ session_start();
         </ul>
         <?php
         if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
-            echo '<div class="cta">',
-            '<a href="profilo_utente.php" class="button">Login</a>',
-            '</div>';
+            ?>
+            <div class="cta">
+                <a href="profilo_utente.php" class="button">Login</a>
+            </div>
+            <?php
         } else {
-            echo '<div class="profilo">',
-            '<div class="foto">',
-            '<a href="profilo_utente.php"></a>',
-                '<img src="../drawable/db/' . $_SESSION['immagine'] . '">',
-            '</div>',
-            '</div>';
+            ?>
+            <div class="profilo">
+                <div class="foto">
+                    <a href="profilo_utente.php">
+                        <?php echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">' ?>
+                </div>
+            </div>
+            <?php
         }
         ?>
+
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -77,7 +82,7 @@ session_start();
             <input type="number" name="price" id="price" placeholder="Costo Pacchetto" required>
             <div class="upload-btn-wrapper">
                 <button class="btn">Carica immagine</button>
-                <input type="file" name="myfile" />
+                <input type="file" name="myfile"/>
             </div>
             <label for="albergo">Albergo: </label>
             <select id="albergo" name="albergo">
@@ -131,7 +136,8 @@ session_start();
     </div><!--/fine social cont-->
     Designed by<br>
     <div class="credits">
-        <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
+        <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel"
+                                    alt="Icona Plan&Travel"></a>
     </div>
 </footer>
 <!-- Jquery -->
@@ -165,7 +171,7 @@ session_start();
                 data: data,
                 processData: false,
                 contentType: false,
-                success: function(json_data){
+                success: function (json_data) {
                     const data_array = $.parseJSON(json_data);
                     showSnackbar(data_array['text']);
                     if (data_array['result'] === 'success') {
