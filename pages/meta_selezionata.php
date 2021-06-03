@@ -33,7 +33,7 @@ session_start();
 
 <body>
 
-<! navbar>
+<!-- navbar-->
 <div class="navbg">
     <navbar>
         <div class="logo">
@@ -73,7 +73,7 @@ session_start();
     </navbar>
 </div>
 
-<! Corpo meta>
+<!-- Corpo meta-->
 <div class="meta">
     <h1 class="big-text">Meta selezionata: San Francisco</h1>
     <div class="stage">
@@ -140,7 +140,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <! INFORMAZIONI>
+        <!-- INFORMAZIONI-->
         <div class="col">
             <div id="descrizione">
                 <h1 class="desc">Informazioni generali</h1>
@@ -187,7 +187,7 @@ session_start();
             </div>
         </div>
     </div>
-    <! secondo collaps >
+    <!-- secondo collaps -->
     <div class="container">
         <button type="button" class="collapsible"><h6>Pacchetti Viaggio simili</h6></button>
         <div class="contents">
@@ -213,7 +213,7 @@ session_start();
             </div>
         </div>
     </div>
-    <! Recensioni da mandare >
+    <!-- Recensioni da mandare -->
     <div class="container1">
         <div class="recensioni">
             <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una
@@ -259,7 +259,7 @@ session_start();
             </div>
         </div>
     </div>
-    <! Recensioni leggibili >
+    <!-- Recensioni leggibili -->
     <div class="container">
         <div class="row">
             <h3>Leggi le recensioni</h3>
@@ -397,7 +397,7 @@ session_start();
     </div>
 </div>
 
-<! Footer>
+<!-- Footer-->
 
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>

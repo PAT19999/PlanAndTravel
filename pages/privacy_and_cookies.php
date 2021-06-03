@@ -31,7 +31,7 @@ session_start();
 
 <body>
 
-<! navbar>
+<!-- navbar-->
 <div class="navbg">
     <navbar>
         <div class="logo">
@@ -70,13 +70,13 @@ session_start();
     </navbar>
 </div>
 
-<! intro con sfondo dietro>
+<!-- intro con sfondo dietro-->
 <div class="hero1 hero--small">
     <div class="hero__content">
     </div>
 </div>
 
-<! Esempio>
+<!-- Esempio-->
 <div class="content">
     <h3 class="normal-text"><b>Art. 1</b></h3>
     <p>Titolare del trattamento. Il titolare dei trattamenti dei dati raccolti tramite Plan&Travel ai
@@ -218,7 +218,7 @@ session_start();
 
 </div>
 
-<! Footer>
+<!-- Footer-->
 
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>

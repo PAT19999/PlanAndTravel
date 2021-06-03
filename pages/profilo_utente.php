@@ -27,7 +27,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
     <link rel="stylesheet" type="text/css" href="../style/profilo_utente.css">
 </head>
 <body>
-<! navbar>
+<!-- navbar-->
 <div class="navbg">
     <navbar>
         <div class="logo ">
@@ -51,7 +51,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
 </div>
 
 
-<! Box generico>
+<!-- Box generico-->
 <div class="boxutente">
 
     <! Box profilo>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true) {
         </div>
     </div>
 
-    <! Box Info profilo>
+    <!-- Box Info profilo-->
     <div class="infoprofilo">
         <h1>Profilo Utente</h1>
             <div class="dati">

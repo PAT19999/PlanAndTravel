@@ -78,7 +78,7 @@ session_start();
     </navbar>
 </div>
 
-<! Hero>
+<!-- Hero-->
 
 <div class="hero">
     <div class="hero__content reveal">

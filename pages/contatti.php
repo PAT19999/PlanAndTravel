@@ -33,7 +33,7 @@ session_start();
 
 <body>
 
-<! navbar>
+<!-- navbar-->
 <div class="navbg">
     <navbar>
         <div class="logo ">
@@ -73,7 +73,7 @@ session_start();
     </navbar>
 </div>
 
-<! contatti>
+<!-- contatti-->
 <div class="contatti">
 
     <div class="zoom">
@@ -108,7 +108,7 @@ session_start();
     </div>
 </div>
 
-<! Footer>
+<!-- Footer-->
 
 <footer>
     Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
