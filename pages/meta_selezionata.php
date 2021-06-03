@@ -265,7 +265,7 @@ session_start();
         <div class="main-carousel-commenti flickity-viewport-commenti " data-flickity='{ "cellAlign": "left", "contain": true }'>
             <div class="carousel-cell-commenti">
                 <div class="carousel-cell__content-commenti zoom">
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-sm-6">
                         <div class="block-text">
                             <h2>Hercules</h2>
                             <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star-empty"></span><span data-value="5" class="glyphicon glyphicon-star-empty"></span>  </span></div>
@@ -280,7 +280,7 @@ session_start();
             </div>
             <div class="carousel-cell-commenti">
                 <div class="carousel-cell__content-commenti zoom">
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-sm-6">
                         <div class="block-text">
                             <h2>Hercules</h2>
                             <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star-empty"></span><span data-value="5" class="glyphicon glyphicon-star-empty"></span>  </span></div>
@@ -295,7 +295,7 @@ session_start();
             </div>
             <div class="carousel-cell-commenti">
                 <div class="carousel-cell__content-commenti zoom">
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-sm-6">
                         <div class="block-text">
                             <h2>Hercules</h2>
                             <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star-empty"></span><span data-value="5" class="glyphicon glyphicon-star-empty"></span>  </span></div>

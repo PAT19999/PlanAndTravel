@@ -440,23 +440,20 @@ hr {
     text-align: center;
 }
 
-.col-md-4{width:100%;
+
+.col-sm-6 {
     position:relative;
-    min-height:1px;
-    padding-right:15px;
-    padding-left:15px
-}
-
-@media (min-width:460px){
-    .col-md-4{width:60%}
-}
-
-.col-sm-6 {position:relative;
     min-height:1px;
     padding-right:15px;
     padding-left:15px;
     float:left;
     width:100%}
+
+@media (max-width: 460px) {
+    .col-sm-6{
+        width:40%
+    }
+}
 
 .glyphicon-star:before {
     content: "\e006";
@@ -481,14 +478,12 @@ hr {
     content: "\e007";
 }
 
-mark,.mark{padding:.2em;background-color:#fcf8e3}
+mark,.mark{
+    padding:13px;
+    background-color:#fcf8e3}
 
-@font-face{font-family:'Glyphicons Halflings';src:url(../fonts/glyphicons-halflings-regular.eot);src:url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../fonts/glyphicons-halflings-regular.woff) format('woff'),url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')}
 
 
-.carousel-control.left,.carousel-control.right  {background:none;width:25px;}
-.carousel-control.left {left:-25px;}
-.carousel-control.right {right:-25px;}
 .broun-block {
     background: url("http://myinstantcms.ru/images/bg-broun1.jpg") repeat scroll center top rgba(0, 0, 0, 0);
     padding-bottom: 4px;
