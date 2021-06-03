@@ -51,7 +51,7 @@ session_start();
         } else {
             echo '<div class="profilo">',
             '<div class="foto">',
-            '<a href="profilo_utente.php"/a>',
+            '<a href="profilo_utente.php"></a>',
                 '<img src="../drawable/db/' . $_SESSION['immagine'] . '">',
             '</div>',
             '</div>';
