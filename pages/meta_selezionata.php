@@ -160,7 +160,7 @@ session_start();
     </div>
     <! Primo collaps >
     <div class="container">
-        <button type="button" class="collapsible"><h6>Altre Mete consigliate</h6></button>
+        <button type="button" class="collapsible">Altre Mete consigliate</button>
         <div class="contents">
             <div class="mete_consigliate">
                 <p>Mete consigliate in base alla vicinanza o ai temi</p>
@@ -189,7 +189,7 @@ session_start();
     </div>
     <!-- secondo collaps -->
     <div class="container">
-        <button type="button" class="collapsible"><h6>Pacchetti Viaggio simili</h6></button>
+        <button type="button" class="collapsible">Pacchetti Viaggio simili</button>
         <div class="contents">
             <div class="pacchetti_consigliati">
                 <p>In base alla meta selezionata potrrebbero interessarti i seguenti pacchetti viaggio!</p>
@@ -216,9 +216,9 @@ session_start();
     <!-- Recensioni da mandare -->
     <div class="container1">
         <div class="recensioni">
-            <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una
+            <button class="button1" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una
                 recensione!
-            </button1>
+            </button>
             <div id="id01" class="modal1">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <form class="modal-content" action="/action_page.php">
@@ -249,10 +249,8 @@ session_start();
                         <p style="padding-top: 65px">By leaving a review you agree to our <a href="privacy_and_cookies.php" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
                         <div class="clearfix">
-                            <button1 type="button" onclick="document.getElementById('id01').style.display='none'"
-                                    class="cancelbtn">Chiudi
-                            </button1>
-                            <button1 type="submit" class="signupbtn">Invia</button1>
+                            <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'">Chiudi</button>
+                            <button type="submit" class="signupbtn">Invia</button>
                         </div>
                     </div>
                 </form>
@@ -530,7 +528,7 @@ session_start();
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == modal) {
+        if (event.target === modal) {
             modal.style.display = "none";
         }
     }

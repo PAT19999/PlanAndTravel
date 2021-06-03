@@ -107,7 +107,7 @@ session_start();
     </div><!--/fine social cont-->
     Designed by<br>
     <div class="credits">
-        <a href="homepage.html"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
+        <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel" alt="Icona Plan&Travel"></a>
     </div>
 
 </footer>

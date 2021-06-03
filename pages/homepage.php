@@ -229,9 +229,9 @@ session_start();
 
 </script>
 <script type="text/javascript">
-    var d = new Date();
-    var h = d.getHours();
-    var saluto;
+    const d = new Date();
+    const h = d.getHours();
+    let saluto;
     if (h < 12) {
         saluto = "Buongiorno!";
     } else if (h < 17) {
@@ -239,7 +239,7 @@ session_start();
     } else {
         saluto = "Buona sera!";
     }
-    var el = document.getElementById('messaggio');
+    const el = document.getElementById('messaggio');
     el.textContent = saluto;
 </script>
 
