@@ -3,7 +3,7 @@
     background-size: cover;
     min-height: 100vh;
     position: relative;
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 .profilo{
@@ -13,8 +13,8 @@
 }
 
 .infoprofilo{
-    width: 58%;
-    padding: 50px;
+    width: 50%;
+    padding: 95px 60px 59px 0;
 }
 
 @media (max-width: 768px) {
@@ -47,7 +47,10 @@
     border-color: black;
     border: 1px solid;
 }
-
+.file_div{
+    width: 150px;
+    margin: 0 auto;
+}
 .file_label {
     background-color: #0045b5;
     color: white;
@@ -55,11 +58,16 @@
     font-family: sans-serif;
     border-radius: 0.3rem;
     cursor: pointer;
-    margin-top: 1rem;
+    margin-top: 10px;
 }
 
 .file_label:hover {
     cursor: pointer;
     color: #ffffff;
     background: #0069c3;
+}
+
+.background{
+    background: url("../drawable/9-90683_travel-backgrounds.png") no-repeat center center;
+    background-size: cover;
 }
