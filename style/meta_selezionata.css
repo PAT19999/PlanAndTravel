@@ -484,7 +484,7 @@ mark,.mark{
     box-shadow: 0 3px 0 #2c2222;
     color: #626262;
     font-size: 14px;
-    padding: 0px 21px;
+    padding: 0 21px;
 }
 .block-text p {
     color: #585858;
@@ -501,5 +501,7 @@ mark,.mark{
     z-index: 2;
 }
 
-
+.checked {
+    color: orange;
+}
 

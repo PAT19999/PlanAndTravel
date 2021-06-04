@@ -501,4 +501,8 @@ mark,.mark{
     z-index: 2;
 }
 
+.checked {
+    color: orange;
+}
+
 
