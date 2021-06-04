@@ -49,25 +49,24 @@ session_start();
 
 
 <!-- Box generico-->
+<div class="background">
 <div class="boxutente">
-
     <!-- Box profilo-->
     <div class="profilo">
-        <h1 class="big-text">Il mio profilo</h1>
         <div class="foto">
             <?php
             echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">';
             ?>
-            <div class="file_div">
+        </div>
+        <div class="file_div">
                 <input type="file" id="image" name="image" hidden required/>
                 <label for="image" class="file_label">Cambia Immagine</label>
-            </div>
         </div>
     </div>
 
     <!-- Box Info profilo-->
     <div class="infoprofilo">
-        <h1>Profilo Utente</h1>
+        <h1 class="big-text">Il mio profilo</h1>
             <div class="dati">
             <?php
             echo "Username: " . $_SESSION['username'] . "<br><br>";
@@ -84,7 +83,7 @@ session_start();
             </div>
     </div>
 </div>
-
+</div>
 <!-- Footer-->
 
 <footer>

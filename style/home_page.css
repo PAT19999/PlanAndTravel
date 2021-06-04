@@ -41,7 +41,7 @@ p {
 .intro-text {
     color: #fff;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     padding-bottom: 10px
 }
@@ -256,7 +256,7 @@ navbar {
 }
 
 .hero__content {
-    margin: 180px 80px 30px 80px;
+    margin: 180px 180px 30px 180px;
     position: relative;
     z-index: 1;
 }
@@ -318,6 +318,9 @@ navbar {
     .poster__img,
     .poster__content {
         width: 100%;
+    }
+    .hero__content{
+        margin: 180px 100px 30px 100px;
     }
 }
 

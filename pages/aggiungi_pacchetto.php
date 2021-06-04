@@ -88,19 +88,19 @@ session_start();
                 <span id="file-chosen">Nessun file selezionato</span>
             </div>
 
-            <label>Attrazioni:</label><br>
-            <?php
-            if (isset($conn)) {
-                $attrazione_query = "SELECT * FROM attrazione;";
-                $attrazione_result = $conn->query($attrazione_query);
-                foreach ($attrazione_result as $row) {
-                    echo "<input type='checkbox' name='attr[]' value='" . $row['id'] . "'>";
-                    echo "<label for='attr[]'>" . $row['nome'] . "</label>";
-                }
-            }
-            ?>
+            <div class="checkbox">
+                <ul>
+                    <li>
+                        <input id="c1" type="checkbox">
+                        <label for="c1">Checkbox</label>
+                    </li>
+                </ul>
+            </div>
+
+
             <button id="aggiungi" type="submit" name="aggiungi">AGGIUNGI</button>
         </form>
+
 
     </div>
 </div>

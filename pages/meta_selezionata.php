@@ -79,7 +79,8 @@ session_start();
 
 <!-- Corpo meta-->
 <div class="meta">
-    <h1 class="big-text">Meta selezionata: San Francisco</h1>
+    <div class="zoom">
+    <h1 class="big-text" style="font-size: 35px">San Francisco</h1>
     <div class="stage">
         <div class="heart"></div>
     </div>
@@ -369,6 +370,7 @@ session_start();
             }
             ?>
         </div>
+    </div>
     </div>
 </div>
 
