@@ -16,6 +16,7 @@ session_start();
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="../style/home_page.css"/>
     <link rel="stylesheet" href="../style/pacchetto_selezionato.css"/>
+    <link rel="stylesheet" href="../style/snackbar.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
           integrity="sha512-ztsAq/T5Mif7onFaDEa5wsi2yyDn5ygdVwSSQ4iok5BPJQGYz1CoXWZSA7OgwGWrxrSrbF0K85PD5uLpimu4eQ=="
@@ -217,33 +218,39 @@ session_start();
 
     <div class="container1">
         <div class="recensioni">
-            <button class="button1" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Lascia una
-                recensione!
-            </button>
+            <?php
+            if (isset($_SESSION['isAgenzia']) && $_SESSION['isAgenzia'] === false) {
+                ?>
+                <button class="button1" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+                    Lascia una recensione!
+                </button>
+                <?php
+            }
+            ?>
             <div id="id01" class="modal1">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <form class="modal-content" action="/action_page.php">
+                <form class="modal-content" id="form">
                     <div class="container2">
                         <h2 style="font-size: 20px">Lascia una recensione!</h2>
                         <p>Si prega di compilare questo modulo per lasciare una recensione.</p>
                         <hr>
-                        <label for="Titolo"><b>Titolo</b></label>
-                        <input type="text" placeholder="Inserisci un titolo" name="titolo" required>
+                        <label for="titolo"><b>Titolo</b></label>
+                        <input type="text" placeholder="Inserisci un titolo" name="titolo" id="titolo" required>
 
-                        <label for="subject">Recensione</label>
-                        <textarea id="subject" name="subject" required placeholder="Scrivi qualcosa..."
+                        <label for="desc">Recensione</label>
+                        <textarea id="desc" name="desc" required placeholder="Scrivi qualcosa..."
                                   style="height:200px"></textarea>
 
                         <div class="rate">
-                            <input type="radio" id="star5" name="rate" value="5"/>
+                            <input type="radio" id="star5" name="rate" value="5" required/>
                             <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4"/>
+                            <input type="radio" id="star4" name="rate" value="4" required/>
                             <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3"/>
+                            <input type="radio" id="star3" name="rate" value="3" required/>
                             <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2"/>
+                            <input type="radio" id="star2" name="rate" value="2" required/>
                             <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1"/>
+                            <input type="radio" id="star1" name="rate" value="1" required/>
                             <label for="star1" title="text">1 star</label>
                         </div>
 
@@ -255,6 +262,8 @@ session_start();
                             </button>
                             <button type="submit" class="signupbtn">Invia</button>
                         </div>
+                        <!-- Snackbar -->
+                        <div id='snackbar'></div>
                     </div>
                 </form>
             </div>
@@ -345,6 +354,8 @@ session_start();
         integrity="sha512-Nx/M3T/fWprNarYOrnl+gfWZ25YlZtSNmhjHeC0+2gCtyAdDFXqaORJBj1dC427zt3z/HwkUpPX+cxzonjUgrA=="
         crossorigin="anonymous"></script>
 
+<script type="text/javascript" src="../javascript/utils.js"></script>
+
 <script>
     $(document).ready(function () {
 
@@ -353,6 +364,37 @@ session_start();
             $(".menu").toggleClass("menu--open");
         });
 
+        // heart animation
+        $(".heart").on("click", function () {
+            $(this).toggleClass("is-active");
+        });
+
+        // Aggiungi al db
+        $("#form").on('submit', function (e) {
+            e.preventDefault();
+
+            var data = new FormData($('#form')[0]);
+            data.append('username', <?php echo json_encode($_SESSION['username'], JSON_HEX_TAG); ?>);
+            data.append('tipo', 'false');
+            data.append('id_pacchetto', 'DA METTERE');
+
+            $.ajax({
+                type: 'post',
+                url: '../php/add_recensione.php',
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function (json_data) {
+                    const data_array = $.parseJSON(json_data);
+                    showSnackbar(data_array['text']);
+                    if (data_array['result'] === 'success') {
+                        $('#form input[type=text]').val('');
+                        $('#form input[name=rate]').prop('checked', false);
+                        $('#form textarea').val('');
+                    }
+                }
+            });
+        });
     });
 
 
@@ -370,11 +412,8 @@ session_start();
         scale: 0.65,
         mobile: false
     });
-</script>
 
-<!--/ script per il collapsibile -->
-
-<script>
+    <!-- script per il collapsibile -->
     var acc = document.getElementsByClassName("collapsible");
     var i;
 
@@ -389,9 +428,9 @@ session_start();
             }
         });
     }
-</script>
-<!--/ script per la gestione immagini delle attrazioni -->
-<script>
+
+
+    <!-- script per la gestione immagini delle attrazioni -->
     var slideIndex = 1;
     showSlides(slideIndex);
 
@@ -424,16 +463,7 @@ session_start();
         dots[slideIndex - 1].className += " active";
         captionText.innerHTML = dots[slideIndex - 1].alt;
     }
-</script>
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script>
-    $(function () {
-        $(".heart").on("click", function () {
-            $(this).toggleClass("is-active");
-        });
-    });
-</script>
-<script>
+
     // Get the modal
     var modal = document.getElementById('id01');
 
@@ -444,5 +474,9 @@ session_start();
         }
     }
 </script>
+
+<!-- Snackbar -->
+<div id='snackbar'></div>
+
 </body>
 </html>
