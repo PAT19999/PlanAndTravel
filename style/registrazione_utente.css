@@ -2,7 +2,7 @@
     display: flex;
     padding: 200px 0;
     background: linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, 0)),
-    url('../drawable/airplane-cartoon-5333775_1280.jpg') no-repeat center center;
+    url('../drawable/travel-website-templates-1.png') no-repeat center center;
     background-size: cover;
     height: 100%;
     position: relative;
@@ -11,7 +11,7 @@
 
 .registrabox {
     width: 400px;
-    height: 665px;
+    height: 600px;
     position: relative;
     box-sizing: content-box;
     padding: 70px 40px 40px 40px;
@@ -27,6 +27,17 @@
         width: 50%;
         margin-right: auto
     }
+}
+
+.registrabox a {
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.registrabox a:hover {
+    color: #0069c3;
 }
 
 .avatar {
@@ -86,15 +97,4 @@ h1 {
     cursor: pointer;
     color: #ffffff;
     background: #0069c3;
-}
-
-.registrabox a {
-    text-decoration: none;
-    font-size: 15px;
-    line-height: 20px;
-    color: blue;
-}
-
-.registrabox a:hover {
-    color: white;
 }
