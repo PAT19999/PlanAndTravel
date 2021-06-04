@@ -95,98 +95,97 @@ session_start();
             tra cui: eventi ed usanze locali, clima, costo della vita, qualità della vita, attrazioni e molto altro
             ancora.</h1>
         <a href="#linkscopri" class="button">Scopri di più...</a>
-        <div class="content">
+        <div class="content2">
         <!--Ricerca-->
             <form action="">
                 <input type="search">
                 <i class="fa fa-search"></i>
             </form>
         <!--Ricerca avanzata-->
-
-            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Ricerca avanzata</button>
+            <button onclick="document.getElementById('id01').style.display='block'">Ricerca avanzata</button>
             <div id="id01" class="modal">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <div class="s007">
-                    <form>
-                        <div class="inner-form">
-                            <div class="advance-search">
-                                <span class="desc">Ricerca avanzata</span>
-                                <div class="row">
-                                    <div class="input-field">
-                                        <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
-                                                <option placeholder="" value="">STAGIONE</option>
-                                                <option>Inverno</option>
-                                                <option>Primavera</option>
-                                                <option>Estate</option>
-                                                <option>Autunno</option>
-                                            </select>
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <div class="s007">
+                        <form>
+                            <div class="inner-form">
+                                <div class="advance-search">
+                                    <span class="desc">Ricerca avanzata</span>
+                                    <div class="row">
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">STAGIONE</option>
+                                                    <option>Inverno</option>
+                                                    <option>Primavera</option>
+                                                    <option>Estate</option>
+                                                    <option>Autunno</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">LOCALITA'</option>
+                                                    <option>Mare</option>
+                                                    <option>Montagna</option>
+                                                    <option>Città</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">ETA'</option>
+                                                    <option>0-20</option>
+                                                    <option>21-35</option>
+                                                    <option>36-50</option>
+                                                    <option>50+</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="input-field">
-                                        <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
-                                                <option placeholder="" value="">LOCALITA'</option>
-                                                <option>Mare</option>
-                                                <option>Montagna</option>
-                                                <option>Città</option>
-                                            </select>
+                                    <div class="row second">
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">TIPOLOGIA</option>
+                                                    <option>Divertimento</option>
+                                                    <option>Cultura</option>
+                                                    <option>Scoprire</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">BUDGET</option>
+                                                    <option>Alto</option>
+                                                    <option>Medio</option>
+                                                    <option>Basso</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">COMPAGNIA</option>
+                                                    <option>Famiglia</option>
+                                                    <option>Coppia</option>
+                                                    <option>Amici</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="input-field">
-                                        <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
-                                                <option placeholder="" value="">ETA'</option>
-                                                <option>0-20</option>
-                                                <option>21-35</option>
-                                                <option>36-50</option>
-                                                <option>50+</option>
-                                            </select>
+                                    <div class="row third">
+                                        <div class="input-field">
+                                            <button class="btn-search">Ricerca</button>
+                                            <button class="btn-delete" id="delete">Cancella</button>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row second">
-                                    <div class="input-field">
-                                        <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
-                                                <option placeholder="" value="">TIPOLOGIA</option>
-                                                <option>Divertimento</option>
-                                                <option>Cultura</option>
-                                                <option>Scoprire</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="input-field">
-                                        <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
-                                                <option placeholder="" value="">BUDGET</option>
-                                                <option>Alto</option>
-                                                <option>Medio</option>
-                                                <option>Basso</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="input-field">
-                                        <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
-                                                <option placeholder="" value="">COMPAGNIA</option>
-                                                <option>Famiglia</option>
-                                                <option>Coppia</option>
-                                                <option>Amici</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row third">
-                                    <div class="input-field">
-                                        <button class="btn-search">Ricerca</button>
-                                        <button class="btn-delete" id="delete">Cancella</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
             </div>
         </div>
     </div>
