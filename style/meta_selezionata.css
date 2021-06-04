@@ -489,12 +489,23 @@ mark,.mark{
     font-size: 14px;
     padding: 0 21px;
 }
+
+.block-text h3{
+    margin-top: 20px;
+}
+
+.block-text span{
+    margin-top: 20px;
+}
+
 .block-text p {
+    margin-top: -20px;
     color: #585858;
     font-family: Georgia;
     font-style: italic;
     line-height: 20px;
 }
+
 .block {
     display: block;
 }
@@ -506,5 +517,11 @@ mark,.mark{
 
 .checked {
     color: orange;
+}
+
+.user_foto img{
+    width: 80px;
+    height: 80px;
+    border-radius: 200px;
 }
 

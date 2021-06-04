@@ -79,15 +79,15 @@ session_start();
         if (isset($conn)) {
             $meta_sql = "SELECT * FROM pacchetto;";
             $meta_result = $conn->query($meta_sql);
-            foreach ($meta_result
-
-                     as $row) {
+            foreach ($meta_result as $row) {
                 ?>
                 <div class="card"
                      style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                     <div class="text">
                         <h5><?php echo $row['titolo'] ?></h5>
-                        <a href="#" class="button1">Scopri di più...</a>
+                        <?php
+                        echo '<a href="pacchetto_selezionato.php?id=' . $row['id'] . '" class="button1" >Scopri di più...</a>'
+                        ?>
                     </div>
                 </div>
                 <?php

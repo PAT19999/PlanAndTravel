@@ -28,7 +28,8 @@ session_start();
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/filtri.css"/>
 
 </head>
@@ -96,15 +97,15 @@ session_start();
             ancora.</h1>
         <a href="#linkscopri" class="button">Scopri di più...</a>
         <div class="content2">
-        <!--Ricerca-->
+            <!--Ricerca-->
             <form action="">
                 <input type="search">
                 <i class="fa fa-search"></i>
             </form>
-        <!--Ricerca avanzata-->
+            <!--Ricerca avanzata-->
             <button onclick="document.getElementById('id01').style.display='block'">Ricerca avanzata</button>
             <div id="id01" class="modal">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <div class="s007">
                     <form>
                         <div class="inner-form">
@@ -216,10 +217,13 @@ session_start();
             foreach ($meta_result as $row) {
                 ?>
                 <div class="carousel-cell">
+                    <?php
+                    echo '<a href="meta_selezionata.php?id=' . $row['id'] . '">' ?>
                     <div class="carousel-cell__content zoom"
                          style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                         <h5><?php echo $row['nome'] ?></h5>
                     </div>
+                    </a>
                 </div>
 
                 <?php
@@ -247,10 +251,13 @@ session_start();
             foreach ($pacchetto_result as $row) {
                 ?>
                 <div class="carousel-cell">
+                    <?php
+                    echo '<a href="pacchetto_selezionato.php?id=' . $row['id'] . '">' ?>
                     <div class="carousel-cell__content1 zoom"
                          style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                         <h5><?php echo $row['titolo'] ?></h5>
                     </div>
+                    </a>
                 </div>
                 <?php
             }
@@ -349,30 +356,23 @@ session_start();
             removeItemButton: true,
             itemSelectText: '',
         });
-    for (let i = 0; i < customSelects.length; i++)
-    {
-        customSelects[i].addEventListener('addItem', function(event)
-        {
-            if (event.detail.value)
-            {
+    for (let i = 0; i < customSelects.length; i++) {
+        customSelects[i].addEventListener('addItem', function (event) {
+            if (event.detail.value) {
                 let parent = this.parentNode.parentNode
                 parent.classList.add('valid')
                 parent.classList.remove('invalid')
-            }
-            else
-            {
+            } else {
                 let parent = this.parentNode.parentNode
                 parent.classList.add('invalid')
                 parent.classList.remove('valid')
             }
         }, false);
     }
-    deleteBtn.addEventListener("click", function(e)
-    {
+    deleteBtn.addEventListener("click", function (e) {
         e.preventDefault()
         const deleteAll = document.querySelectorAll('.choices__button')
-        for (let i = 0; i < deleteAll.length; i++)
-        {
+        for (let i = 0; i < deleteAll.length; i++) {
             deleteAll[i].click();
         }
     });

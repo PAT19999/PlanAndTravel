@@ -2,6 +2,19 @@
 include_once '../includes/db_connection.php';
 
 session_start();
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    if (isset($conn)) {
+        $meta_sql = "SELECT * FROM meta_turistica WHERE id = '$id';";
+        $meta_result = $conn->query($meta_sql);
+        if ($meta_result) {
+            if ($meta_result->num_rows == 1) {
+                $meta_row = $meta_result->fetch_array(MYSQLI_ASSOC);
+            }
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +49,6 @@ session_start();
 </head>
 
 <body>
-
 <!-- navbar-->
 <div class="navbg">
     <navbar>
@@ -80,220 +92,225 @@ session_start();
 <!-- Corpo meta-->
 <div class="meta">
     <div class="zoom">
-    <h1 class="big-text" style="font-size: 35px">San Francisco</h1>
-    <div class="stage">
-        <div class="heart"></div>
-    </div>
-    <div class="row row1">
-        <! immagini>
-        <div class="sezione_img">
-            <div class="container">
-                <div class="mySlides">
-                    <div class="numbertext">1 / 6</div>
-                    <a href="#">
-                        <img src="../drawable/pic-1.png" style="width:100%" alt="San Francisco">
-                    </a>
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext">2 / 6</div>
-                    <img src="../drawable/pic-2.png" style="width:100%">
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext">3 / 6</div>
-                    <img src="../drawable/pic-3.png" style="width:100%">
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext">4 / 6</div>
-                    <img src="../drawable/pic-4.png" style="width:100%">
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext">5 / 6</div>
-                    <img src="../drawable/pic-1.png" style="width:100%">
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext">6 / 6</div>
-                    <img src="../drawable/pic-2.png" style="width:100%">
-                </div>
-                <! freccette per cambiare pagina >
-                <a class="prev" onclick="plusSlides(-1)"><</a>
-                <a class="next" onclick="plusSlides(1)">></a>
-                <div class="row">
-                    <div class="column">
-                        <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
-                             onclick="currentSlide(1)" alt="The Woods">
+        <h1 class="big-text" style="font-size: 35px"><?php echo $meta_row['nome'] ?></h1>
+        <div class="stage">
+            <div class="heart"></div>
+        </div>
+        <div class="row row1">
+            <!-- immagini-->
+            <div class="sezione_img">
+                <div class="container">
+                    <div class="mySlides">
+                        <div class="numbertext">1 / 6</div>
+                        <a href="#">
+                            <img src="../drawable/pic-1.png" style="width:100%" alt="San Francisco">
+                        </a>
                     </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
-                             onclick="currentSlide(2)" alt="Cinque Terre">
+                    <div class="mySlides">
+                        <div class="numbertext">2 / 6</div>
+                        <img src="../drawable/pic-2.png" style="width:100%">
                     </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../drawable/pic-3.png" style="width:100%"
-                             onclick="currentSlide(3)" alt="Mountains and fjords">
+                    <div class="mySlides">
+                        <div class="numbertext">3 / 6</div>
+                        <img src="../drawable/pic-3.png" style="width:100%">
                     </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../drawable/pic-4.png" style="width:100%"
-                             onclick="currentSlide(4)" alt="Northern Lights">
+                    <div class="mySlides">
+                        <div class="numbertext">4 / 6</div>
+                        <img src="../drawable/pic-4.png" style="width:100%">
                     </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
-                             onclick="currentSlide(5)" alt="Nature and sunrise">
+                    <div class="mySlides">
+                        <div class="numbertext">5 / 6</div>
+                        <img src="../drawable/pic-1.png" style="width:100%">
                     </div>
-                    <div class="column">
-                        <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
-                             onclick="currentSlide(6)" alt="Snowy Mountains">
+                    <div class="mySlides">
+                        <div class="numbertext">6 / 6</div>
+                        <img src="../drawable/pic-2.png" style="width:100%">
+                    </div>
+                    <!-- freccette per cambiare pagina -->
+                    <a class="prev" onclick="plusSlides(-1)"><</a>
+                    <a class="next" onclick="plusSlides(1)">></a>
+                    <div class="row">
+                        <div class="column">
+                            <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
+                                 onclick="currentSlide(1)" alt="The Woods">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
+                                 onclick="currentSlide(2)" alt="Cinque Terre">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="../drawable/pic-3.png" style="width:100%"
+                                 onclick="currentSlide(3)" alt="Mountains and fjords">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="../drawable/pic-4.png" style="width:100%"
+                                 onclick="currentSlide(4)" alt="Northern Lights">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
+                                 onclick="currentSlide(5)" alt="Nature and sunrise">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
+                                 onclick="currentSlide(6)" alt="Snowy Mountains">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- INFORMAZIONI-->
-        <div class="col">
-            <div id="descrizione">
-                <h1 class="desc">Informazioni generali</h1>
-                <p>Testo di prova che ahhahdddoadk</p>
-                <h1 class="desc">Località</h1>
-                <p><img src="../drawable/position.jpg" width="13px" height="13px" alt="position">
-                    <a title="Città" href="https://www.comune.barletta.bt.it/retecivica/" target="_blank">Città</a>,
-                    Nazione</p>
+            <!-- INFORMAZIONI-->
+            <div class="col">
+                <div id="descrizione">
+                    <h1 class="desc">Informazioni generali</h1>
+                    <p><?php echo $meta_row['descrizione'] ?></p>
+                    <h1 class="desc">Filtri</h1>
+                    <span class="label filtro_1">Provola</span>
+                    <span class="label filtro_2">filtro_2</span>
+                    <span class="label filtro_3">filtro_3</span>
+                    <span class="label filtro_4">filtro_4</span>
 
-                <h1 class="desc">Filtri</h1>
-                <span class="label filtro_1">Provola</span>
-                <span class="label filtro_2">filtro_2</span>
-                <span class="label filtro_3">filtro_3</span>
-                <span class="label filtro_4">filtro_4</span>
-
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Primo collaps -->
-    <div class="container">
-        <button type="button" class="collapsible">Altre Mete consigliate</button>
-        <div class="contents">
-            <div class="mete_consigliate">
-                <p>Mete consigliate in base alla vicinanza o ai temi</p>
-                <div class="main-carousel hero__content1 flickity-enabled is-draggable"
-                     data-flickity='{ "cellAlign": "left","contain": true }'>
-                    <?php
-                    if (isset($conn)) {
-                        $meta_sql = "SELECT * FROM meta_turistica;";
-                        $meta_result = mysqli_query($conn, $meta_sql);
-                        foreach ($meta_result as $row) {
-                            ?>
-                            <div class="carousel-cell1">
-                                <div class="carousel-cell__content1 zoom"
-                                     style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
-                                    <h5><?php echo $row['nome'] ?></h5>
+        <!-- Primo collaps -->
+        <div class="container">
+            <button type="button" class="collapsible">Altre Mete consigliate</button>
+            <div class="contents">
+                <div class="mete_consigliate">
+                    <p>Mete consigliate in base alla vicinanza o ai temi</p>
+                    <div class="main-carousel hero__content1 flickity-enabled is-draggable"
+                         data-flickity='{ "cellAlign": "left","contain": true }'>
+                        <?php
+                        if (isset($conn)) {
+                            $meta_sql = "SELECT * FROM meta_turistica;";
+                            $meta_result = mysqli_query($conn, $meta_sql);
+                            foreach ($meta_result as $row) {
+                                echo '<a href="meta_selezionata.php?id=' . $row['id'] . '">' ?>
+                                <div class="carousel-cell1">
+                                    <div class="carousel-cell__content1 zoom"
+                                         style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
+                                        <h5><?php echo $row['nome'] ?></h5>
+                                    </div>
                                 </div>
-                            </div>
+                                <?php
+                                echo '</a>';
+                            }
+                        } ?>
+                    </div>
 
-                            <?php
-                        }
-                    } ?>
                 </div>
-
             </div>
         </div>
-    </div>
-    <!-- secondo collaps -->
-    <div class="container">
-        <button type="button" class="collapsible">Pacchetti Viaggio simili</button>
-        <div class="contents">
-            <div class="pacchetti_consigliati">
-                <p>In base alla meta selezionata potrrebbero interessarti i seguenti pacchetti viaggio!</p>
-                <div class="main-carousel hero__content1"
-                     data-flickity='{ "cellAlign": "left", "contain": true }'><?php
-                    if (isset($conn)) {
-                        $pacchetto_sql = "SELECT * FROM pacchetto;";
-                        $pacchetto_result = mysqli_query($conn, $pacchetto_sql);
-                        foreach ($pacchetto_result as $row) {
-                            ?>
-                            <div class="carousel-cell1">
-                                <div class="carousel-cell__content2 zoom"
-                                     style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
-                                    <h5><?php echo $row['titolo'] ?></h5>
+        <!-- secondo collaps -->
+        <div class="container">
+            <button type="button" class="collapsible">Pacchetti Viaggio simili</button>
+            <div class="contents">
+                <div class="pacchetti_consigliati">
+                    <p>In base alla meta selezionata potrrebbero interessarti i seguenti pacchetti viaggio!</p>
+                    <div class="main-carousel hero__content1"
+                         data-flickity='{ "cellAlign": "left", "contain": true }'><?php
+                        if (isset($conn)) {
+                            $pacchetto_sql = "SELECT * FROM pacchetto;";
+                            $pacchetto_result = mysqli_query($conn, $pacchetto_sql);
+                            foreach ($pacchetto_result as $row) {
+                                echo '<a href="pacchetto_selezionato.php?id=' . $row['id'] . '">' ?>
+                                <div class="carousel-cell1">
+                                    <div class="carousel-cell__content2 zoom"
+                                         style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
+                                        <h5><?php echo $row['titolo'] ?></h5>
+                                    </div>
                                 </div>
-                            </div>
-                            <?php
-                        }
-                    } ?>
+                                <?php
+                                echo '</a>';
+                            }
+                        } ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Recensioni da mandare -->
-    <div class="container1">
-        <div class="recensioni">
-            <?php
-            if (isset($_SESSION['isAgenzia']) && $_SESSION['isAgenzia'] === false) {
-                ?>
-                <button class="button1" onclick="document.getElementById('id01').style.display='block'"
-                        style="width:auto;">
-                    Lascia una recensione!
-                </button>
+        <!-- Recensioni da mandare -->
+        <div class="container1">
+            <div class="recensioni">
                 <?php
-            }
-            ?>
+                if (isset($_SESSION['isAgenzia']) && $_SESSION['isAgenzia'] === false) {
+                    ?>
+                    <button class="button1" onclick="document.getElementById('id01').style.display='block'"
+                            style="width:auto;">
+                        Lascia una recensione!
+                    </button>
+                    <?php
+                }
+                ?>
 
-            <div id="id01" class="modal1">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <form id="form" class="modal-content">
-                    <div class="container2">
-                        <h2 style="font-size: 20px">Lascia una recensione!</h2>
-                        <p>Si prega di compilare questo modulo per lasciare una recensione.</p>
-                        <hr>
-                        <label for="titolo"><b>Titolo</b></label>
-                        <input type="text" placeholder="Inserisci un titolo" name="titolo" id="titolo" required>
+                <div id="id01" class="modal1">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                          title="Close Modal">&times;</span>
+                    <form id="form" class="modal-content">
+                        <div class="container2">
+                            <h2 style="font-size: 20px">Lascia una recensione!</h2>
+                            <p>Si prega di compilare questo modulo per lasciare una recensione.</p>
+                            <hr>
+                            <label for="titolo"><b>Titolo</b></label>
+                            <input type="text" placeholder="Inserisci un titolo" name="titolo" id="titolo" required>
 
-                        <label for="desc">Recensione</label>
-                        <textarea id="desc" name="desc" required placeholder="Scrivi qualcosa..."
-                                  style="height:200px"></textarea>
+                            <label for="desc">Recensione</label>
+                            <textarea id="desc" name="desc" required placeholder="Scrivi qualcosa..."
+                                      style="height:200px"></textarea>
 
-                        <div class="rate">
-                            <input type="radio" id="star5" name="rate" value="5" required/>
-                            <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4" required/>
-                            <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3" required/>
-                            <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2" required/>
-                            <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1" required/>
-                            <label for="star1" title="text">1 star</label>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rate" value="5" required/>
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="rate" value="4" required/>
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="rate" value="3" required/>
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="rate" value="2" required/>
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="rate" value="1" required/>
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+
+                            <p style="padding-top: 65px">By leaving a review you agree to our <a
+                                        href="privacy_and_cookies.php" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                            <div class="clearfix">
+                                <button class="cancelbtn" type="button"
+                                        onclick="document.getElementById('id01').style.display='none'">Chiudi
+                                </button>
+                                <button type="submit" class="signupbtn">Invia</button>
+                                <!-- Snackbar -->
+                                <div id='snackbar'></div>
+                            </div>
                         </div>
-
-                        <p style="padding-top: 65px">By leaving a review you agree to our <a
-                                    href="privacy_and_cookies.php" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                        <div class="clearfix">
-                            <button class="cancelbtn" type="button"
-                                    onclick="document.getElementById('id01').style.display='none'">Chiudi
-                            </button>
-                            <button type="submit" class="signupbtn">Invia</button>
-                            <!-- Snackbar -->
-                            <div id='snackbar'></div>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Recensioni leggibili -->
-    <div class="container">
-        <div class="row">
-            <h1 style="padding-top: 30px">Leggi le recensioni</h1>
-        </div>
-        <div class="main-carousel-commenti flickity-viewport-commenti "
-             data-flickity='{ "cellAlign": "left", "contain": true }'>
-            <?php
-            if (isset($conn)) {
-                $rec_sql = "SELECT * FROM recensione WHERE id_meta=0;";
+        <!-- Recensioni leggibili -->
+        <div class="container">
+            <div class="row">
+                <?php
+                if (isset($conn)) {
+                $rec_sql = "SELECT * FROM recensione WHERE (id_meta='$id' && id_pacchetto=0);";
                 $rec_result = $conn->query($rec_sql);
+                if ($rec_result->num_rows == 0) {
+
+                    ?>
+                    <h1 style="padding-top: 30px">Nessuna recensione!</h1>
+                    <?php
+                    echo '</div>';
+                } else {
+                ?>
+                <h1 style="padding-top: 30px">Leggi le recensioni</h1>
+            </div>
+            <div class="main-carousel-commenti flickity-viewport-commenti "
+                 data-flickity='{ "cellAlign": "left", "contain": true }'>
+                <?php
                 foreach ($rec_result as $row) {
                     ?>
                     <div class="carousel-cell-commenti">
                     <div class="carousel-cell__content-commenti zoom">
                     <div class="col-sm-6">
                     <div class="block-text">
-                        <h3><?php echo $row['titolo'] ?></h3>
                         <?php
                         switch ($row['stelle']) {
                             case 1:
@@ -344,6 +361,8 @@ session_start();
                         }
                         ?>
 
+                        <h3><?php echo $row['titolo'] ?></h3>
+
                         <p style="padding-top: 10px"><?php echo $row['descrizione'] ?></p>
                     </div>
                     <?php
@@ -355,9 +374,11 @@ session_start();
                             $user_row = $user_result->fetch_array(MYSQLI_ASSOC);
                             ?>
                             <div class="person-text">
-                                <?php
-                                echo '<img width="130" src="../drawable/db/' . $user_row['immagine'] . '">';
-                                ?>
+                                <div class="user_foto">
+                                    <?php
+                                    echo '<img src="../drawable/db/' . $user_row['immagine'] . '">';
+                                    ?>
+                                </div>
                                 <p><?php echo $user_row['nome'] . " " . $user_row['cognome'] ?></p>
                             </div>
                             </div>
@@ -367,10 +388,13 @@ session_start();
                         }
                     }
                 }
+                }
+                ?>
+            </div>
+            <?php
             }
             ?>
         </div>
-    </div>
     </div>
 </div>
 
@@ -435,7 +459,7 @@ session_start();
             var data = new FormData($('#form')[0]);
             data.append('username', <?php echo json_encode($_SESSION['username'], JSON_HEX_TAG); ?>);
             data.append('tipo', 'true');
-            data.append('id_meta', 'DA METTERE');
+            data.append('id_meta', <?php echo json_encode($id, JSON_HEX_TAG); ?>);
 
             $.ajax({
                 type: 'post',

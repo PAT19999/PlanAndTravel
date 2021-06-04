@@ -15,12 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         if ($tipo === 'true') {
             $id_meta = $_POST['id_meta'];
+            $id_pacchetto = 0;
             $tipo = 1;
-            $recensione_sql = "INSERT INTO recensione(titolo, descrizione, stelle, tipo, anno, mese, giorno, id_meta, username_utente) VALUES ('$titolo', '$descrizione', '$stelle', '$tipo', '$anno', '$mese', '$giorno', '$id_meta', '$username');";
+            $recensione_sql = "INSERT INTO recensione(titolo, descrizione, stelle, tipo, anno, mese, giorno, id_meta, id_pacchetto, username_utente) VALUES ('$titolo', '$descrizione', '$stelle', '$tipo', '$anno', '$mese', '$giorno', '$id_meta', '$id_pacchetto', '$username');";
         } else {
             $tipo = 0;
+            $id_meta = 0;
             $id_pacchetto = $_POST['id_pacchetto'];
-            $recensione_sql = "INSERT INTO recensione(titolo, descrizione, stelle, tipo, anno, mese, giorno, id_pacchetto, username_utente) VALUES ('$titolo', '$descrizione', '$stelle', '$tipo', '$anno', '$mese', '$giorno', '$id_pacchetto', '$username');";
+            $recensione_sql = "INSERT INTO recensione(titolo, descrizione, stelle, tipo, anno, mese, giorno, id_meta, id_pacchetto, username_utente) VALUES ('$titolo', '$descrizione', '$stelle', '$tipo', '$anno', '$mese', '$giorno', '$id_meta', '$id_pacchetto', '$username');";
         }
 
         $recensione_run = $conn->query($recensione_sql);

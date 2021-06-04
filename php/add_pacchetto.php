@@ -7,10 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $descrizione = $_POST['desc'];
         $costo = $_POST['price'];
         $immagine = $_FILES['image']['name'];
-        $albergo = $_POST['albergo'];
 
         // inserisci pacchetto
-        $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine, id_albergo) VALUES ('$titolo', '$descrizione', '$costo', '$immagine', '$albergo');";
+        $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine) VALUES ('$titolo', '$descrizione', '$costo', '$immagine');";
         $pacchetto_run = $conn->query($pacchetto_query);
 
         if (!$pacchetto_run) {
