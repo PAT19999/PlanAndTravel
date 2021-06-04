@@ -768,10 +768,11 @@ legend {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-  background: white;
+  background-color: rgba(130, 130, 130, 0.92);
   padding: 15px;
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
+  z-index: 10;
 }
 
 .s007 form {
@@ -791,7 +792,7 @@ legend {
 .s007 form .inner-form .input-field input {
   height: 100%;
   border: 0;
-  background: #fff;
+  background: rgb(255, 255, 255);
   display: block;
   width: 100%;
   padding: 10px 32px 10px 70px;
@@ -1113,7 +1114,7 @@ button:hover {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: #474e5d;
+  background-color: rgba(71, 78, 93, 0);
   padding-top: 50px;
   margin: 100px auto;
 }
@@ -1132,7 +1133,7 @@ button:hover {
   top: 35px;
   font-size: 40px;
   font-weight: bold;
-  color: #f1f1f1;
+  color: #afadad;
 }
 
 .close:hover,
