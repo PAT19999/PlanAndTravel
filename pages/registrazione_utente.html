@@ -99,7 +99,7 @@
     Designed by<br>
     <div class="credits">
         <a href="homepage.php"><img width="32" src="../drawable/logo-mini.png" title="Plan&Travel"
-                                     alt="Icona Plan&Travel"></a>
+                                    alt="Icona Plan&Travel"></a>
     </div>
 
 </footer>
@@ -126,17 +126,22 @@
 
         // Log in
         $("#form").on('submit', function (e) {
+            const data = new FormData($('#form')[0]);
+            data.append('agenzia', 'false');
+
             e.preventDefault();
             $.ajax({
                 type: 'post',
-                url: '../php/register.php',
-                data: $('form').serialize(),
-                success: function(json_data){
+                url: '../php/registrazione.php',
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function (json_data) {
                     const data_array = $.parseJSON(json_data);
                     if (data_array['result'] === 'failure') {
                         showSnackbar(data_array['text']);
                     } else {
-                        window.location.href="profilo_utente.php";
+                        window.location.href = "profilo_utente.php";
                     }
                 }
             });

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Registrazione Azienda</title>
 
     <link rel="shortcut icon" href="../drawable/logo-mini.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
           integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
           crossorigin="anonymous"/>
+
     <link rel="stylesheet" href="../style/home_page.css"/>
-    <link rel="stylesheet" href="../style/login.css">
     <link rel="stylesheet" href="../style/snackbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css"
@@ -23,11 +23,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="../style/registrazione_agenzia.css">
 
+</head>
 <body>
 
-<!-- navbar-->
+<! navbar>
 <div class="navbg">
     <navbar>
         <div class="logo ">
@@ -47,41 +48,46 @@
     </navbar>
 </div>
 
-<!-- login-->
-
-<div class="login">
-    <div class="loginbox zoom">
-        <img src="../drawable/avatar.jpg" class="avatar">
-        <h1> Accedi</h1>
+<!-- registrazione -->
+<div class="registrazione">
+    <div class="registrabox">
+        <img src="../drawable/avatarRegi.png" class="avatar">
+        <h1> Registrazione Azienda </h1>
         <form id="form">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Inserisci il tuo username" required>
-            <label for="password">Password</label>
-            <div class="container">
-                <i class="far fa-eye" id="togglePassword"></i>
-                <input type="password" name="password" id="password" placeholder="Inserisci la password" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required>
 
-            </div>
-            <!-- Rounded switch -->
-            <label for="switch">Account Aziendale</label>
-            <label id="switch" class="switch">
-                <input type="checkbox" name="agenzia" value="1">
-                <span class="slider round"></span>
-            </label>
-            <button id="login" type="submit" name="login">LOGIN</button>
-            <a href="recupero_pass.html">Password dimenticata?</a><br>
-            <a href="registrazione_utente.html">Non hai un account? Registrati</a><br>
-            <a href="registrazione_agenzia.html">Registra la tua Agenzia</a>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required>
+
+            <label for="piva">P.IVA</label>
+            <input type="text" name="piva" id="piva" placeholder="Inserisci la P.iva" required>
+
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Inserisci il tuo Username" required>
+
+            <label for="telefono">Telefono</label>
+            <input type="text" name="telefono" id="telefono" placeholder="Inserisci il numero di Telefono" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Inserisci la tua Password" required>
+
+            <label for="passConfirm"> Conferma la Password</label>
+            <input type="password" name="passConfirm" id="passConfirm"
+                   placeholder="Inserisci nuovamente la tua Password" required>
+
+            <button type="submit" name="registrati">REGISTRATI</button>
+            <a href="login.html">Hai già un account? Accedi</a>
         </form>
     </div>
 </div>
 
 <script src="../javascript/app.js"></script>
 
-<!-- Footer-->
+<! Footer>
 
 <footer>
-    Plan&Travel | Via Roma, 20 - 76121 Barletta (BT) ITALIA | P.Iva 000000000 <br>
+    Plan&Travel | Via Roma, 24 - 55045 Pietrasana (Lucca) ITALIA | P.Iva 000000000 <br>
     <a class="trans-color-text" href="#">info@plan&travel.com</a> | <span itemprop="telephone"><a
         href="#">0883 200300</a></span>
     <br><a href="privacy_and_cookies.php"> privacy</a> | <a href="privacy_and_cookies.php"> cookie policy</a>
@@ -129,11 +135,16 @@
 
         // Log in
         $("#form").on('submit', function (e) {
+            var data = new FormData($('#form')[0]);
+            data.append('agenzia', 'true');
+
             e.preventDefault();
             $.ajax({
                 type: 'post',
-                url: '../php/login.php',
-                data: $('form').serialize(),
+                url: '../php/registrazione.php',
+                data: data,
+                processData: false,
+                contentType: false,
                 success: function (json_data) {
                     const data_array = $.parseJSON(json_data);
                     if (data_array['result'] === 'failure') {
