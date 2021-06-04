@@ -358,7 +358,7 @@ session_start();
                                 <?php
                                 echo '<img width="130" src="../drawable/db/' . $user_row['immagine'] . '">';
                                 ?>
-                                <p><?php echo $user_row['nome'] ?></p>
+                                <p><?php echo $user_row['nome'] . " " . $user_row['cognome'] ?></p>
                             </div>
                             </div>
                             </div>
