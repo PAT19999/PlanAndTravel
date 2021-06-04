@@ -1,24 +1,4 @@
-html {
-  line-height: 1.15;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-}
 
-/* Sections
-   ========================================================================== */
-/**
- * Remove the margin in all browsers (opinionated).
- */
-body {
-  margin: 0;
-}
-
-/**
- * Add the correct display in IE 9-.
- */
 article,
 aside,
 footer,
@@ -48,13 +28,6 @@ figure,
 main {
   /* 1 */
   display: block;
-}
-
-/**
- * Add the correct margin in IE 8.
- */
-figure {
-  margin: 1em 40px;
 }
 
 /**
@@ -707,29 +680,7 @@ legend {
   text-align: right;
 }
 
-@media (min-width: 640px) {
-  .choices__list--dropdown .choices__item--selectable {
-    padding-right: 100px;
-  }
-  .choices__list--dropdown .choices__item--selectable:after {
-    content: attr(data-select-text);
-    font-size: 12px;
-    opacity: 0;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  [dir="rtl"] .choices__list--dropdown .choices__item--selectable {
-    text-align: right;
-    padding-left: 100px;
-    padding-right: 10px;
-  }
-  [dir="rtl"] .choices__list--dropdown .choices__item--selectable:after {
-    right: auto;
-    left: 10px;
-  }
-}
+
 
 .choices__list--dropdown .choices__item--selectable.is-highlighted {
   background-color: #f2f2f2;
@@ -1116,7 +1067,7 @@ legend {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z'/%3e%3c/svg%3e");
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .s007 form .inner-form .basic-search .input-field input {
     padding: 10px 110px 10px 60px;
   }
