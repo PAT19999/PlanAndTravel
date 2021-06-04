@@ -72,7 +72,8 @@ session_start();
 </div>
 
 <div class="meta">
-    <h1 class="big-text">Pacchetto selezionato: lalalallala</h1>
+    <div class="zoom">
+    <h1 class="big-text" style="font-size: 30px">lalalallala</h1>
     <div class="stage">
         <div class="heart"></div>
     </div>
@@ -302,6 +303,7 @@ session_start();
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </div>
 

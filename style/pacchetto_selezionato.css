@@ -3,15 +3,18 @@
     min-height: 100vh;
     height: 100%;
     padding-top: 150px;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 200px;
+    padding-right: 200px;
     box-sizing: border-box;
+    background: url("../drawable/soft_bright_blue_background-other-1.png") no-repeat center center;
+    background-size: cover;
 }
 
 .row1 {
     display: flex; /* dispone le immagini in 2 righe e 2 colonne */
     height: 100%;
     align-items: flex-start;
+    padding-bottom: 20px;
 }
 
 .row2 {
@@ -23,7 +26,7 @@
 }
 
 .col { /* si riferisce al testo all'interno della card*/
-    flex-basis: 80%;
+    flex-basis: 50%;
 }
 
 #descrizione {
