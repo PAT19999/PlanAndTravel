@@ -88,19 +88,6 @@ session_start();
                 <span id="file-chosen">Nessun file selezionato</span>
             </div>
 
-
-            <label for="albergo">Albergo: </label>
-            <select id="albergo" name="albergo">
-                <?php
-                if (isset($conn)) {
-                    $albergo_query = "SELECT * FROM albergo;";
-                    $albergo_result = $conn->query($albergo_query);
-                    foreach ($albergo_result as $row) {
-                        echo "<option value='" . $row['id'] . "'>" . $row['nome'] . "</option>";
-                    }
-                }
-                ?>
-            </select>
             <label>Attrazioni:</label><br>
             <?php
             if (isset($conn)) {
