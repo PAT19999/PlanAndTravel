@@ -169,13 +169,26 @@ if (isset($_GET['id'])) {
                     <p><?php echo "€" . $pacchetto_row['costo'] ?></p>
 
                     <h1 class="desc">Filtri</h1>
-                    <span class="label filtro_1">Provola</span>
-                    <span class="label filtro_2">filtro_2</span>
-                    <span class="label filtro_3">filtro_3</span>
-                    <span class="label filtro_4">filtro_4</span>
+                    <span class="label filtro_1"><?php echo $pacchetto_row['stagione'] ?></span>
+                    <span class="label filtro_2"><?php echo $pacchetto_row['localita'] ?></span>
+                    <span class="label filtro_3"><?php echo $pacchetto_row['tipologia'] ?></span>
+                    <span class="label filtro_4"><?php echo $pacchetto_row['eta'] ?></span>
+                    <span class="label filtro_4"><?php echo $pacchetto_row['compagnia'] ?></span>
+                    <span class="label filtro_4"><?php echo $pacchetto_row['budget'] ?></span>
                 </div>
             </div>
-                <h1 class="creato">Creato da: <p>Agenzia XYZ</p></h1>
+            <?php
+            $username_agenzia = $pacchetto_row['username_agenzia'];
+            $agenzia_sql = "SELECT nome FROM agenzia WHERE username='$username_agenzia';";
+            $agenzia_result = $conn->query($agenzia_sql);
+            if ($agenzia_result) {
+                if ($agenzia_result->num_rows == 1) {
+                    $agenzia_row = $agenzia_result->fetch_array(MYSQLI_ASSOC);
+                    ?>
+                    <h1 class="creato">Creato da: <p><?php echo $agenzia_row['nome'] ?></p></h1>
+                    <?php
+                }
+            } ?>
         </div>
 
         <div class="container">

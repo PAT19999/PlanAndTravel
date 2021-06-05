@@ -3,13 +3,16 @@ include_once '../includes/db_connection.php';
 
 session_start();
 
-$stagione = $_GET['stagione'];
-$localita = $_GET['localita'];
-$eta = $_GET['eta'];
-$tipologia = $_GET['tipologia'];
-$budget = $_GET['budget'];
-$compagnia = $_GET['compagnia'];
-
+if (isset($_GET['text'])) {
+    $text = $_GET['text'];
+} else {
+    $stagione = $_GET['stagione'];
+    $localita = $_GET['localita'];
+    $eta = $_GET['eta'];
+    $tipologia = $_GET['tipologia'];
+    $budget = $_GET['budget'];
+    $compagnia = $_GET['compagnia'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -85,12 +88,16 @@ $compagnia = $_GET['compagnia'];
         <?php
         if (isset($conn)) {
             // query
-            $meta_sql = "SELECT * FROM meta_turistica WHERE (stagione LIKE '$stagione%' && localita LIKE '$localita%' && tipologia LIKE '$tipologia%');";
+            if (isset($_GET['text'])) {
+                $meta_sql = "SELECT * FROM meta_turistica WHERE nome LIKE '$text%';";
+            } else {
+                $meta_sql = "SELECT * FROM meta_turistica WHERE (stagione LIKE '$stagione%' && localita LIKE '$localita%' && tipologia LIKE '$tipologia%');";
+            }
             $meta_result = $conn->query($meta_sql);
             if ($meta_result) {
                 if ($meta_result->num_rows == 0) {
                     ?>
-                    <h5 class="big-text">Nessuna meta corrisponde ai tuoi filtri</h5>
+                    <h5 class="big-text">Nessuna meta corrisponde alla tua ricerca</h5>
                     <?php
                 } else {
                     ?>
@@ -117,12 +124,16 @@ $compagnia = $_GET['compagnia'];
     <div class="col">
         <?php
         if (isset($conn)) {
-            $pacchetto_sql = "SELECT * FROM pacchetto WHERE (stagione LIKE '$stagione%' && localita LIKE '$localita%' && eta LIKE '$eta%' && tipologia LIKE '$tipologia%' && budget LIKE '$budget%' && compagnia LIKE '$compagnia%');";
+            if (isset($_GET['text'])) {
+                $pacchetto_sql = "SELECT * FROM pacchetto WHERE titolo LIKE '$text%';";
+            } else {
+                $pacchetto_sql = "SELECT * FROM pacchetto WHERE (stagione LIKE '$stagione%' && localita LIKE '$localita%' && eta LIKE '$eta%' && tipologia LIKE '$tipologia%' && budget LIKE '$budget%' && compagnia LIKE '$compagnia%');";
+            }
             $pacchetto_result = $conn->query($pacchetto_sql);
             if ($pacchetto_result) {
                 if ($pacchetto_result->num_rows == 0) {
                     ?>
-                    <h5 class="big-text">Nessun pacchetto corrisponde ai tuoi filtri</h5>
+                    <h5 class="big-text">Nessun pacchetto corrisponde alla tua ricerca</h5>
                     <?php
                 } else {
                     ?>

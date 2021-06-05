@@ -99,9 +99,12 @@ session_start();
         <div class="content2">
             <!--Ricerca-->
             <div class="wrapper">
-            <div class="input-group">
-                <input class="search" type="text" placeholder="Cerca..."><span class="bar"></span>
-            </div>
+                <div class="input-group">
+                    <form id="search_form">
+                        <input class="search" id="search" type="text" placeholder="Cerca..."><span class="bar"></span>
+                        <button id="search_btn" type="submit" hidden></button>
+                    </form>
+                </div>
             </div>
             <!--Ricerca avanzata-->
             <button onclick="document.getElementById('id01').style.display='block'">Ricerca avanzata</button>
@@ -180,7 +183,9 @@ session_start();
                                 </div>
                                 <div class="row third">
                                     <div class="input-field">
-                                        <button class="btn-search" type="button" onclick="filterSearch()" id="filter-search">Ricerca</button>
+                                        <button class="btn-search" type="button" onclick="filterSearch()"
+                                                id="filter-search">Ricerca
+                                        </button>
                                         <button class="btn-delete" id="delete">Cancella</button>
                                     </div>
                                 </div>
@@ -311,6 +316,12 @@ session_start();
         $(".hamburger").on('click', function () {
             $(".menu").toggleClass('menu--open');
         });
+
+        $("#search_form").on('submit', function (e) {
+            e.preventDefault();
+            var text = document.getElementById("search").value;
+            location.href = `risultati.php?text=${text}`
+        })
     });
 
     function filterSearch() {
@@ -320,7 +331,7 @@ session_start();
         var tipologia = document.getElementById('tipologia').value;
         var budget = document.getElementById('budget').value;
         var compagnia = document.getElementById('compagnia').value;
-        location.href=`risultati.php?stagione=${stagione}&localita=${localita}&eta=${eta}&tipologia=${tipologia}&budget=${budget}&compagnia=${compagnia}`
+        location.href = `risultati.php?stagione=${stagione}&localita=${localita}&eta=${eta}&tipologia=${tipologia}&budget=${budget}&compagnia=${compagnia}`
     }
 
     $("#schermata_caricamento").fadeOut(500);
@@ -387,7 +398,8 @@ session_start();
         }
     });
 
-    window.console = window.console || function(t) {};
+    window.console = window.console || function (t) {
+    };
 
     if (document.location.search.match(/type=embed/gi)) {
         window.parent.postMessage("resize", "*");

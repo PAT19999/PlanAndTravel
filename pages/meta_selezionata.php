@@ -163,11 +163,9 @@ if (isset($_GET['id'])) {
                     <h1 class="desc">Informazioni generali</h1>
                     <p><?php echo $meta_row['descrizione'] ?></p>
                     <h1 class="desc">Filtri</h1>
-                    <span class="label filtro_1">Provola</span>
-                    <span class="label filtro_2">filtro_2</span>
-                    <span class="label filtro_3">filtro_3</span>
-                    <span class="label filtro_4">filtro_4</span>
-
+                    <span class="label filtro_1"><?php echo $meta_row['stagione'] ?></span>
+                    <span class="label filtro_2"><?php echo $meta_row['localita'] ?></span>
+                    <span class="label filtro_3"><?php echo $meta_row['tipologia'] ?></span>
                 </div>
             </div>
         </div>

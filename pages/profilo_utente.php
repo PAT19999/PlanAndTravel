@@ -72,9 +72,18 @@ session_start();
         <!-- Box Info profilo-->
         <div class="infoprofilo">
             <div class="dati">
-                <div class="verificato">
-                    <img src="../drawable/8224836a6169b5fb1120109040e92d96.png" alt="agenzia verificata" width="25" title="Agenzia verificata">
-                </div>
+                <?php
+                if ($_SESSION['isAgenzia']) {
+                    if ($_SESSION['verificata']) {
+                        ?>
+                        <div class="verificato">
+                            <img src="../drawable/8224836a6169b5fb1120109040e92d96.png" alt="agenzia verificata"
+                                 width="25" title="Agenzia verificata">
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
                 <h1 class="big-text">Il mio profilo</h1>
                 <hr>
                 <div class="valoriphp"><?php
@@ -83,7 +92,6 @@ session_start();
                     if ($_SESSION['isAgenzia']) {
                         echo "P.IVA: " . $_SESSION['piva'] . "<br><br>";
                         echo "Telefono: " . $_SESSION['telefono'] . "<br><br>";
-                        echo "Verificata: " . $_SESSION['verificata'] . "<br><br>";
                     } else {
                         echo "Cognome: " . $_SESSION['cognome'] . "<br><br>";
                     }
@@ -103,7 +111,6 @@ session_start();
             </div>
         </div>
     </div>
-
 
 
 </div>
