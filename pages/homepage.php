@@ -100,7 +100,7 @@ session_start();
             <!--Ricerca-->
             <div class="wrapper">
             <div class="input-group">
-                <input class="search" type="text" placeholder="Cosa vuoi cercare?"><span class="bar"></span>
+                <input class="search" type="text" placeholder="Cerca..."><span class="bar"></span>
             </div>
             </div>
             <!--Ricerca avanzata-->
