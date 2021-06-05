@@ -71,20 +71,21 @@ session_start();
 
         <!-- Box Info profilo-->
         <div class="infoprofilo">
-            <h1 class="big-text">Il mio profilo</h1>
             <div class="dati">
-                <?php
-                echo "Username: " . $_SESSION['username'] . "<br><br>";
-                echo "Nome: " . $_SESSION['nome'] . "<br><br>";
-                if ($_SESSION['isAgenzia']) {
-                    echo "P.IVA: " . $_SESSION['piva'] . "<br><br>";
-                    echo "Telefono: " . $_SESSION['telefono'] . "<br><br>";
-                    echo "Verificata: " . $_SESSION['verificata'] . "<br><br>";
-                } else {
-                    echo "Cognome: " . $_SESSION['cognome'] . "<br><br>";
-                }
-                echo "Email: " . $_SESSION['email'] . "<br><br>";
-                ?>
+                <h1 class="big-text">Il mio profilo</h1><hr>
+                <div class="valoriphp"><?php
+                    echo "Username:  " . $_SESSION['username'] . "<br><br>";
+                    echo "Nome: " . $_SESSION['nome'] . "<br><br>";
+                    if ($_SESSION['isAgenzia']) {
+                        echo "P.IVA: " . $_SESSION['piva'] . "<br><br>";
+                        echo "Telefono: " . $_SESSION['telefono'] . "<br><br>";
+                        echo "Verificata: " . $_SESSION['verificata'] . "<br><br>";
+                    } else {
+                        echo "Cognome: " . $_SESSION['cognome'] . "<br><br>";
+                    }
+                    echo "Email: " . $_SESSION['email'] . "<br><br>";
+                    ?>
+                </div>
             </div>
         </div>
     </div>
