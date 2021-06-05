@@ -3,24 +3,12 @@ include_once '../includes/db_connection.php';
 
 session_start();
 
-if ($_POST['stagione'] != "") {
-    $stagione = $_POST['stagione'];
-}
-if ($_POST['localita'] != "") {
-    $localita = $_POST['localita'];
-}
-if ($_POST['eta'] != "") {
-    $eta = $_POST['eta'];
-}
-if ($_POST['tipologia'] != "") {
-    $tipologia = $_POST['tipologia'];
-}
-if ($_POST['budget'] != "") {
-    $budget = $_POST['budget'];
-}
-if ($_POST['compagnia'] != "") {
-    $compagnia = $_POST['compagnia'];
-}
+$stagione = $_GET['stagione'];
+$localita = $_GET['localita'];
+$eta = $_GET['eta'];
+$tipologia = $_GET['tipologia'];
+$budget = $_GET['budget'];
+$compagnia = $_GET['compagnia'];
 
 ?>
 
@@ -94,48 +82,66 @@ if ($_POST['compagnia'] != "") {
 
 <div class="container">
     <div class="col">
-        <h5 class="big-text">Mete:</h5>
         <?php
         if (isset($conn)) {
             // query
-            if (isset($stagione)) {
-                $meta_sql = "SELECT * FROM meta_turistica WHERE stagione = '$stagione';";
-            }
+            $meta_sql = "SELECT * FROM meta_turistica WHERE (stagione LIKE '$stagione%' && localita LIKE '$localita%' && tipologia LIKE '$tipologia%');";
             $meta_result = $conn->query($meta_sql);
-            foreach ($meta_result as $row) {
-                ?>
-                <div class="card"
-                     style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
-                    <div class="text">
-                        <h5><?php echo $row['nome'] ?></h5>
-                        <?php
-                        echo '<a href="meta_selezionata.php?id=' . $row['id'] . '" class="button1">Scopri di più...</a>'
+            if ($meta_result) {
+                if ($meta_result->num_rows == 0) {
+                    ?>
+                    <h5 class="big-text">Nessuna meta corrisponde ai tuoi filtri</h5>
+                    <?php
+                } else {
+                    ?>
+                    <h5 class="big-text">Mete:</h5>
+                    <?php
+                    foreach ($meta_result as $row) {
                         ?>
-                    </div>
-                </div>
-                <?php
+                        <div class="card"
+                             style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
+                            <div class="text">
+                                <h5><?php echo $row['nome'] ?></h5>
+                                <?php
+                                echo '<a href="meta_selezionata.php?id=' . $row['id'] . '" class="button1">Scopri di più...</a>'
+                                ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
             }
         }
         ?>
     </div>
     <div class="col">
-        <h5 class="big-text">Pacchetti:</h5>
         <?php
         if (isset($conn)) {
-            $meta_sql = "SELECT * FROM pacchetto;";
-            $meta_result = $conn->query($meta_sql);
-            foreach ($meta_result as $row) {
-                ?>
-                <div class="card"
-                     style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
-                    <div class="text">
-                        <h5><?php echo $row['titolo'] ?></h5>
-                        <?php
-                        echo '<a href="pacchetto_selezionato.php?id=' . $row['id'] . '" class="button1">Scopri di più...</a>'
+            $pacchetto_sql = "SELECT * FROM pacchetto WHERE (stagione LIKE '$stagione%' && localita LIKE '$localita%' && eta LIKE '$eta%' && tipologia LIKE '$tipologia%' && budget LIKE '$budget%' && compagnia LIKE '$compagnia%');";
+            $pacchetto_result = $conn->query($pacchetto_sql);
+            if ($pacchetto_result) {
+                if ($pacchetto_result->num_rows == 0) {
+                    ?>
+                    <h5 class="big-text">Nessun pacchetto corrisponde ai tuoi filtri</h5>
+                    <?php
+                } else {
+                    ?>
+                    <h5 class="big-text">Pacchetti:</h5>
+                    <?php
+                    foreach ($pacchetto_result as $row) {
                         ?>
-                    </div>
-                </div>
-                <?php
+                        <div class="card"
+                             style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
+                            <div class="text">
+                                <h5><?php echo $row['titolo'] ?></h5>
+                                <?php
+                                echo '<a href="pacchetto_selezionato.php?id=' . $row['id'] . '" class="button1">Scopri di più...</a>'
+                                ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
             }
         }
         ?>

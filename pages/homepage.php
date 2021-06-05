@@ -108,14 +108,14 @@ session_start();
             <div id="id01" class="modal">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <div class="s007">
-                    <form>
+                    <form id="form">
                         <div class="inner-form">
                             <div class="advance-search">
                                 <span class="desc">Ricerca avanzata</span>
                                 <div class="row">
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select id="stagione" data-trigger="" name="choices-single-defaul">
+                                            <select id="stagione" name="stagione">
                                                 <option placeholder="" value="">STAGIONE</option>
                                                 <option value="Inverno">Inverno</option>
                                                 <option value="Primavera">Primavera</option>
@@ -126,7 +126,7 @@ session_start();
                                     </div>
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select id="localita" data-trigger="" name="choices-single-defaul">
+                                            <select id="localita" data-trigger="" name="localita">
                                                 <option placeholder="" value="">LOCALITA'</option>
                                                 <option value="Mare">Mare</option>
                                                 <option value="Montagna">Montagna</option>
@@ -136,7 +136,7 @@ session_start();
                                     </div>
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select id="eta" data-trigger="" name="choices-single-defaul">
+                                            <select id="eta" data-trigger="" name="eta">
                                                 <option placeholder="" value="">ETA'</option>
                                                 <option value="0-20">0-20</option>
                                                 <option value="21-35">21-35</option>
@@ -149,7 +149,7 @@ session_start();
                                 <div class="row second">
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select id="tipologia" data-trigger="" name="choices-single-defaul">
+                                            <select id="tipologia" data-trigger="" name="tipologia">
                                                 <option placeholder="" value="">TIPOLOGIA</option>
                                                 <option value="Divertimento">Divertimento</option>
                                                 <option value="Cultura">Cultura</option>
@@ -159,7 +159,7 @@ session_start();
                                     </div>
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select id="budget" data-trigger="" name="choices-single-defaul">
+                                            <select id="budget" data-trigger="" name="budget">
                                                 <option placeholder="" value="">BUDGET</option>
                                                 <option value="Alto">Alto</option>
                                                 <option value="Medio">Medio</option>
@@ -169,7 +169,7 @@ session_start();
                                     </div>
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select id="compagnia" data-trigger="" name="choices-single-defaul">
+                                            <select id="compagnia" name="compagnia">
                                                 <option placeholder="" value="">COMPAGNIA</option>
                                                 <option value="Famiglia">Famiglia</option>
                                                 <option value="Coppia">Coppia</option>
@@ -180,7 +180,7 @@ session_start();
                                 </div>
                                 <div class="row third">
                                     <div class="input-field">
-                                        <button class="btn-search" type="submit" id="filter-search">Ricerca</button>
+                                        <button class="btn-search" type="button" onclick="filterSearch()" id="filter-search">Ricerca</button>
                                         <button class="btn-delete" id="delete">Cancella</button>
                                     </div>
                                 </div>
@@ -311,29 +311,17 @@ session_start();
         $(".hamburger").on('click', function () {
             $(".menu").toggleClass('menu--open');
         });
-
-        $("#filter-search").on('click', function () {
-            e.preventDefault()
-
-            var data = new FormData();
-            data.append('stagione', $("#stagione").val());
-            data.append('localita', $("#localita").val());
-            data.append('eta', $("#eta").val());
-            data.append('tipologia', $("#tipologia").val());
-            data.append('budget', $("#budget").val());
-            data.append('compagnia', $("#compagnia").val());
-
-            $.ajax({
-                type: 'post',
-                url: 'risultati.php',
-                data: data,
-                async: false,
-                processData: false,
-                contentType: false
-            });
-        });
-
     });
+
+    function filterSearch() {
+        var stagione = document.getElementById("stagione").value;
+        var localita = document.getElementById('localita').value;
+        var eta = document.getElementById('eta').value;
+        var tipologia = document.getElementById('tipologia').value;
+        var budget = document.getElementById('budget').value;
+        var compagnia = document.getElementById('compagnia').value;
+        location.href=`risultati.php?stagione=${stagione}&localita=${localita}&eta=${eta}&tipologia=${tipologia}&budget=${budget}&compagnia=${compagnia}`
+    }
 
     $("#schermata_caricamento").fadeOut(500);
 
