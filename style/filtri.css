@@ -739,67 +739,81 @@ button:hover {
   opacity: 1;
 }
 
-
-form{
-  position: relative;
-  top: 200%;
-  left: 0;
-  transition: all 1s;
-  width: 50px;
-  height: 50px;
-  background: white;
-  box-sizing: border-box;
-  border-radius: 25px;
-  border: 4px solid white;
-  padding: 5px;
-  z-index: 0;
-}
-
-input{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;;
-  height: 42.5px;
-  line-height: 30px;
-  outline: 0;
-  border: 0;
-  display: none;
-  font-size: 1em;
-  border-radius: 20px;
-  padding: 0 20px;
-}
-
-.fa{
-  box-sizing: border-box;
-  padding: 10px;
-  width: 42.5px;
-  height: 42.5px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 50%;
-  color: #07051a;
-  text-align: center;
-  font-size: 1.2em;
-  transition: all 1s;
-}
-
-form:hover{
-  width: 290px;
-  cursor: pointer;
-}
-
-form:hover input{
-  display: block;
-}
-
-form:hover .fa{
-  background: #07051a;
-  color: white;
-}
-
 .content2{
   width: 300px;
   margin: 60px auto;
+}
+
+.wrapper {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .disclaimer {
+  bottom: 15px;
+  position: absolute;
+}
+
+.input-group {
+  position: relative;
+}
+.input-group .search {
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border: 0px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  padding: 5px;
+  position: relative;
+  transition: all 150ms cubic-bezier(0.2, 0.6, 0.252, 1.2);
+}
+.input-group .search ~ .bar {
+  height: 4px;
+  width: 15px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.73);
+  position: absolute;
+  display: block;
+  opacity: 1;
+  right: -9px;
+  top: 24px;
+  transform: rotate(45deg);
+  transition: opacity 150ms ease;
+}
+.input-group .search::-moz-placeholder {
+  color: #fff;
+}
+.input-group .search:-ms-input-placeholder {
+  color: #fff;
+}
+.input-group .search::placeholder {
+  color: #fff;
+}
+.input-group .search:focus {
+  height: 25px;
+  width: 200px;
+  border-radius: 3px;
+  color: #26547c;
+  cursor: initial;
+}
+.input-group .search:focus::-moz-placeholder {
+  color: #a1a1a1;
+}
+.input-group .search:focus:-ms-input-placeholder {
+  color: #a1a1a1;
+}
+.input-group .search:focus::placeholder {
+  color: #a1a1a1;
+}
+.input-group .search:focus ~ .bar {
+  box-shadow: none;
+  opacity: 0;
+  right: 0;
+  top: 5px;
 }
