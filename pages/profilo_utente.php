@@ -50,39 +50,39 @@ session_start();
 
 <!-- Box generico-->
 <div class="background">
-<div class="boxutente">
-    <!-- Box profilo-->
-    <div class="profilo">
-        <div class="foto">
-            <?php
-            echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">';
-            ?>
-        </div>
-        <div class="file_div">
-                <input type="file" id="image" name="image" hidden required/>
-                <label for="image" class="file_label">Cambia Immagine</label>
-        </div>
-    </div>
-
-    <!-- Box Info profilo-->
-    <div class="infoprofilo">
-        <h1 class="big-text">Il mio profilo</h1>
-            <div class="dati">
-            <?php
-            echo "Username: " . $_SESSION['username'] . "<br><br>";
-            echo "Nome: " . $_SESSION['nome'] . "<br><br>";
-            if ($_SESSION['isAgenzia']) {
-                echo "P.IVA: " . $_SESSION['piva'] . "<br><br>";
-                echo "Telefono: " . $_SESSION['telefono'] . "<br><br>";
-                echo "Verificata: " . $_SESSION['verificata'] . "<br><br>";
-            } else {
-                echo "Cognome: " . $_SESSION['cognome'] . "<br><br>";
-            }
-            echo "Email: " . $_SESSION['email'] . "<br><br>";
-            ?>
+    <div class="boxutente">
+    <!-- Box foto profilo-->
+        <div class="profilo">
+            <div class="foto">
+                <?php
+                echo '<img src="../drawable/db/' . $_SESSION['immagine'] . '">';
+                ?>
             </div>
+            <div class="file_div">
+                    <input type="file" id="image" name="image" hidden required/>
+                    <label for="image" class="file_label">Cambia Immagine</label>
+            </div>
+        </div>
+    <!-- Box Info dati profilo-->
+        <div class="infoprofilo">
+            <div class="dati">
+            <h1 class="big-text">Il mio profilo</h1><hr>
+                <div class="valoriphp"><?php
+                echo "Username:  " . $_SESSION['username'] . "<br><br>";
+                echo "Nome: " . $_SESSION['nome'] . "<br><br>";
+                if ($_SESSION['isAgenzia']) {
+                    echo "P.IVA: " . $_SESSION['piva'] . "<br><br>";
+                    echo "Telefono: " . $_SESSION['telefono'] . "<br><br>";
+                    echo "Verificata: " . $_SESSION['verificata'] . "<br><br>";
+                } else {
+                    echo "Cognome: " . $_SESSION['cognome'] . "<br><br>";
+                }
+                echo "Email: " . $_SESSION['email'] . "<br><br>";
+                ?>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </div>
 <!-- Footer-->
 
