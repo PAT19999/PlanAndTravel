@@ -94,69 +94,63 @@ if (isset($_GET['id'])) {
         <div class="row row1">
             <div class="sezione_img">
                 <div class="container">
-                    <! immagine con titolo al centro >
+                    <!-- immagine con titolo al centro -->
+                    <?php
+                    $id_pacchetto = $pacchetto_row['id'];
+                    $pac_attr_sql = "SELECT id_attrazione FROM pacchetto_attrazione WHERE id_pacchetto='$id_pacchetto'";
+                    $pac_attr_result = $conn->query($pac_attr_sql);
+                    ?>
                     <div class="mySlides">
-                        <div class="numbertext">1 / 6</div>
+                        <div class="numbertext"><?php echo "1 /" . ($pac_attr_result->num_rows + 1) ?></div>
                         <a href="#">
-                            <img src="../drawable/pic-1.png" style="width:100%" alt="San Francisco">
+                            <img src="../drawable/db/<?php echo $pacchetto_row['immagine'] ?>" style="width:100%"
+                                 alt="San Francisco">
                         </a>
                     </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="../drawable/pic-2.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="../drawable/pic-3.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">4 / 6</div>
-                        <img src="../drawable/pic-4.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">5 / 6</div>
-                        <img src="../drawable/pic-1.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">6 / 6</div>
-                        <img src="../drawable/pic-2.png" style="width:100%">
-                    </div>
-
-
-                    <! freccette per cambiare pagina >
+                    <?php
+                    $i = 2;
+                    foreach ($pac_attr_result as $row) {
+                        $id_attr = $row['id_attrazione'];
+                        $attr_sql = "SELECT * FROM attrazione WHERE id='$id_attr'";
+                        $attr_result = $conn->query($attr_sql);
+                        foreach ($attr_result as $attr_row) {
+                            ?>
+                            <div class="mySlides">
+                                <div class="numbertext"><?php echo $i . "/" . ($pac_attr_result->num_rows + 1) ?></div>
+                                <img src="../drawable/db/<?php echo $attr_row['immagine'] ?>" style="width:100%">
+                            </div>
+                            <?php
+                        }
+                        $i = $i + 1;
+                    }
+                    ?>
+                    <!-- freccette per cambiare pagina -->
                     <a class="prev" onclick="plusSlides(-1)"><</a>
                     <a class="next" onclick="plusSlides(1)">></a>
 
                     <div class="row">
                         <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
+                            <img class="demo cursor" src="../drawable/db/<?php echo $pacchetto_row['immagine'] ?>" style="width:100%"
                                  onclick="currentSlide(1)" alt="The Woods">
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
-                                 onclick="currentSlide(2)" alt="Cinque Terre">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-3.png" style="width:100%"
-                                 onclick="currentSlide(3)" alt="Mountains and fjords">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-4.png" style="width:100%"
-                                 onclick="currentSlide(4)" alt="Northern Lights">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
-                                 onclick="currentSlide(5)" alt="Nature and sunrise">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
-                                 onclick="currentSlide(6)" alt="Snowy Mountains">
-                        </div>
+                        <?php
+                        $id_pacchetto = $pacchetto_row['id'];
+                        $pac_attr_sql = "SELECT id_attrazione FROM pacchetto_attrazione WHERE id_pacchetto='$id_pacchetto'";
+                        $pac_attr_result = $conn->query($pac_attr_sql);
+                        foreach ($pac_attr_result as $row) {
+                        $id_attr = $row['id_attrazione'];
+                        $attr_sql = "SELECT * FROM attrazione WHERE id='$id_attr'";
+                        $attr_result = $conn->query($attr_sql);
+                        foreach ($attr_result as $attr_row) {
+                            ?>
+                            <div class="column">
+                                <img class="demo cursor" src="../drawable/db/<?php echo $attr_row['immagine'] ?>" style="width:100%"
+                                     onclick="currentSlide(<?php echo $i ?>)" alt="Cinque Terre">
+                            </div>
+                            <?php
+                        }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
