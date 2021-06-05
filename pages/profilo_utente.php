@@ -72,6 +72,9 @@ session_start();
         <!-- Box Info profilo-->
         <div class="infoprofilo">
             <div class="dati">
+                <div class="verificato">
+                    <img src="../drawable/8224836a6169b5fb1120109040e92d96.png" alt="agenzia verificata" width="25" title="Agenzia verificata">
+                </div>
                 <h1 class="big-text">Il mio profilo</h1>
                 <hr>
                 <div class="valoriphp"><?php
@@ -88,17 +91,20 @@ session_start();
                     ?>
                 </div>
             </div>
+            <!-- Aggiungi pacchetto -->
+            <div class="pacchetto_div">
+                <?php
+                if ($_SESSION['isAgenzia']) {
+                    ?>
+                    <a href="aggiungi_pacchetto.php" class="add_button">Aggiungi pacchetto</a>
+                    <?php
+                }
+                ?>
+            </div>
         </div>
     </div>
 
-    <!-- Aggiungi pacchetto -->
-    <?php
-    if ($_SESSION['isAgenzia']) {
-        ?>
-        <a href="aggiungi_pacchetto.php" class="add_button">Aggiungi pacchetto</a>
-        <?php
-    }
-    ?>
+
 
 </div>
 
