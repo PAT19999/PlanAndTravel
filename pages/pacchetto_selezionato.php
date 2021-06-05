@@ -189,7 +189,7 @@ if (isset($_GET['id'])) {
                             $pacchetto_sql = "SELECT * FROM pacchetto;";
                             $pacchetto_result = mysqli_query($conn, $pacchetto_sql);
                             foreach ($pacchetto_result as $row) {
-                                ?>
+                                echo '<a href="pacchetto_selezionato.php?id=' . $row['id'] . '">' ?>
                                 <div class="carousel-cell1">
                                     <div class="carousel-cell__content2 zoom"
                                          style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
@@ -197,6 +197,7 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                                 <?php
+                                echo '</a>';
                             }
                         } ?>
                     </div>
@@ -216,15 +217,15 @@ if (isset($_GET['id'])) {
                             $meta_sql = "SELECT * FROM meta_turistica;";
                             $meta_result = mysqli_query($conn, $meta_sql);
                             foreach ($meta_result as $row) {
-                                ?>
+                                echo '<a href="meta_selezionata.php?id=' . $row['id'] . '">' ?>
                                 <div class="carousel-cell1">
                                     <div class="carousel-cell__content zoom"
                                          style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                                         <h5><?php echo $row['nome'] ?></h5>
                                     </div>
                                 </div>
-
                                 <?php
+                                echo '</a>';
                             }
                         } ?>
                     </div>

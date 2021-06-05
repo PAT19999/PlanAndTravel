@@ -72,7 +72,8 @@ session_start();
         <!-- Box Info profilo-->
         <div class="infoprofilo">
             <div class="dati">
-                <h1 class="big-text">Il mio profilo</h1><hr>
+                <h1 class="big-text">Il mio profilo</h1>
+                <hr>
                 <div class="valoriphp"><?php
                     echo "Username:  " . $_SESSION['username'] . "<br><br>";
                     echo "Nome: " . $_SESSION['nome'] . "<br><br>";
@@ -89,9 +90,19 @@ session_start();
             </div>
         </div>
     </div>
-</div>
-<!-- Footer-->
 
+    <!-- Aggiungi pacchetto -->
+    <?php
+    if ($_SESSION['isAgenzia']) {
+        ?>
+        <a href="aggiungi_pacchetto.php" class="add_button">Aggiungi pacchetto</a>
+        <?php
+    }
+    ?>
+
+</div>
+
+<!-- Footer-->
 <footer>
     Plan&Travel | Via Roma, 20 - 76121 Barletta (BT) ITALIA | P.Iva 000000000 <br>
     <a class="trans-color-text" href="#">info@plan&travel.com</a> | <span itemprop="telephone"><a

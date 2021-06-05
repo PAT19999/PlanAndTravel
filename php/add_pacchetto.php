@@ -3,13 +3,14 @@ include_once '../includes/db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (isset($conn)) {
+        $username = $_SESSION['username'];
         $titolo = $_POST['name'];
         $descrizione = $_POST['desc'];
         $costo = $_POST['price'];
         $immagine = $_FILES['image']['name'];
 
         // inserisci pacchetto
-        $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine) VALUES ('$titolo', '$descrizione', '$costo', '$immagine');";
+        $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine, username) VALUES ('$titolo', '$descrizione', '$costo', '$immagine', '$username');";
         $pacchetto_run = $conn->query($pacchetto_query);
 
         if (!$pacchetto_run) {
