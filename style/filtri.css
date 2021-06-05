@@ -777,7 +777,7 @@ button:hover {
   width: 15px;
   background: #ffffff;
   border-radius: 4px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.73);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.19);
   position: absolute;
   display: block;
   opacity: 1;
