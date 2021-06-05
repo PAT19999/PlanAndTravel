@@ -197,7 +197,7 @@ session_start();
 
 
 <!-- Mete più scelte con carousel-->
-<div class="mt-1">
+<div class="mt-3">
     <div class="grid hero__content">
         <div class="col reveal">
             <a name="linkscopri"></a>
