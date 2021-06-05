@@ -137,7 +137,7 @@ h1 {
 .verificato{
     margin-left: 249px;
     padding-top: 3px;
-    z-index: 10;
+    z-index: 9;
     cursor: pointer;
     position: absolute;
     color: white;

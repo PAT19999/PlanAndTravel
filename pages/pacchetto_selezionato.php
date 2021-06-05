@@ -173,9 +173,9 @@ if (isset($_GET['id'])) {
                     <span class="label filtro_2">filtro_2</span>
                     <span class="label filtro_3">filtro_3</span>
                     <span class="label filtro_4">filtro_4</span>
-
                 </div>
             </div>
+                <h1 class="creato">Creato da: <p>Agenzia XYZ</p></h1>
         </div>
 
         <div class="container">
