@@ -425,11 +425,11 @@
   min-width: 100px;
   height: 40px;
   padding: 0 15px;
-  background: transparent;
+  background: red;
   white-space: nowrap;
   border-radius: 3px;
   font-size: 14px;
-  color: #555;
+  color: white;
   transition: all .2s ease-out, color .2s ease-out;
   border: 0;
   cursor: pointer;
@@ -437,7 +437,7 @@
 }
 
 .s007 form .inner-form .input-field .btn-delete:hover {
-  color: #000;
+  background: #bb0303;
 }
 
 .s007 form .inner-form .basic-search {
@@ -680,7 +680,6 @@ button {
   width: 100%;
   opacity: 0.9;
   position: relative;
-  box-shadow: 0 0 6px rgb(0, 0, 0)
 }
 
 button:hover {
