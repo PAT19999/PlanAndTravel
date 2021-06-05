@@ -1,7 +1,19 @@
 <?php
 include_once '../includes/db_connection.php';
 
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    // controlla se si è inserita l'immagine
+    if ($_FILES['image']['name'] == "") {
+        $output = json_encode(
+            array(
+                'result' => 'failure',
+                'text' => "Inserisci un'immagine!"
+            ));
+        die($output);
+    }
+
     if (isset($conn)) {
         $username = $_SESSION['username'];
         $titolo = $_POST['name'];
@@ -10,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $immagine = $_FILES['image']['name'];
 
         // inserisci pacchetto
-        $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine, username) VALUES ('$titolo', '$descrizione', '$costo', '$immagine', '$username');";
+        $pacchetto_query = "INSERT INTO pacchetto(titolo, descrizione, costo, immagine, username_agenzia) VALUES ('$titolo', '$descrizione', '$costo', '$immagine', '$username');";
         $pacchetto_run = $conn->query($pacchetto_query);
 
         if (!$pacchetto_run) {
