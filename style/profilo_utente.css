@@ -122,6 +122,14 @@ h1 {
     font-family: sans-serif;
     border-radius: 0.3rem;
     cursor: pointer;
-    left: 30px;
-    bottom: 30px;
+    margin: 22px;
+}
+.pacchetto_div {
+    width: 200px;
+    padding: 40px 80px;
+}
+@media (max-width: 768px) {
+    .pacchetto_div {
+        margin: 0 auto;
+    }
 }

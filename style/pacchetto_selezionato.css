@@ -523,4 +523,8 @@ mark,.mark{
     border-radius: 200px;
 }
 
-
+.recensione{
+    padding-top: 30px;
+    text-align: center;
+    text-shadow: 0 0 4px rgb(255, 255, 255);
+}

@@ -302,12 +302,12 @@ if (isset($_GET['id'])) {
                 if ($rec_result->num_rows == 0) {
 
                     ?>
-                    <h1 style="padding-top: 30px">Nessuna recensione!</h1>
+                    <h1 class="recensione">Nessuna recensione!</h1>
                     <?php
                     echo '</div>';
                 } else {
                 ?>
-                <h1 style="padding-top: 30px">Leggi le recensioni</h1>
+                <h1 class="recensione">Leggi le recensioni</h1>
             </div>
             <div class="main-carousel-commenti flickity-viewport-commenti "
                  data-flickity='{ "cellAlign": "left", "contain": true }'>

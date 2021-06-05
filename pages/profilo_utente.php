@@ -88,17 +88,20 @@ session_start();
                     ?>
                 </div>
             </div>
+            <!-- Aggiungi pacchetto -->
+            <div class="pacchetto_div">
+                <?php
+                if ($_SESSION['isAgenzia']) {
+                    ?>
+                    <a href="aggiungi_pacchetto.php" class="add_button">Aggiungi pacchetto</a>
+                    <?php
+                }
+                ?>
+            </div>
         </div>
     </div>
 
-    <!-- Aggiungi pacchetto -->
-    <?php
-    if ($_SESSION['isAgenzia']) {
-        ?>
-        <a href="aggiungi_pacchetto.php" class="add_button">Aggiungi pacchetto</a>
-        <?php
-    }
-    ?>
+
 
 </div>
 
