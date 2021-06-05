@@ -98,10 +98,11 @@ session_start();
         <a href="#linkscopri" class="button">Scopri di più...</a>
         <div class="content2">
             <!--Ricerca-->
-            <form action="">
-                <input type="search">
-                <i class="fa fa-search"></i>
-            </form>
+            <div class="wrapper">
+            <div class="input-group">
+                <input class="search" type="text" placeholder="Cosa vuoi cercare?"><span class="bar"></span>
+            </div>
+            </div>
             <!--Ricerca avanzata-->
             <button onclick="document.getElementById('id01').style.display='block'">Ricerca avanzata</button>
             <div id="id01" class="modal">
@@ -377,6 +378,18 @@ session_start();
         }
     });
 
+</script>
+
+<script>
+    window.console = window.console || function(t) {};
+</script>
+
+
+
+<script>
+    if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+    }
 </script>
 </body>
 </html>
