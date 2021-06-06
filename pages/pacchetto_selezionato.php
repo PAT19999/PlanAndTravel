@@ -246,8 +246,7 @@ if (isset($_GET['id'])) {
                 }
                 ?>
                 <div id="id01" class="modal1">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                          title="Close Modal">&times;</span>
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Chiudi finestra">&times;</span>
                     <form class="modal-content" id="form">
                         <div class="container2">
                             <h2 style="font-size: 20px">Lascia una recensione!</h2>

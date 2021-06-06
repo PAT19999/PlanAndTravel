@@ -73,7 +73,7 @@ session_start();
 </div>
 
 <div class="container">
-    <div class="col">
+    <div class="col zoom">
         <h5 class="big-text">Scegli una meta e cliccala per avere maggiori informazioni</h5>
         <?php
         if (isset($conn)) {
