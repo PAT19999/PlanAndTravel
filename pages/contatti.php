@@ -93,7 +93,7 @@ session_start();
 
         <div class="form reveal">
             <form id="form">
-                <h1 class="normal-text">Per maggiori informazioni scrivici!</h1>
+                <h1 class="big-text">Per maggiori informazioni scrivici!</h1>
                 <input name="nome" type="text" class="feedback-input" placeholder="Nome" required/>
 
                 <input name="cognome" type="text" class="feedback-input" placeholder="Cognome" required/>
