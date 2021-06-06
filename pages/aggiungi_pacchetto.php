@@ -83,20 +83,28 @@ session_start();
             <input type="number" name="price" id="price" placeholder="Costo Pacchetto" required>
 
             <div class="file_div">
-                <input type="file" id="image" name="image" hidden required/>
+                <input type="file" id="image" name="image" hidden/>
                 <label for="image" class="file_label">Carica Immagine</label>
                 <span id="file-chosen">Nessun file selezionato</span>
             </div>
 
+            <label>Attrazioni:</label><br>
             <div class="checkbox">
                 <ul>
                     <li>
-                        <input id="c1" type="checkbox">
-                        <label for="c1">Checkbox</label>
+                        <?php
+                        if (isset($conn)) {
+                            $attrazione_query = "SELECT * FROM attrazione;";
+                            $attrazione_result = $conn->query($attrazione_query);
+                            foreach ($attrazione_result as $row) {
+                                echo "<input type='checkbox' name='attr[]' value='" . $row['id'] . "'>";
+                                echo "<label for='attr[]'>" . $row['nome'] . "</label>";
+                            }
+                        }
+                        ?>
                     </li>
                 </ul>
             </div>
-
 
             <button id="aggiungi" type="submit" name="aggiungi">AGGIUNGI</button>
         </form>
@@ -170,6 +178,7 @@ session_start();
                         $('#form input').val('');
                         $('#form input[type=checkbox]').prop('checked', false);
                         $('#form textarea').val('');
+                        document.getElementById('file-chosen').textContent = "Nessun file selezionato"
                     }
                 }
             });

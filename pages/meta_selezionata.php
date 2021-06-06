@@ -100,60 +100,50 @@ if (isset($_GET['id'])) {
             <!-- immagini-->
             <div class="sezione_img">
                 <div class="container">
+                    <?php
+                    $id_meta = $meta_row['id'];
+                    $attrazioni_sql = "SELECT * FROM attrazione WHERE id_meta='$id_meta'";
+                    $attrazioni_result = $conn->query($attrazioni_sql);
+                    ?>
                     <div class="mySlides">
-                        <div class="numbertext">1 / 6</div>
+                        <div class="numbertext"><?php echo "1 /" . ($attrazioni_result->num_rows + 1) ?></div>
                         <a href="#">
-                            <img src="../drawable/pic-1.png" style="width:100%" alt="San Francisco">
+                            <img src="../drawable/db/<?php echo $meta_row['immagine'] ?>" style="width:100%" alt="San Francisco">
                         </a>
                     </div>
-                    <div class="mySlides">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="../drawable/pic-2.png" style="width:100%">
-                    </div>
-                    <div class="mySlides">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="../drawable/pic-3.png" style="width:100%">
-                    </div>
-                    <div class="mySlides">
-                        <div class="numbertext">4 / 6</div>
-                        <img src="../drawable/pic-4.png" style="width:100%">
-                    </div>
-                    <div class="mySlides">
-                        <div class="numbertext">5 / 6</div>
-                        <img src="../drawable/pic-1.png" style="width:100%">
-                    </div>
-                    <div class="mySlides">
-                        <div class="numbertext">6 / 6</div>
-                        <img src="../drawable/pic-2.png" style="width:100%">
-                    </div>
+                    <?php
+                    $i = 2;
+                    foreach ($attrazioni_result as $row) {
+                        ?>
+                        <div class="mySlides">
+                            <div class="numbertext"><?php echo $i . "/" . ($attrazioni_result->num_rows + 1) ?></div>
+                            <img src="../drawable/db/<?php echo $row['immagine'] ?>" style="width:100%">
+                        </div>
+                        <?php
+                        $i=$i+1;
+                    }
+                    ?>
                     <!-- freccette per cambiare pagina -->
                     <a class="prev" onclick="plusSlides(-1)"><</a>
                     <a class="next" onclick="plusSlides(1)">></a>
                     <div class="row">
                         <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
+                            <img class="demo cursor" src="../drawable/db/<?php echo $meta_row['immagine'] ?>" style="width:100%"
                                  onclick="currentSlide(1)" alt="The Woods">
                         </div>
+                        <?php
+                        $id_meta = $meta_row['id'];
+                        $attrazioni_sql = "SELECT * FROM attrazione WHERE id_meta='$id_meta'";
+                        $attrazioni_result = $conn->query($attrazioni_sql);
+                        foreach ($attrazioni_result as $row) {
+                        ?>
                         <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
-                                 onclick="currentSlide(2)" alt="Cinque Terre">
+                            <img class="demo cursor" src="../drawable/db/<?php echo $row['immagine'] ?>" style="width:100%"
+                                 onclick="currentSlide(<?php echo $i ?>)" alt="Cinque Terre">
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-3.png" style="width:100%"
-                                 onclick="currentSlide(3)" alt="Mountains and fjords">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-4.png" style="width:100%"
-                                 onclick="currentSlide(4)" alt="Northern Lights">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
-                                 onclick="currentSlide(5)" alt="Nature and sunrise">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
-                                 onclick="currentSlide(6)" alt="Snowy Mountains">
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -163,11 +153,9 @@ if (isset($_GET['id'])) {
                     <h1 class="desc">Informazioni generali</h1>
                     <p><?php echo $meta_row['descrizione'] ?></p>
                     <h1 class="desc">Filtri</h1>
-                    <span class="label filtro_1">Provola</span>
-                    <span class="label filtro_2">filtro_2</span>
-                    <span class="label filtro_3">filtro_3</span>
-                    <span class="label filtro_4">filtro_4</span>
-
+                    <span class="label filtro_1"><?php echo $meta_row['stagione'] ?></span>
+                    <span class="label filtro_2"><?php echo $meta_row['localita'] ?></span>
+                    <span class="label filtro_3"><?php echo $meta_row['tipologia'] ?></span>
                 </div>
             </div>
         </div>
@@ -295,12 +283,12 @@ if (isset($_GET['id'])) {
                 if ($rec_result->num_rows == 0) {
 
                     ?>
-                    <h1 style="padding-top: 30px">Nessuna recensione!</h1>
+                    <h1 class="recensione">Nessuna recensione!</h1>
                     <?php
                     echo '</div>';
                 } else {
                 ?>
-                <h1 style="padding-top: 30px">Leggi le recensioni</h1>
+                <h1 class="recensione">Leggi le recensioni</h1>
             </div>
             <div class="main-carousel-commenti flickity-viewport-commenti "
                  data-flickity='{ "cellAlign": "left", "contain": true }'>

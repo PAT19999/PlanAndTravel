@@ -99,49 +99,52 @@ session_start();
         <div class="content2">
             <!--Ricerca-->
             <div class="wrapper">
-            <div class="input-group">
-                <input class="search" type="text" placeholder="Cosa vuoi cercare?"><span class="bar"></span>
-            </div>
+                <div class="input-group">
+                    <form id="search_form">
+                        <input class="search" id="search" type="text" placeholder="Cerca..."><span class="bar"></span>
+                        <button id="search_btn" type="submit" hidden></button>
+                    </form>
+                </div>
             </div>
             <!--Ricerca avanzata-->
             <button onclick="document.getElementById('id01').style.display='block'">Ricerca avanzata</button>
             <div id="id01" class="modal">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <div class="s007">
-                    <form>
+                    <form id="form">
                         <div class="inner-form">
                             <div class="advance-search">
                                 <span class="desc">Ricerca avanzata</span>
                                 <div class="row">
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
+                                            <select id="stagione" name="stagione">
                                                 <option placeholder="" value="">STAGIONE</option>
-                                                <option>Inverno</option>
-                                                <option>Primavera</option>
-                                                <option>Estate</option>
-                                                <option>Autunno</option>
+                                                <option value="Inverno">Inverno</option>
+                                                <option value="Primavera">Primavera</option>
+                                                <option value="Estate">Estate</option>
+                                                <option value="Autunno">Autunno</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
+                                            <select id="localita" data-trigger="" name="localita">
                                                 <option placeholder="" value="">LOCALITA'</option>
-                                                <option>Mare</option>
-                                                <option>Montagna</option>
-                                                <option>Città</option>
+                                                <option value="Mare">Mare</option>
+                                                <option value="Montagna">Montagna</option>
+                                                <option value="Citta">Città</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
+                                            <select id="eta" data-trigger="" name="eta">
                                                 <option placeholder="" value="">ETA'</option>
-                                                <option>0-20</option>
-                                                <option>21-35</option>
-                                                <option>36-50</option>
-                                                <option>50+</option>
+                                                <option value="0-20">0-20</option>
+                                                <option value="21-35">21-35</option>
+                                                <option value="36-50">36-50</option>
+                                                <option value="50+">50+</option>
                                             </select>
                                         </div>
                                     </div>
@@ -149,38 +152,40 @@ session_start();
                                 <div class="row second">
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
+                                            <select id="tipologia" data-trigger="" name="tipologia">
                                                 <option placeholder="" value="">TIPOLOGIA</option>
-                                                <option>Divertimento</option>
-                                                <option>Cultura</option>
-                                                <option>Scoprire</option>
+                                                <option value="Divertimento">Divertimento</option>
+                                                <option value="Cultura">Cultura</option>
+                                                <option value="Scoprire">Scoprire</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
+                                            <select id="budget" data-trigger="" name="budget">
                                                 <option placeholder="" value="">BUDGET</option>
-                                                <option>Alto</option>
-                                                <option>Medio</option>
-                                                <option>Basso</option>
+                                                <option value="Alto">Alto</option>
+                                                <option value="Medio">Medio</option>
+                                                <option value="Basso">Basso</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="input-field">
                                         <div class="input-select">
-                                            <select data-trigger="" name="choices-single-defaul">
+                                            <select id="compagnia" name="compagnia">
                                                 <option placeholder="" value="">COMPAGNIA</option>
-                                                <option>Famiglia</option>
-                                                <option>Coppia</option>
-                                                <option>Amici</option>
+                                                <option value="Famiglia">Famiglia</option>
+                                                <option value="Coppia">Coppia</option>
+                                                <option value="Amici">Amici</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row third">
                                     <div class="input-field">
-                                        <button class="btn-search">Ricerca</button>
+                                        <button class="btn-search" type="button" onclick="filterSearch()"
+                                                id="filter-search">Ricerca
+                                        </button>
                                         <button class="btn-delete" id="delete">Cancella</button>
                                     </div>
                                 </div>
@@ -312,7 +317,22 @@ session_start();
             $(".menu").toggleClass('menu--open');
         });
 
+        $("#search_form").on('submit', function (e) {
+            e.preventDefault();
+            var text = document.getElementById("search").value;
+            location.href = `risultati.php?text=${text}`
+        })
     });
+
+    function filterSearch() {
+        var stagione = document.getElementById("stagione").value;
+        var localita = document.getElementById('localita').value;
+        var eta = document.getElementById('eta').value;
+        var tipologia = document.getElementById('tipologia').value;
+        var budget = document.getElementById('budget').value;
+        var compagnia = document.getElementById('compagnia').value;
+        location.href = `risultati.php?stagione=${stagione}&localita=${localita}&eta=${eta}&tipologia=${tipologia}&budget=${budget}&compagnia=${compagnia}`
+    }
 
     $("#schermata_caricamento").fadeOut(500);
 
@@ -378,15 +398,9 @@ session_start();
         }
     });
 
-</script>
+    window.console = window.console || function (t) {
+    };
 
-<script>
-    window.console = window.console || function(t) {};
-</script>
-
-
-
-<script>
     if (document.location.search.match(/type=embed/gi)) {
         window.parent.postMessage("resize", "*");
     }

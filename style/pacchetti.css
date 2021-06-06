@@ -35,7 +35,7 @@
     margin: 20px 15px;
     background-position: center;
     background-size: cover;
-    transition: transform 0.5s;
+    transition: all 0.5s ease;
     box-shadow: 0 0 15px rgb(0, 0, 0);
 
 }

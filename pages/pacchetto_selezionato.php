@@ -94,69 +94,63 @@ if (isset($_GET['id'])) {
         <div class="row row1">
             <div class="sezione_img">
                 <div class="container">
-                    <! immagine con titolo al centro >
+                    <!-- immagine con titolo al centro -->
+                    <?php
+                    $id_pacchetto = $pacchetto_row['id'];
+                    $pac_attr_sql = "SELECT id_attrazione FROM pacchetto_attrazione WHERE id_pacchetto='$id_pacchetto'";
+                    $pac_attr_result = $conn->query($pac_attr_sql);
+                    ?>
                     <div class="mySlides">
-                        <div class="numbertext">1 / 6</div>
+                        <div class="numbertext"><?php echo "1 /" . ($pac_attr_result->num_rows + 1) ?></div>
                         <a href="#">
-                            <img src="../drawable/pic-1.png" style="width:100%" alt="San Francisco">
+                            <img src="../drawable/db/<?php echo $pacchetto_row['immagine'] ?>" style="width:100%"
+                                 alt="San Francisco">
                         </a>
                     </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="../drawable/pic-2.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="../drawable/pic-3.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">4 / 6</div>
-                        <img src="../drawable/pic-4.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">5 / 6</div>
-                        <img src="../drawable/pic-1.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">6 / 6</div>
-                        <img src="../drawable/pic-2.png" style="width:100%">
-                    </div>
-
-
-                    <! freccette per cambiare pagina >
+                    <?php
+                    $i = 2;
+                    foreach ($pac_attr_result as $row) {
+                        $id_attr = $row['id_attrazione'];
+                        $attr_sql = "SELECT * FROM attrazione WHERE id='$id_attr'";
+                        $attr_result = $conn->query($attr_sql);
+                        foreach ($attr_result as $attr_row) {
+                            ?>
+                            <div class="mySlides">
+                                <div class="numbertext"><?php echo $i . "/" . ($pac_attr_result->num_rows + 1) ?></div>
+                                <img src="../drawable/db/<?php echo $attr_row['immagine'] ?>" style="width:100%">
+                            </div>
+                            <?php
+                        }
+                        $i = $i + 1;
+                    }
+                    ?>
+                    <!-- freccette per cambiare pagina -->
                     <a class="prev" onclick="plusSlides(-1)"><</a>
                     <a class="next" onclick="plusSlides(1)">></a>
 
                     <div class="row">
                         <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
+                            <img class="demo cursor" src="../drawable/db/<?php echo $pacchetto_row['immagine'] ?>" style="width:100%"
                                  onclick="currentSlide(1)" alt="The Woods">
                         </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
-                                 onclick="currentSlide(2)" alt="Cinque Terre">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-3.png" style="width:100%"
-                                 onclick="currentSlide(3)" alt="Mountains and fjords">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-4.png" style="width:100%"
-                                 onclick="currentSlide(4)" alt="Northern Lights">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-1.png" style="width:100%"
-                                 onclick="currentSlide(5)" alt="Nature and sunrise">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="../drawable/pic-2.png" style="width:100%"
-                                 onclick="currentSlide(6)" alt="Snowy Mountains">
-                        </div>
+                        <?php
+                        $id_pacchetto = $pacchetto_row['id'];
+                        $pac_attr_sql = "SELECT id_attrazione FROM pacchetto_attrazione WHERE id_pacchetto='$id_pacchetto'";
+                        $pac_attr_result = $conn->query($pac_attr_sql);
+                        foreach ($pac_attr_result as $row) {
+                        $id_attr = $row['id_attrazione'];
+                        $attr_sql = "SELECT * FROM attrazione WHERE id='$id_attr'";
+                        $attr_result = $conn->query($attr_sql);
+                        foreach ($attr_result as $attr_row) {
+                            ?>
+                            <div class="column">
+                                <img class="demo cursor" src="../drawable/db/<?php echo $attr_row['immagine'] ?>" style="width:100%"
+                                     onclick="currentSlide(<?php echo $i ?>)" alt="Cinque Terre">
+                            </div>
+                            <?php
+                        }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -169,13 +163,26 @@ if (isset($_GET['id'])) {
                     <p><?php echo "€" . $pacchetto_row['costo'] ?></p>
 
                     <h1 class="desc">Filtri</h1>
-                    <span class="label filtro_1">Provola</span>
-                    <span class="label filtro_2">filtro_2</span>
-                    <span class="label filtro_3">filtro_3</span>
-                    <span class="label filtro_4">filtro_4</span>
-
+                    <span class="label filtro_1"><?php echo $pacchetto_row['stagione'] ?></span>
+                    <span class="label filtro_2"><?php echo $pacchetto_row['localita'] ?></span>
+                    <span class="label filtro_3"><?php echo $pacchetto_row['tipologia'] ?></span>
+                    <span class="label filtro_4"><?php echo $pacchetto_row['eta'] ?></span>
+                    <span class="label filtro_5"><?php echo $pacchetto_row['compagnia'] ?></span>
+                    <span class="label filtro_6"><?php echo $pacchetto_row['budget'] ?></span>
                 </div>
             </div>
+            <?php
+            $username_agenzia = $pacchetto_row['username_agenzia'];
+            $agenzia_sql = "SELECT nome FROM agenzia WHERE username='$username_agenzia';";
+            $agenzia_result = $conn->query($agenzia_sql);
+            if ($agenzia_result) {
+                if ($agenzia_result->num_rows == 1) {
+                    $agenzia_row = $agenzia_result->fetch_array(MYSQLI_ASSOC);
+                    ?>
+                    <h1 class="creato">Creato da: <p><?php echo $agenzia_row['nome'] ?></p></h1>
+                    <?php
+                }
+            } ?>
         </div>
 
         <div class="container">
@@ -189,7 +196,7 @@ if (isset($_GET['id'])) {
                             $pacchetto_sql = "SELECT * FROM pacchetto;";
                             $pacchetto_result = mysqli_query($conn, $pacchetto_sql);
                             foreach ($pacchetto_result as $row) {
-                                ?>
+                                echo '<a href="pacchetto_selezionato.php?id=' . $row['id'] . '">' ?>
                                 <div class="carousel-cell1">
                                     <div class="carousel-cell__content2 zoom"
                                          style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
@@ -197,6 +204,7 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                                 <?php
+                                echo '</a>';
                             }
                         } ?>
                     </div>
@@ -216,15 +224,15 @@ if (isset($_GET['id'])) {
                             $meta_sql = "SELECT * FROM meta_turistica;";
                             $meta_result = mysqli_query($conn, $meta_sql);
                             foreach ($meta_result as $row) {
-                                ?>
+                                echo '<a href="meta_selezionata.php?id=' . $row['id'] . '">' ?>
                                 <div class="carousel-cell1">
                                     <div class="carousel-cell__content zoom"
                                          style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                                         <h5><?php echo $row['nome'] ?></h5>
                                     </div>
                                 </div>
-
                                 <?php
+                                echo '</a>';
                             }
                         } ?>
                     </div>
@@ -300,12 +308,12 @@ if (isset($_GET['id'])) {
                 if ($rec_result->num_rows == 0) {
 
                     ?>
-                    <h1 style="padding-top: 30px">Nessuna recensione!</h1>
+                    <h1 class="recensione">Nessuna recensione!</h1>
                     <?php
                     echo '</div>';
                 } else {
                 ?>
-                <h1 style="padding-top: 30px">Leggi le recensioni</h1>
+                <h1 class="recensione">Leggi le recensioni</h1>
             </div>
             <div class="main-carousel-commenti flickity-viewport-commenti "
                  data-flickity='{ "cellAlign": "left", "contain": true }'>

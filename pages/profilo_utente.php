@@ -72,14 +72,26 @@ session_start();
         <!-- Box Info profilo-->
         <div class="infoprofilo">
             <div class="dati">
-                <h1 class="big-text">Il mio profilo</h1><hr>
+                <?php
+                if ($_SESSION['isAgenzia']) {
+                    if ($_SESSION['verificata']) {
+                        ?>
+                        <div class="verificato">
+                            <img src="../drawable/8224836a6169b5fb1120109040e92d96.png" alt="agenzia verificata"
+                                 width="25" title="Agenzia verificata">
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+                <h1 class="big-text">Il mio profilo</h1>
+                <hr>
                 <div class="valoriphp"><?php
                     echo "Username:  " . $_SESSION['username'] . "<br><br>";
                     echo "Nome: " . $_SESSION['nome'] . "<br><br>";
                     if ($_SESSION['isAgenzia']) {
                         echo "P.IVA: " . $_SESSION['piva'] . "<br><br>";
                         echo "Telefono: " . $_SESSION['telefono'] . "<br><br>";
-                        echo "Verificata: " . $_SESSION['verificata'] . "<br><br>";
                     } else {
                         echo "Cognome: " . $_SESSION['cognome'] . "<br><br>";
                     }
@@ -87,11 +99,23 @@ session_start();
                     ?>
                 </div>
             </div>
+            <!-- Aggiungi pacchetto -->
+            <div class="pacchetto_div">
+                <?php
+                if ($_SESSION['isAgenzia']) {
+                    ?>
+                    <a href="aggiungi_pacchetto.php" class="add_button">Aggiungi pacchetto</a>
+                    <?php
+                }
+                ?>
+            </div>
         </div>
     </div>
-</div>
-<!-- Footer-->
 
+
+</div>
+
+<!-- Footer-->
 <footer>
     Plan&Travel | Via Roma, 20 - 76121 Barletta (BT) ITALIA | P.Iva 000000000 <br>
     <a class="trans-color-text" href="#">info@plan&travel.com</a> | <span itemprop="telephone"><a

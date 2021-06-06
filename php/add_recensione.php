@@ -17,12 +17,27 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $id_meta = $_POST['id_meta'];
             $id_pacchetto = 0;
             $tipo = 1;
+            $check_sql = "SELECT * FROM recensione WHERE (username_utente = '$username' && id_meta = '$id_meta');";
             $recensione_sql = "INSERT INTO recensione(titolo, descrizione, stelle, tipo, anno, mese, giorno, id_meta, id_pacchetto, username_utente) VALUES ('$titolo', '$descrizione', '$stelle', '$tipo', '$anno', '$mese', '$giorno', '$id_meta', '$id_pacchetto', '$username');";
         } else {
             $tipo = 0;
             $id_meta = 0;
             $id_pacchetto = $_POST['id_pacchetto'];
+            $check_sql = "SELECT * FROM recensione WHERE (username_utente = '$username' && id_pacchetto = '$id_pacchetto');";
             $recensione_sql = "INSERT INTO recensione(titolo, descrizione, stelle, tipo, anno, mese, giorno, id_meta, id_pacchetto, username_utente) VALUES ('$titolo', '$descrizione', '$stelle', '$tipo', '$anno', '$mese', '$giorno', '$id_meta', '$id_pacchetto', '$username');";
+        }
+
+        // controlla se l'utente ha già fatto una recensione
+        $check_result = $conn->query($check_sql);
+        if ($check_result) {
+            if ($check_result->num_rows > 0) {
+                $output = json_encode(
+                    array(
+                        'result' => 'failure',
+                        'text' => 'Hai già inviato una recensione!'
+                    ));
+                die($output);
+            }
         }
 
         $recensione_run = $conn->query($recensione_sql);
