@@ -75,7 +75,6 @@
     padding: 0;
     font-weight: bold;
     color: #f5f5f5;
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8)
 
 }
 
@@ -125,11 +124,9 @@
     font-size: 15px;
     line-height: 20px;
     color: rgba(255, 255, 255, 0.68);
-    text-shadow: 0 0 5px rgb(0, 0, 0)
 }
 
 .FormRecupero a:hover {
-    font-weight: bold;
     color: #0069c3;
 }
 
