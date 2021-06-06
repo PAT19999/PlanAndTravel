@@ -50,7 +50,7 @@
 
 .card:hover {
     transform: translateY(-10px);
-    background: #0069c3;
+    background: #0069c3 !important;
     opacity: 0.9;
 }
 

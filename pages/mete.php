@@ -73,7 +73,7 @@ session_start();
 </div>
 
 <div class="container">
-    <div class="col zoom">
+    <div class="col reveal">
         <h5 class="big-text">Scegli una meta e cliccala per avere maggiori informazioni</h5>
         <?php
         if (isset($conn)) {
@@ -81,7 +81,7 @@ session_start();
             $meta_result = $conn->query($meta_sql);
             foreach ($meta_result as $row) {
                 ?>
-                <div class="card"
+                <div class="card zoom"
                      style="background-image: url('../drawable/db/<?php echo $row['immagine'] ?>')">
                     <div class="text">
                         <h5><?php echo $row['nome'] ?></h5>
