@@ -57,7 +57,7 @@ session_start();
 <div class="background">
     <div class="boxutente">
         <!-- Box profilo-->
-        <div class="profilo">
+        <div class="profilo zoom">
             <div class="foto">
                 <?php
                 echo '<img id="propic" src="../drawable/db/' . $_SESSION['immagine'] . '">';
@@ -70,7 +70,7 @@ session_start();
         </div>
 
         <!-- Box Info profilo-->
-        <div class="infoprofilo">
+        <div class="infoprofilo zoom">
             <div class="dati">
                 <?php
                 if ($_SESSION['isAgenzia']) {

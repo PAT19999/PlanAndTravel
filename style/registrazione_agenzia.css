@@ -1,6 +1,6 @@
 .registrazione {
     display: flex;
-    padding: 200px 0;
+    padding: 170px 0;
     background: linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, 0)),
     url('../drawable/airplane-cartoon-5333775_1280.jpg') no-repeat center center;
     background-size: cover;
@@ -19,7 +19,7 @@
     margin: 0 auto;
     background: rgba(39, 41, 49, 0.56);
     color: #fff;
-    margin-right: 140px;
+    margin-right: 20%;
 }
 
 @media (max-width: 768px) {
