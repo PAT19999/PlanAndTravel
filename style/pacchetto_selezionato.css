@@ -193,6 +193,13 @@ img {
     background-color: #f44336;
 }
 
+.filtro_5 {
+    background-color: #bb36f4;
+}
+.filtro_6 {
+    background-color: #36f4de;
+}
+
 
 .mete_consigliate {
     min-height: 200px;
@@ -537,4 +544,4 @@ mark,.mark{
     text-align: end;
     float: left;
 }
-}
+

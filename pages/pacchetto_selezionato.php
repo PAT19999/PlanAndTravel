@@ -167,8 +167,8 @@ if (isset($_GET['id'])) {
                     <span class="label filtro_2"><?php echo $pacchetto_row['localita'] ?></span>
                     <span class="label filtro_3"><?php echo $pacchetto_row['tipologia'] ?></span>
                     <span class="label filtro_4"><?php echo $pacchetto_row['eta'] ?></span>
-                    <span class="label filtro_4"><?php echo $pacchetto_row['compagnia'] ?></span>
-                    <span class="label filtro_4"><?php echo $pacchetto_row['budget'] ?></span>
+                    <span class="label filtro_5"><?php echo $pacchetto_row['compagnia'] ?></span>
+                    <span class="label filtro_6"><?php echo $pacchetto_row['budget'] ?></span>
                 </div>
             </div>
             <?php
