@@ -262,7 +262,7 @@ navbar {
 .hero__content {
     margin: 30px 180px 30px 180px;
     position: relative;
-    z-index: 1;
+    z-index: inherit;
 }
 
 .hero__content h2 {
