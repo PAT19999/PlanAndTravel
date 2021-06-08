@@ -93,7 +93,7 @@ session_start();
             di nuove tendenze permettendo così la realizzazione di un sito responsivo ed intuitivo attraverso il quale
             l’utente
             può considerare numerosi aspetti che spesso vengono ignorati quando si pianifica una vacanza,
-            tra cui: eventi ed usanze locali, clima, costo della vita, qualità della vita, attrazioni e molto altro
+            tra cui: eventi ed usanze locali, clima, costo della vita, attrazioni e molto altro
             ancora.</h1>
         <a href="#linkscopri" class="button">Scopri di più...</a>
         <div class="content2">
