@@ -10,9 +10,14 @@ a {
     text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, p {
+h1, h2, h3, h4, p {
     color: #000;
     padding-bottom: 20px;
+}
+
+h5 {
+    color: #ffffff;
+    text-shadow: 0px 0px 20px black;
 }
 
 p {

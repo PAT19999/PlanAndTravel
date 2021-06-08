@@ -35,7 +35,10 @@
 
 h5 {
     color: #fff;
-    text-shadow: 0 0 5px #999;
+    text-shadow: 0 0 5px #000000;
+    line-height: 150%;
+    padding-top: 14px;
+    font-size: 15px;
 }
 
 .collapsible {
