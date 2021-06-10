@@ -1,6 +1,7 @@
 <?php
 include_once '../includes/db_connection.php';
 session_start();
+$username = $_SESSION['username'];
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (isset($conn)) {
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             die($output);
         } else {
             // cambia immagine sul db
-            $propic_query = "UPDATE utente SET immagine='$immagine';";
+            $propic_query = "UPDATE utente SET immagine='$immagine' WHERE username='$username';";
             $propic_run = $conn->query($propic_query);
 
             if (!$propic_run) {
