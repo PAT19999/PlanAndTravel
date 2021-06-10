@@ -43,7 +43,7 @@ session_start();
     <img src="../drawable/logo-mini.png" alt="logo-sito">
 </div>
 
-<! navbar>
+<!-- navbar-->
 <div class="navbg">
     <navbar>
         <div class="logo ">
